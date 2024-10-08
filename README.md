@@ -10,7 +10,7 @@
 | Sultan Ibnu Mansiz    | 2306275840    |
 
 #### Link Deployment Aplikasi
-* LINK: [Makansar](http://sultan-ibnu-makansar.pbp.cs.ui.ac.id/)
+* LINK: [Makansar - Makanan Makassar](http://sultan-ibnu-makansar.pbp.cs.ui.ac.id/)
 
 ## Deskripsi Aplikasi
 Makassar, sebagai salah satu kota terbesar di Indonesia, terkenal dengan ragam kuliner khasnya yang menggugah selera. Dengan semakin pesatnya perkembangan industri makanan dan minuman di kota ini, banyak warga lokal maupun wisatawan yang mencari informasi terkait kuliner terbaik yang bisa mereka coba. Namun, dengan banyaknya pilihan dan variasi harga, kualitas, serta lokasi, masyarakat sering kali kesulitan untuk menemukan tempat makan yang sesuai dengan keinginan mereka. Oleh karena itu, sebuah aplikasi yang mampu memberikan rekomendasi makanan di Makassar berdasarkan kategori seperti jarak, harga, dan rating, menjadi kebutuhan yang sangat relevan. Aplikasi ini tidak hanya membantu pengguna menemukan makanan yang sesuai dengan preferensi mereka, tetapi juga membantu pelaku bisnis kuliner untuk lebih mudah dikenal oleh calon pelanggan.
