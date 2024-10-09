@@ -9,7 +9,8 @@
 | Stefanus Tan Jaya     | 2306152456    |
 | Sultan Ibnu Mansiz    | 2306275840    |
 
-#### Link Deployment Aplikasi
+### Link Deployment Aplikasi
+Aplikasi Makansar dapat diakses dengan link di bawah ini.
 * ##### LINK: [Makansar - Makanan Makassar](http://sultan-ibnu-makansar.pbp.cs.ui.ac.id/)
 
 ## Deskripsi Aplikasi
@@ -26,6 +27,8 @@ Aplikasi ini kami beri nama "Makansar" yang merupakan akronim dari "Makanan Maka
     ##### Dikerjakan oleh: Sultan Ibnu Mansiz 
 
 ## Sumber _Initial Dataset_
+Dataset yang digunakan dalam pengembangan aplikasi Makansar dapat diakses dengan link di bawah ini.
+* ##### LINK: [Dataset Makansar](https://docs.google.com/spreadsheets/d/15Phx5eEcQyXIlRXnik7vvG9ARDdfnjWsjejs8jLbDwg/edit?usp=sharing)
 
 ## _Role_ atau Peran Pengguna
-Peran pengguna dalam website ini adalah sebagai penjelajah makanan, di mana mereka dapat mencari makanan dengan mudah menggunakan filter berdasarkan rating, harga, dan lokasi untuk menemukan pilihan yang sesuai dengan preferensi. Pengguna juga memiliki kendali penuh atas daftar makanan favorit mereka, dengan fitur menambahkan atau menghapus makanan dari daftar tersebut. Selain itu, dengan tersedianya 10 kategori makanan yang langsung tertera di website, pengguna dapat dengan cepat mengeksplorasi beragam kuliner yang diinginkan. Melalui interaksi ini, pengguna berperan aktif dalam memilih, menyusun, dan merekomendasikan makanan terbaik berdasarkan pengalaman pribadi.
+Peran pengguna dalam *website* ini adalah sebagai penjelajah makanan, di mana mereka dapat mencari makanan dengan mudah menggunakan *filter* berdasarkan *rating*, harga, dan lokasi untuk menemukan pilihan yang sesuai dengan preferensi. Pengguna juga memiliki kendali penuh atas daftar makanan favorit mereka, dengan fitur menambahkan atau menghapus makanan dari daftar tersebut. Selain itu, dengan tersedianya 10 kategori makanan yang langsung tertera di *website*, pengguna dapat dengan cepat mengeksplorasi beragam kuliner yang diinginkan. Melalui interaksi ini, pengguna berperan aktif dalam memilih, menyusun, dan merekomendasikan makanan terbaik berdasarkan pengalaman pribadi.
