@@ -52,7 +52,7 @@ Aplikasi ini kami beri nama "Makansar" yang merupakan akronim dari "Makanan Maka
 
 
 ## Sumber _Initial Dataset_
-Dataset yang digunakan dalam pengembangan aplikasi Makansar dapat diakses dengan link di bawah ini.
+_Dataset_ yang digunakan dalam pengembangan aplikasi Makansar dapat diakses dengan _link_ di bawah ini.
 * ##### LINK: [Dataset Makansar](https://docs.google.com/spreadsheets/d/15Phx5eEcQyXIlRXnik7vvG9ARDdfnjWsjejs8jLbDwg/edit?usp=sharing)
 
 ## _Role_ atau Peran Pengguna
