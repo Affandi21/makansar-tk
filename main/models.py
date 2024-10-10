@@ -1,4 +1,5 @@
 from django.db import models
+import uuid
 from django.contrib.auth.models import AbstractUser
 # Atribut yang dicommand jangan diuncommand karena dapat menyebabkan error
 
@@ -14,6 +15,7 @@ from django.contrib.auth.models import AbstractUser
 class ProductEntry(models.Model):
     # seller = models.ForeignKey(CustomUser, on_delete=models.CASCADE, 
     #         limit_choices_to={'role': 'seller'})   # Akses ke seller (penjual)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     food_name = models.CharField(max_length=200)
     price = models.DecimalField(decimal_places=2, max_digits=15)
     shop_name = models.CharField(max_length=200)
@@ -29,6 +31,7 @@ class ProductOrder(models.Model):
     #       limit_choices_to={'role': 'buyer'})
     # product = models.ForeignKey(ProductEntry,       # Akses ke buyer (pembeli)
     #        on_delete=models.CASCADE)                # Menghubungkan dengan produk yang tersedia
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     quantity = models.IntegerField(default=1)
     review = models.TextField()
     rating = models.IntegerField(                   # Rating dari buyer (pembeli)
