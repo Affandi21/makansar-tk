@@ -1,2 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
 <h5>TEAM: </h5>
 <p>{{ team }}<p>
+
+
+{% if not product_entries %}
+<p>Belum ada data mood pada mental health tracker.</p>
+{% else %}
+<table>
+    <tr>
+        <th>Menu</th>
+        <th>Harga</th>
+        <th>Toko</th>
+        <th>Lokasi</th>
+        <th>Deskripsi</th>
+        <th>Rating</th>
+        <th>Tanggal</th>
+    </tr>
+
+    {% for product_entry in product_entries %}
+    <tr>
+        <td>{{product_entry.food_name}}</td>
+        <td>{{product_entry.price}}</td>
+        <td>{{product_entry.shop_name}}</td>
+        <td>{{product_entry.location}}</td>
+        <td>{{product_entry.food_desc}}</td>
+        <td>{{product_entry.rating_default}}</td>
+        <td>{{product_entry.date}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+<br />
+
+<a href="{% url 'main:create_product_entry' %}">
+    <button>Add New Product</button>
+</a>
+
+{% endblock content %}
