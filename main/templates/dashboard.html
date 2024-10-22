@@ -1,0 +1,46 @@
+{% extends 'base.html' %} 
+{% block meta %}
+<title>User Dashboard</title>
+{% endblock meta %}
+
+{% block content %}
+<h1>Edit Your Dashboard</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>Nama Lengkap:</th>
+            <td>{{ form.nama }}</td>
+        </tr>
+        <tr>
+            <th>Jenis Kelamin:</th>
+            <td>{{ form.jenis_kelamin }}</td>
+        </tr>
+        <tr>
+            <th>Email:</th>
+            <td>{{ form.email }}</td>
+        </tr>
+        <tr>
+            <th>Nomor HP:</th>
+            <td>
+                {{ form.nomor_hp }}
+                {% if form.nomor_hp.errors %}
+                    <div class="error-message">{{ form.nomor_hp.errors }}</div>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Alamat:</th>
+            <td>{{ form.alamat }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" name="action" value="save">Simpan Perubahan</button>
+                <button type="submit" name="action" value="delete">Hapus Akun</button>
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}

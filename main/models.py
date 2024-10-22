@@ -41,4 +41,12 @@ class ProductOrder(models.Model):
     # Date/time
     date = models.DateField(auto_now_add=True)
 
+class UserProfile(models.Model):
+    nama = models.CharField(max_length=100)
+    jenis_kelamin = models.CharField(max_length=10, choices=[('Laki-laki', 'Laki-laki'), ('Perempuan', 'Perempuan')])
+    email = models.EmailField()
+    nomor_hp = models.CharField(max_length=15)
+    alamat = models.TextField()
 
+    def __str__(self):
+        return self.nama

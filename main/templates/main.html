@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
+{% block meta %}
+<title>MAKANSAR</title>
+{% endblock meta %}
+
 {% block content %}
 
 <h5>TEAM: </h5>
 <p>{{ team }}<p>
-
 
 {% if not product_entries %}
 <p>Belum ada data mood pada mental health tracker.</p>
@@ -37,6 +40,10 @@
 
 <a href="{% url 'main:create_product_entry' %}">
     <button>Add New Product</button>
+</a>
+
+<a href="{% url 'main:edit_dashboard' %}">
+    <button>Edit Account</button>
 </a>
 
 {% endblock content %}
