@@ -41,7 +41,7 @@ class ProductOrder(models.Model):
     # Date/time
     date = models.DateField(auto_now_add=True)
 
-# Model untuk dashboard
+# Model untuk dashboard (khusus untuk pembeli nanti)
 class UserProfile(models.Model):
     nama = models.CharField(max_length=100)
     jenis_kelamin = models.CharField(max_length=10, choices=[('Laki-laki', 'Laki-laki'), ('Perempuan', 'Perempuan')])
