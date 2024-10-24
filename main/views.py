@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from main.models import ProductEntry, UserProfile
+from main.models import Makanan, UserProfile
 from main.forms import ProductEntryForm, UserProfileForm
 from django.http import HttpResponse
 from django.core import serializers
@@ -7,7 +7,7 @@ from django.core import serializers
 # Create your views here.
 
 def show_main(request):
-    product_entries = ProductEntry.objects.all()
+    product_entries = Makanan.objects.all()
 
     context = {
         'team' : 'D04',
@@ -48,17 +48,17 @@ def edit_dashboard(request):
     return render(request, 'dashboard.html', context)
 
 def show_xml(request):
-    data = ProductEntry.objects.all()
+    data = Makanan.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_xml_by_id(request, id):
-    data = ProductEntry.objects.filter(pk=id)
+    data = Makanan.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
-    data = ProductEntry.objects.all()
+    data = Makanan.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_json_by_id(request, id):
-    data = ProductEntry.objects.filter(pk=id)
+    data = Makanan.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")

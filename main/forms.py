@@ -1,11 +1,11 @@
 from django.forms import ModelForm, RadioSelect, Textarea, ValidationError
-from main.models import ProductEntry
+from main.models import Makanan
 from main.models import UserProfile
 
 class ProductEntryForm(ModelForm):
     class Meta:
-        model = ProductEntry
-        fields = ["food_name", "price", "shop_name", "location", "food_desc", "rating_default"]
+        model = Makanan
+        fields = ["category", "food_name", "price", "shop_name", "location", "food_desc", "rating_default"]
 
 class UserProfileForm(ModelForm):
     class Meta:

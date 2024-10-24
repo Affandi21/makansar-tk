@@ -1,0 +1,102 @@
+{% extends 'base.html' %} 
+{% block meta %}
+<title>Buat akun</title>
+{% endblock meta %} 
+{% block content %}
+<div
+  class="min-h-screen flex items-center justify-center bg-[#E3CAA5] py-12 px-4 sm:px-6 lg:px-8"
+>
+  <div class="max-w-md w-full space-y-8 form-style">
+    <div id="animatedDiv" class="border border-gray-300 bg-white rounded-md p-6 opacity-0 transform translate-y-4 transition-all duration-500 ease-out">
+      <div>
+        <h2 class="mt-6 text-center text-3xl font-extrabold text-[#603F26]" >
+          Buat akun
+        </h2>
+      </div>
+      <form class="mt-8 space-y-6" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="remember" value="true" />
+        <div class="rounded-md shadow-sm -space-y-px">
+          {% for field in form %}
+          <div class="{% if not forloop.first %}mt-4{% endif %}">
+            <label
+              for="{{ field.id_for_label }}"
+              class="mb-2 font-semibold text-[#603F26]"
+            >
+              {{ field.label }}
+            </label>
+            <div class="relative">
+              {{ field }}
+              <div
+                class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none"
+              >
+                {% if field.errors %}
+                <svg
+                  class="h-5 w-5 text-red-500"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+                {% endif %}
+              </div>
+            </div>
+            {% if field.errors %} {% for error in field.errors %}
+            <p class="mt-1 text-sm text-red-600">{{ error }}</p>
+            {% endfor %} {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+
+        <div>
+          <button
+            type="submit"
+            class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#C1CFA1] hover:bg-[#A5B68D] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#AD8B73]"
+          >
+            Buat Akun
+          </button>
+        </div>
+      </form>
+
+      {% if messages %}
+      <div class="mt-4">
+        {% for message in messages %}
+        <div
+          class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          role="alert"
+        >
+          <span class="block sm:inline">{{ message }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <div class="text-center mt-4">
+        <p class="text-sm text-black">
+          Sudah punya akun?
+          <a
+            href="{% url 'account:login' %}"
+            class="font-medium text-[#DFD3C3] hover:text-[#D9ABAB]"
+          >
+            Masuk di sini
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const animatedDiv = document.getElementById('animatedDiv');
+    setTimeout(() => {
+      animatedDiv.classList.remove('opacity-0', 'translate-y-4');
+      animatedDiv.classList.add('opacity-100', 'translate-y-0');
+    }, 100); // Waktu delay dalam milidetik sebelum animasi dimulai
+  });
+</script>
+{% endblock content %}
