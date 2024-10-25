@@ -9,4 +9,5 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('seller/', views.seller, name='sellerpage'),
     path('add-makanan-ajax', views.add_makanan_ajax, name='add_makanan_ajax'),
+    path('edit-product/<int:id>', views.edit_product, name='edit_product'),
 ]

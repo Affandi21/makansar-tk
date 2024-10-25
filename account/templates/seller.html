@@ -59,7 +59,7 @@
       <!-- Modal header -->
       <div class="flex items-center justify-between p-4 border-b rounded-t">
         <h3 class="text-xl font-semibold text-gray-900">
-          Tambahkan buku
+          Tambahkan makanan
         </h3>
         <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" id="closeModalBtn">
           <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -71,22 +71,38 @@
       <!-- Modal body -->
       <div class="px-6 py-4 space-y-6 form-style">
         <form id="productForm">
-          <div class="mb-4">
-            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-            <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" placeholder="Masukkan judul" required>
-          </div>
-          <div class="mb-4">
-            <label for="author" class="block text-sm font-medium text-gray-700">Author</label>
-            <input type="text" id="author" name="author" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" placeholder="Masukkan penulis" required>
-          </div>
-          <div class="mb-4">
-            <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
-            <input type="number" id="price" name="price" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" placeholder="Masukkan harga" required>
-          </div>
-          <div class="mb-4">
-            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-            <textarea id="description" name="description" rows="3" maxlength="47" class="mt-1 block w-full h-52 resize-none border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" placeholder="Masukkan deskripsi" required></textarea>
-          </div>
+            <div class="mb-4">
+                <label for="category" class="block text-sm font-medium text-gray-700">Kategori</label>
+                <select id="category" name="category" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" required>
+                    <option value="" disabled selected>Pilih kategori</option>
+                    <option value="Ayam">Ayam</option>
+                    <option value="Chinese Food">Chinese Food</option>
+                    <option value="Nasi">Nasi</option>
+                    <option value="Makanan berkuah">Makanan Berkuah</option>
+                    <option value="Martabak">Martabak</option>
+                    <option value="Arabic Food">Arabic Food</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Daging">Daging</option>
+                    <option value="Seafood">Seafood</option>
+                    <option value="Beverages">Beverages</option>
+                </select>
+            </div>
+            <div class="mb-4">
+                <label for="food_name" class="block text-sm font-medium text-gray-700">Nama makanan</label>
+                <input type="text" id="food_name" name="food_name" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" placeholder="Masukkan nama makanan" required>
+            </div>
+            <div class="mb-4">
+                <label for="price" class="block text-sm font-medium text-gray-700">Harga</label>
+                <input type="number" id="price" name="price" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" placeholder="Masukkan harga" required>
+            </div>
+            <div class="mb-4">
+                <label for="location" class="block text-sm font-medium text-gray-700">Lokasi</label>
+                <input type="text" id="location" name="location" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" placeholder="Masukkan lokasi" required>
+            </div>
+            <div class="mb-4">
+                <label for="food_desc" class="block text-sm font-medium text-gray-700">Deskripsi makanan</label>
+                <textarea id="food_desc" name="food_desc" rows="3" maxlength="47" class="mt-1 block w-full h-52 resize-none border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" placeholder="Masukkan deskripsi" required></textarea>
+            </div>
         </form>
       </div>
       <!-- Modal footer -->
@@ -98,150 +114,155 @@
   </div>
 </div>
 <!-- </div> useless -->
+ 
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const animatedDiv = document.getElementById('animatedDiv');
-    setTimeout(() => {
-      animatedDiv.classList.remove('opacity-0', 'translate-y-4');
-      animatedDiv.classList.add('opacity-100', 'translate-y-0');
-    }, 100); // Waktu delay dalam milidetik sebelum animasi dimulai
-  });
+    const userShopName = "{{ user_shop_name }}";
 
-  function createProduct() {
-    fetch("{% url 'account:add_makanan_ajax' %}", {
-      method: "POST",
-      body: new FormData(document.querySelector('#productForm')),
-    })
-    .then(response => refreshProducts(), hideModal())
+    document.addEventListener("DOMContentLoaded", function() {
+        const animatedDiv = document.getElementById('animatedDiv');
+        setTimeout(() => {
+            animatedDiv.classList.remove('opacity-0', 'translate-y-4');
+            animatedDiv.classList.add('opacity-100', 'translate-y-0');
+        }, 100); // Waktu delay dalam milidetik sebelum animasi dimulai
+    });
 
-    document.getElementById("productForm").reset(); 
-    document.querySelector("[data-modal-toggle='crudModal']").click();
+    function createProduct() {
+        fetch("{% url 'account:add_makanan_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#productForm')),
+        })
+        .then(response => refreshProducts(), hideModal())
 
-    return false;
-  }
+        document.getElementById("productForm").reset(); 
+        document.querySelector("[data-modal-toggle='crudModal']").click();
 
-  async function getProducts(){
-      return fetch("{% url 'main:show_json' %}").then((res) => res.json())
-  }
-
-  const modal = document.getElementById('crudModal');
-  const modalContent = document.getElementById('crudModalContent');
-
-  function showModal() {
-      const modal = document.getElementById('crudModal');
-      const modalContent = document.getElementById('crudModalContent');
-
-      modal.classList.remove('hidden'); 
-      setTimeout(() => {
-        modalContent.classList.remove('opacity-0', 'scale-95');
-        modalContent.classList.add('opacity-100', 'scale-100');
-      }, 50); 
-  }
-
-  function hideModal() {
-      const modal = document.getElementById('crudModal');
-      const modalContent = document.getElementById('crudModalContent');
-
-      modalContent.classList.remove('opacity-100', 'scale-100');
-      modalContent.classList.add('opacity-0', 'scale-95');
-
-      setTimeout(() => {
-        modal.classList.add('hidden');
-      }, 150); 
-  }
-
-  document.getElementById("cancelButton").addEventListener("click", hideModal);
-  document.getElementById("closeModalBtn").addEventListener("click", hideModal);
-
-  async function refreshProducts() {
-    document.getElementById("product_cards").innerHTML = "";
-    document.getElementById("product_cards").className = "";
-    const products = await getProducts();
-    let htmlString = "";
-    let classNameString = "";
-
-    if (products.length === 0) {
-        classNameString = "flex flex-col items-center justify-center min-h-[24rem] p-6";
-        htmlString = `
-            <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
-                <img src="{% static 'image/sad-face.png' %}" alt="Sad face" class="w-32 h-32 mb-4"/>
-                <p class="text-center text-gray-600 mt-4">Belum ada buku apa-apa nih :(</p>
-            </div>
-        `;
+        return false;
     }
-    else {
-        classNameString = "columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 w-full"
-        products.forEach((item) => {
-            const name = DOMPurify.sanitize(item.fields.name);
-            const author = DOMPurify.sanitize(item.fields.author);
-            const description = DOMPurify.sanitize(item.fields.description);
 
-            htmlString += `
-            <div class="relative break-inside-avoid">
-                <div class="relative bg-white shadow-lg rounded-lg mb-6 break-inside-avoid w-80 mx-auto flex flex-col border-2 border-[#E3CAA5] transform rotate-0 hover:scale-105 transition-transform duration-300">
-                    <div class="bg-[#E3CAA5] text-gray-800 p-4 rounded-t-lg border-b-2 border-[#E3CAA5]">
-                        <h3 class="font-bold text-xl mb-2">${item.fields.name}</h3>
-                        <p class="text-gray-600">${item.fields.date}</p>
-                    </div>
-                    <div class="p-4">
-                        <p class="font-semibold text-lg mb-2">Author</p>
-                        <p class="text-gray-700 mb-2">
-                            <span class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-black bg-gray-100">
-                              ${item.fields.author}
-                            </span>
-                        </p>
-                        <div class="mt-4">
-                            <p class="text-gray-700 font-semibold mb-2">Price</p>
+    async function getProducts(){
+        return fetch("{% url 'main:show_json' %}").then((res) => res.json())
+    }
+
+    const modal = document.getElementById('crudModal');
+    const modalContent = document.getElementById('crudModalContent');
+
+    function showModal() {
+        const modal = document.getElementById('crudModal');
+        const modalContent = document.getElementById('crudModalContent');
+
+        modal.classList.remove('hidden'); 
+        setTimeout(() => {
+            modalContent.classList.remove('opacity-0', 'scale-95');
+            modalContent.classList.add('opacity-100', 'scale-100');
+        }, 50); 
+    }
+
+    function hideModal() {
+        const modal = document.getElementById('crudModal');
+        const modalContent = document.getElementById('crudModalContent');
+
+        modalContent.classList.remove('opacity-100', 'scale-100');
+        modalContent.classList.add('opacity-0', 'scale-95');
+
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 150); 
+    }
+
+    document.getElementById("cancelButton").addEventListener("click", hideModal);
+    document.getElementById("closeModalBtn").addEventListener("click", hideModal);
+
+    async function refreshProducts() {
+        document.getElementById("product_cards").innerHTML = "";
+        document.getElementById("product_cards").className = "";
+        const products = await getProducts();
+        let htmlString = "";
+        let classNameString = "";
+
+        const filteredProducts = products.filter(item => item.fields.shop_name === userShopName);
+
+        if (filteredProducts.length === 0) {
+            classNameString = "flex flex-col items-center justify-center min-h-[24rem] p-6";
+            htmlString = `
+                <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+                    <img src="{% static 'image/sad-face.png' %}" alt="Sad face" class="w-32 h-32 mb-4"/>
+                    <p class="text-center text-gray-600 mt-4">Belum ada buku apa-apa nih :(</p>
+                </div>
+            `;
+        }
+        else {
+            classNameString = "columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 w-full"
+            filteredProducts.forEach((item) => {
+                const food_name= DOMPurify.sanitize(item.fields.food_name);
+                const author = DOMPurify.sanitize(item.fields.author);
+                const description = DOMPurify.sanitize(item.fields.description);
+
+                htmlString += `
+                <div class="relative break-inside-avoid">
+                    <div class="relative bg-white shadow-lg rounded-lg mb-6 break-inside-avoid w-80 mx-auto flex flex-col border-2 border-[#E3CAA5] transform rotate-0 hover:scale-105 transition-transform duration-300">
+                        <div class="bg-[#E3CAA5] text-gray-800 p-4 rounded-t-lg border-b-2 border-[#E3CAA5]">
+                            <h3 class="font-bold text-xl mb-2">${item.fields.food_name}</h3>
+                            <p class="text-gray-600">${item.fields.food_name}</p>
+                        </div>
+                        <div class="p-4">
+                            <p class="font-semibold text-lg mb-2">Author</p>
+                            <p class="text-gray-700 mb-2">
+                                <span class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-black bg-gray-100">
+                                    ${item.fields.author}
+                                </span>
+                            </p>
+                            <div class="mt-4">
+                                <p class="text-gray-700 font-semibold mb-2">Price</p>
+                                <div class="relative pt-1">
+                                    <div class="flex mb-2 items-center justify-between">
+                                    <div>
+                                        <span class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-black bg-gray-100">
+                                        ${item.fields.price}
+                                        </span>
+                                    </div>
+                                    </div>                 
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                            <p class="text-gray-700 font-semibold mb-2">Description</p>
                             <div class="relative pt-1">
                                 <div class="flex mb-2 items-center justify-between">
-                                  <div>
+                                <div>
                                     <span class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-black bg-gray-100">
-                                      ${item.fields.price}
+                                    ${item.fields.description}
                                     </span>
-                                  </div>
-                                </div>                 
+                                </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="mt-4">
-                          <p class="text-gray-700 font-semibold mb-2">Description</p>
-                          <div class="relative pt-1">
-                            <div class="flex mb-2 items-center justify-between">
-                              <div>
-                                <span class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-black bg-gray-100">
-                                  ${item.fields.description}
-                                </span>
-                              </div>
                             </div>
-                          </div>
-                        </div>
-                </div>
-                <div class="absolute top-0 -right-4 flex space-x-1">
-                    <a href="/edit-product/${item.pk}" class="bg-yellow-500 hover:bg-yellow-600 text-white rounded-full p-2 transition duration-300 shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                        </svg>
-                    </a>
-                    <a href="/delete/${item.pk}" class="bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition duration-300 shadow-md">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
-                        </svg>
-                    </a>
+                    </div>
+                    <div class="absolute top-0 -right-4 flex space-x-1">
+                        <a href="/edit-product/${item.pk}" class="bg-yellow-500 hover:bg-yellow-600 text-white rounded-full p-2 transition duration-300 shadow-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                            </svg>
+                        </a>
+                        <a href="/delete/${item.pk}" class="bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition duration-300 shadow-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-            `;
-        });
+                `;
+            });
+        }
+        document.getElementById("product_cards").className = classNameString;
+        document.getElementById("product_cards").innerHTML = htmlString;
     }
-    document.getElementById("product_cards").className = classNameString;
-    document.getElementById("product_cards").innerHTML = htmlString;
-}
-refreshProducts();
+    refreshProducts();
 
-document.getElementById("productForm").addEventListener("submit", (e) => {
-    e.preventDefault();
-    createProduct();
-  })
+    document.getElementById("productForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        createProduct();
+    })
 </script>
 
 {% endblock content %}

@@ -1,18 +1,34 @@
-<nav class="bg-red-500 shadow-lg fixed top-0 left-0 z-40 w-screen">
+{% load static %}
+
+<!-- <nav class="bg-[#603F26] shadow-lg fixed top-0 left-0 z-40 w-screen"> -->
+  <nav class="shadow-lg fixed top-4 left-1/2 z-40 max-w-[60rem] w-[90%] -translate-x-1/2 rounded-2xl border-t-2 border-l-2 backdrop-blur-lg bg-opacity-40 bg-[#603F26] border-[#262626] text-[#cccccc] shadow-lg border-opacity-60 px-4">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <div class="flex items-center">
-          <h1 class="text-2xl font-bold text-center text-white">MAKANSAR</h1>
+          <div class="flex justify-center mb-2">
+            <a href="{% url 'account:buyerpage' %}">
+              <img src="{% static 'image/logo1.png' %}" alt="Second Chapters Logo" class="h-16 w-16"/>
+            </a>
+          </div>
+          <!-- <img src="{% static 'image/logo.png' %}" alt="Second Chapters Logo" class="h-16 w-1 h-1"/> -->
+          <a href="{% url 'account:buyerpage' %}" style="font-family: 'Cutive', serif;" class="text-sm text-center text-[#FFFBE9]">
+            Second Chapters <3
+          </a>
         </div>
         <div class="hidden md:flex items-center">
           {% if user.is_authenticated %}
-            <span class="text-gray-300 mr-4">Welcome, {{ user.username }}</span>
-            
+            <!-- <span class="text-gray-300 mr-4">Welcome, {{ user.username }} <3</span> -->
+            <button data-modal-target="crudModal" data-modal-toggle="crudModal" class="btn bg-[#C1CFA1] hover:bg-[#A5B68D] text-white font-bold py-2 px-4 rounded transition duration-300 mr-2" onclick="showModal();">
+              Tambahkan buku
+            </button>
+            <a href="{% url 'main:logout' %}" class="text-center bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+              Logout
+            </a>
           {% else %}
-            <a href="{% url 'account:login' %}" class="text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 mr-2">
+            <a href="{% url 'main:login' %}" class="text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 mr-2">
               Login
             </a>
-            <a href="{% url 'account:register' %}" class="text-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+            <a href="{% url 'main:register' %}" class="text-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
               Register
             </a>
           {% endif %}
@@ -30,18 +46,24 @@
     <div class="mobile-menu hidden md:hidden  px-4 w-full md:max-w-full">
       <div class="pt-2 pb-3 space-y-1 mx-auto">
         {% if user.is_authenticated %}
-          <span class="block text-gray-300 px-3 py-2">Welcome, {{ user.username }}</span>
-          
+          <!-- <span class="block text-gray-300 px-3 py-2">Welcome, {{ user.username }}</span> -->
+          <button data-modal-target="crudModal" data-modal-toggle="crudModal" class="block text-center w-full bg-[#C1CFA1] hover:bg-[#A5B68D] text-white font-bold py-2 px-4 rounded transition duration-300" onclick="showModal();">
+            Tambahkan buku
+          </button>
+          <a href="{% url 'main:logout' %}" class="block text-center bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+            Logout
+          </a>
         {% else %}
-          <a href="{% url 'account:login' %}" class="block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 mb-2">
+          <a href="{% url 'main:login' %}" class="block text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 mb-2">
             Login
           </a>
-          <a href="{% url 'account:register' %}" class="block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+          <a href="{% url 'main:register' %}" class="block text-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
             Register
           </a>
         {% endif %}
       </div>
     </div>
+    
     <script>
       const btn = document.querySelector("button.mobile-menu-button");
       const menu = document.querySelector(".mobile-menu");
@@ -50,6 +72,4 @@
         menu.classList.toggle("hidden");
       });
     </script>
-  </nav>
-
-
+</nav>

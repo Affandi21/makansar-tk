@@ -4,7 +4,6 @@ import uuid
 
 # Class assign data
 class Makanan(models.Model):
-    # pk = models.IntegerField(min=1)
     category = models.CharField(max_length=20)
     food_name = models.CharField(max_length=200)
     location = models.CharField(max_length=300)

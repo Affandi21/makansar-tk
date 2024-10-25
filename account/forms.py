@@ -7,10 +7,24 @@ from .models import User
 import re
 
 class MakananForm(ModelForm):
+    CATEGORY_CHOICES = [
+        ("Ayam", "Ayam"),
+        ("Chinese Food", "Chinese Food"),
+        ("Nasi", "Nasi"),
+        ("Makanan berkuah", "Makanan berkuah"),
+        ("Martabak", "Martabak"),
+        ("Arabic Food", "Arabic Food"),
+        ("Dessert", "Dessert"),
+        ("Daging", "Daging"),
+        ("Seafood", "Seafood"),
+        ("Beverages", "Beverages"),
+    ]
+
+    category = forms.ChoiceField(choices=CATEGORY_CHOICES, label="Category")
+
     class Meta:
         model = Makanan
-        fields = ["category", "food_name", "location", "shop_name", "price",
-                "rating_default", "food_desc"]
+        fields = ["category", "food_name", "location", "price", "food_desc"]
 
     def clean_food_name(self):
         food_name = self.cleaned_data["food_name"]
