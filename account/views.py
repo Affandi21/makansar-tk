@@ -1,15 +1,27 @@
-from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-# Create your views here.
-from django.shortcuts import render, redirect
+import datetime
 from .forms import RegisterForm
-from django.contrib.auth import authenticate, login
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+from django.utils.html import strip_tags
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth import authenticate, login, logout
+from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
+from django.http import HttpResponse, HttpResponseRedirect
+from django.core import serializers
+from django.urls import reverse
+from main.models import Makanan
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 
+@login_required(login_url='/login')
+def buyer(request):
+    return render(request,'buyer.html')
 
-def index(request):
-    return render(request, 'index.html')
-
+def seller(request):
+    return render(request,'seller.html')
 
 def register(request):
     msg = None
@@ -44,53 +56,23 @@ def login_user(request):
 
     return render(request, 'login.html', {'form': form, 'msg': msg})
 
-# def login_user(request):
-#     form = AuthenticationForm(request, data=request.POST or None)
-#     msg = None
+@csrf_exempt
+@require_POST
+def add_makanan_ajax(request):
+    category = request.POST.get("category")
+    food_name = strip_tags(request.POST.get("food_name"))
+    location = strip_tags(request.POST.get("location"))
+    shop_name = strip_tags(request.POST.get("shop_name"))
+    price = request.POST.get("price")
+    rating_default = request.POST.get("rating_default")
+    food_desc = strip_tags(request.POST.get("food_desc"))
+    user = request.user
 
-#     if request.method == 'POST':
-#         if form.is_valid():
-#             user = form.get_user()  # Dapatkan user yang valid dari form
-#             login(request, user)
-            
-#             # Cek role user dan arahkan ke halaman yang sesuai
-#             if user.role == 'buyer':
-#                 return redirect('buyerpage')
-#             elif user.role == 'seller':
-#                 return redirect('sellerpage')
-#         else:
-#             msg = 'Invalid credentials'
+    new_product = Makanan(
+        category=category, food_name=food_name, location=location,
+        shop_name=shop_name, price=price, rating_default=rating_default,
+        food_desc=food_desc, user=user
+    )
+    new_product.save()
 
-#     return render(request, 'login.html', {'form': form, 'msg': msg})
-
-# def login_user(request):
-#     form = AuthenticationForm(request.POST or None)
-#     msg = None
-#     if request.method == 'POST':
-#         if form.is_valid():
-#             username = form.cleaned_data.get('username')
-#             password = form.cleaned_data.get('password')
-#             user = authenticate(username=username, password=password)
-#             if user is not None and user.buyer:
-#                 login(request, user)
-#                 return redirect('buyerpage')
-#             elif user is not None and user.seller:
-#                 login(request, user)
-#                 return redirect('sellerpage')
-#             else:
-#                 msg= 'invalid credentials'
-#         else:
-#             msg = 'error validating form'
-#     return render(request, 'login.html', {'form': form, 'msg': msg})
-
-
-def buyer(request):
-    return render(request,'buyer.html')
-
-
-def seller(request):
-    return render(request,'seller.html')
-
-# def login_view(request):
-#     # Logika untuk halaman login
-#     return render(request, 'login.html')
+    return HttpResponse(b"CREATED", status=201)
