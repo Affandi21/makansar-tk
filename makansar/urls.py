@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('', include('account.urls')),
+    path('favorite/', include(('favorite.urls', 'favorite'), namespace='favorite')),  # Menambahkan namespace 'favorite'
 ]

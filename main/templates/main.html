@@ -4,6 +4,7 @@
 {% endblock meta %}
 
 {% block content %}
+{% include 'navbar.html' %}
 
 <h5>TEAM: </h5>
 <p>{{ team }}<p>
@@ -19,7 +20,8 @@
         <th>Lokasi</th>
         <th>Deskripsi</th>
         <th>Rating</th>
-        <th>Tanggal</th>
+        <th>Fav</th>
+        <!-- <th>Tanggal</th> -->
     </tr>
 
     {% for product_entry in product_entries %}
@@ -30,7 +32,11 @@
         <td>{{product_entry.location}}</td>
         <td>{{product_entry.food_desc}}</td>
         <td>{{product_entry.rating_default}}</td>
-        <td>{{product_entry.date}}</td>
+        <!-- <td>{{product_entry.date}}</td> -->
+        <td><li>
+            <strong>{{ product_entry.food_name }}</strong> - Harga: {{ product_entry.price }}
+            <a href="{% url 'favorite:add_favorite' product_entry.id %}">Add to Favorite</a>
+        </li></td>
     </tr>
     {% endfor %}
 </table>
@@ -44,6 +50,9 @@
 
 <a href="{% url 'main:edit_dashboard' %}">
     <button>Edit Account</button>
+</a>
+<a href="{% url 'favorite:favorite_overview' %}">
+    <button>Favorite</button>
 </a>
 
 {% endblock content %}
