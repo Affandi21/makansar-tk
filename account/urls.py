@@ -4,9 +4,8 @@ from . import views
 app_name = 'account'
 
 urlpatterns = [
-    path('', views.index, name= 'index'),
-    path('login/', views.login_user, name='login'),
-    path('register/', views.register, name='register'),
     path('seller/', views.seller, name='sellerpage'),
-    path('buyer/', views.buyer, name='buyerpage'),
+    path('add-makanan-ajax', views.add_makanan_ajax, name='add_makanan_ajax'),
+    path('edit-product/<int:id>', views.edit_product, name='edit_product'),
+    path('delete/<int:id>', views.delete_product, name='delete_product'),
 ]
