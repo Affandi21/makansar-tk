@@ -11,6 +11,7 @@ class Makanan(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=15)
     rating_default = models.DecimalField(decimal_places=1, max_digits=5)
     food_desc = models.TextField()
+    image = models.ImageField(upload_to='static/images/', null=True, blank=True)
 
 # Model untuk dashboard (khusus untuk pembeli nanti)
 class UserProfile(models.Model):

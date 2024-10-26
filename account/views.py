@@ -1,5 +1,5 @@
 import datetime
-from .forms import RegisterForm, MakananForm
+from .forms import MakananForm
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.utils.html import strip_tags
@@ -17,14 +17,6 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 @login_required(login_url='/login/')
-def buyer(request):
-
-    if not request.user.buyer:
-        return redirect('account:sellerpage')
-
-    return render(request,'buyer.html')
-
-@login_required(login_url='/login/')
 def seller(request):
     if not request.user.seller:
         return redirect('account:buyerpage')  
@@ -34,39 +26,6 @@ def seller(request):
     }
 
     return render(request, 'seller.html', context)
-
-def register(request):
-    msg = None
-    if request.method == 'POST':
-        form = RegisterForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            msg = 'user created'
-            return redirect('account:login')
-        else:
-            msg = 'form is not valid'
-    else:
-        form = RegisterForm()
-    return render(request,'register.html', {'form': form, 'msg': msg})
-
-def login_user(request):
-    form = AuthenticationForm(request, data=request.POST or None)
-    msg = None
-
-    if request.method == 'POST':
-        if form.is_valid():
-            user = form.get_user()  # Mendapatkan user yang sudah di-autentikasi oleh form
-            login(request, user)  # Login user
-
-            # Cek apakah user buyer atau seller dan redirect sesuai role-nya
-            if user.seller:
-                return redirect('account:sellerpage')
-            elif user.buyer:
-                return redirect('account:buyerpage')
-        else:
-            msg = 'Invalid credentials'
-
-    return render(request, 'login.html', {'form': form, 'msg': msg})
 
 @csrf_exempt
 @require_POST
