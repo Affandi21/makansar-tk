@@ -33,37 +33,36 @@ Aplikasi ini kami beri nama "Makansar" yang merupakan akronim dari "Makanan Maka
 
     ##### Dikerjakan oleh: Sultan Ibnu Mansiz 
 
-* _Add_ dan _remove_ ke _Favorite_
+* _Add_ dan _Remove_ ke _Favorite_ untuk pembeli
 
-    Page _favorite_ akan menampilkan makanan _favorite_ dari masing-masing pengguna. 
-    Pada _page_ ini akan ada fitur untuk membaca data makanan yang ada.  
+    Page _favorite_ akan menampilkan makanan _favorite_ dari masing-masing pengguna.
+    Pada _page_ ini, akan ada fitur untuk membaca data makanan yang ada.  
     Kemudian, dari data tersebut terdapat fitur _add to favorite_, _remove from_ _favorite_, dan _update_ dari _top_ 3 makanan _favorite_ dari masing-masing pengguna. 
     _Top_ 3 makanan _favorite_ nantinya akan ditampilkan pada bagian atas _page_ ini.
 
     ##### Dikerjakan oleh: Luqmanul Hakim
 
-* Order
+* _Order_ makanan untuk pembeli
 
     Pembeli dapat menambahkan berbagai pilihan makanan dan minuman yang tersedia ke dalam keranjang belanja mereka. 
-    Di dalam page keranjang, tersedia fitur _edit_ untuk menambah atau mengurangi jumlah produk dan _delete_ untuk menghapus produk yang ingin dihapus, pembeli juga dapat melihat ringkasan mengenai nama, jumlah, dan harga setiap produk yang dipilih sehingga memudahkan pembeli untuk mengecek total belanja mereka.
+    Di dalam _page_ keranjang, tersedia fitur _edit_ untuk menambah atau mengurangi jumlah produk dan _delete_ untuk menghapus produk yang ingin dikeluakrkan dari keranjang.
+    Pembeli juga dapat melihat ringkasan mengenai nama, jumlah, dan harga setiap produk yang dipilih, sehingga memudahkan pembeli untuk mengecek total belanja mereka.
 
     ##### Dikerjakan oleh: Affandi Shafwan Soleh
 
-* _Dashboard_ Pembeli
+* Profil _Dashboard_ untuk pembeli
 
-    Setelah pembeli berhasil _log in_, pembeli harus mengisi informasi pribadinya terlebih dahulu sebelum mengakses halaman utama  _web_. 
-    Pembeli memasukkan nama lengkap, _email_, nomor telepon, dan alamat tempat tinggal. 
-    Setelah menyimpan informasi pribadi, pembeli diarahkan ke halaman utama _web_. 
-    Pada halaman utama, pembeli dapat menekan tombol _dashboard_ akun di mana pembeli dapat mengedit informasi pribadi yang sebelumnya telah dimasukkan. 
-    Pembeli juga dapat menghapus akun bila dirasa tidak membutuhkannya lagi.
-
+    Setelah pembeli berhasil _log in_, pembeli diarahkan kepada _page_ yang berisi informasi pribadinya yang terdiri dari foto profil, nama lengkap, nomor telepon, _email_, dan alamat. 
+    Pembeli dapat mengedit informasi pribadinya tersebut dan melengkapi informasi yang belum terisi saat registrasi akun di awal. 
+    Pembeli juga mendapat akses untuk menghapus akunnya bila dirasa sudah tidak terpakai lagi.
+  
     ##### Dikerjakan oleh: Stefanus Tan Jaya
 
-* Pemberian _rating & komentar_ dari pembeli
+* Pemberian _rating_ & komentar pembeli
 
-    Pada tiap produk makanan dan minuman yang tersedia, seorang pembeli dapat memberikan _rating_ dan komentar pada pilihan makanan atau minuman yang dipilih. 
-    _Rating_ dan komentar akan dijadikan sebagai acuan oleh pembeli lain dalam memilih makanan atau minuman yang tersedia. 
-    Pembeli dapat menghapus atau meng-_edit_ komentar yang telah dibuat olehnya.
+    Pada tiap produk makanan dan minuman yang tersedia, seorang pembeli dapat memberikan _rating_ dan komentar pada pilihan makanan atau minuman yang dipilihnya. 
+    _Rating_ dan komentar akan dijadikan sebagai acuan oleh pembeli dalam memilih makanan atau minuman yang tersedia berdasarkan rekomendasi pembeli lain. 
+    Pembeli dapat menghapus dan mengedit komentar yang telah dibuatnya.
 
     ##### Dikerjakan oleh: Gilbert Kristian
 

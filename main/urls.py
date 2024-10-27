@@ -7,6 +7,7 @@ app_name = 'main'
 
 urlpatterns = [  
     path('', views.show_main, name='show_main'),
+    path('show-foods/', views.show_foods, name='show_foods'),
     path('register/', views.register, name='register'),
     path('login/', views.login_user, name='login'),
     path('logout/', views.logout_user, name='logout'),
@@ -17,6 +18,18 @@ urlpatterns = [
     path('edit-dashboard', views.edit_dashboard, name='edit_dashboard'),
     path('delete-account/', views.delete_account, name='delete_account'),
     path('profile/', views.view_profile, name='view_profile'),
+    path('kategori/ayam/', views.makanan_kategori_ayam, name='makanan_kategori_ayam'),
+
+    path('show-ayam/', views.show_ayam, name='show_ayam'),
+    path('show-daging/', views.show_daging, name='show_daging'),
+    path('show-chinese-food/', views.show_chinese_foood, name='show_chinese_food'),
+    path('show-arabic-food/', views.show_arabic_food, name='show_arabic_food'),
+    path('show-dessert/', views.show_dessert, name='show_dessert'),
+    path('show-makanan-berkuah/', views.show_makanan_berkuah, name='show_makanan_berkuah'),
+    path('show-seafood/', views.show_seafood, name='show_seafood'),
+    path('show-martabak/', views.show_martabak, name='show_martabak'),
+    path('show-nasi/', views.show_nasi, name='show_nasi'),
+    path('show-beverages/', views.show_beverages, name='show_beverages'),
 ]
 
 if settings.DEBUG:

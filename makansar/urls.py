@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('main.urls')),
     path('', include('account.urls')),
     path('favorite/', include(('favorite.urls', 'favorite'), namespace='favorite')),  # Menambahkan namespace 'favorite'
+    path('review/', include('review.urls')),
 ]

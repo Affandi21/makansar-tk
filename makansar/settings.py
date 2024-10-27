@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9wf6e!1iy73#w)vd6-e193%q+e@l6h&==y17j3c6v5tz*=7ll6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "http://sultan-ibnu-makansar.pbp.cs.ui.ac.id", "https://sultan-ibnu-makansar.pbp.cs.ui.ac.id", "sultan-ibnu-makansar.pbp.cs.ui.ac.id"]
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'main',
     'account',
     'favorite',
+    'review',
 ]
 
 MIDDLEWARE = [

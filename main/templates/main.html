@@ -160,49 +160,70 @@
     <h1 style="font-family: 'Playfair Display', serif;" class="text-2xl font-bold text-center">KATEGORI</h1>
     <section id="kategori" class="section-p1 flex items-center justify-between">
         <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
-            <img src="{% static 'image/ayam.jpg' %}" alt="ayam-pict" class="w-32 h-32">
-            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Ayam </h6>
+            <a href="{% url 'main:show_ayam'%}">
+                <img src="{% static 'image/ayam.jpg' %}" alt="ayam-pict" class="w-32 h-32">
+                <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Ayam </h6>
+            </a>
         </div>
         <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
-            <img src="{% static 'image/arabic food.jpg' %}" alt="arabic-food-pict" class="w-32 h-32">
-            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Arabic Food </h6>
+            <a href="{% url 'main:show_arabic_food' %}">
+                <img src="{% static 'image/arabic food.jpg' %}" alt="arabic-food-pict" class="w-32 h-32">
+                <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Arabic Food </h6>
+            </a>
         </div>
         <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
-            <img src="{% static 'image/beverages.jpg' %}" alt="beverages-pict" class="w-32 h-32">
-            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Beverages </h6>
+            <a href="{% url 'main:show_beverages' %}">
+                <img src="{% static 'image/beverages.jpg' %}" alt="beverages-pict" class="w-32 h-32">
+                <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Beverages </h6>
+            </a>
         </div>
         <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
-            <img src="{% static 'image/daging.jpg' %}" alt="daging-pict" class="w-32 h-32">
-            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Daging </h6>
+            <a href="{% url 'main:show_daging' %}">
+                <img src="{% static 'image/daging.jpg' %}" alt="daging-pict" class="w-32 h-32">
+                <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Daging </h6>
+            </a>
         </div>
         <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
-            <img src="{% static 'image/dessert.jpg' %}" alt="dessert-pict" class="w-32 h-32">
-            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Dessert </h6>
+            <a href="{% url 'main:show_dessert' %}">
+                <img src="{% static 'image/dessert.jpg' %}" alt="dessert-pict" class="w-32 h-32">
+                <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Dessert </h6>
+            </a>
         </div>
     </section>
     
     <section id="kategori" class="section-p1 flex items-center justify-between">
         <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
-            <img src="{% static 'image/chinese food.jpg' %}" alt="chinese-food-pict" class="w-32 h-32">
-            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Chinese Food </h6>
+            <a href="{% url 'main:show_chinese_food' %}">
+                <img src="{% static 'image/chinese food.jpg' %}" alt="chinese-food-pict" class="w-32 h-32">
+                <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Chinese Food </h6>
+            </a>
         </div>
         <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
-            <img src="{% static 'image/makanan berkuah.jpg' %}" alt="makanan-berkuah-pict" class="w-32 h-32">
-            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Makanan Berkuah </h6>
+            <a href="{% url 'main:show_makanan_berkuah' %}">
+                <img src="{% static 'image/makanan berkuah.jpg' %}" alt="makanan-berkuah-pict" class="w-32 h-32">
+                <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Makanan Berkuah </h6>
+            </a>
         </div>
         <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
-            <img src="{% static 'image/martabak.jpg' %}" alt="martabak-pict" class="w-32 h-32">
-            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Martabak </h6>
+            <a href="{% url 'main:show_martabak' %}">
+                <img src="{% static 'image/martabak.jpg' %}" alt="martabak-pict" class="w-32 h-32">
+                <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Martabak </h6>
+            </a>
         </div>
         <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
-            <img src="{% static 'image/nasi.jpg' %}" alt="nasi-pict" class="w-32 h-32">
-            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Nasi </h6>
+            <a href="{% url 'main:show_nasi' %}">
+                <img src="{% static 'image/nasi.jpg' %}" alt="nasi-pict" class="w-32 h-32">
+                <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Nasi </h6>
+            </a>
         </div>
         <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
-            <img src="{% static 'image/seafood.jpg' %}" alt="seafood-pict" class="w-32 h-32">
-            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Seafood </h6>
+            <a href="{% url 'main:show_seafood' %}">
+                <img src="{% static 'image/seafood.jpg' %}" alt="seafood-pict" class="w-32 h-32">
+                <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Seafood </h6>
+            </a>
         </div>
     </section>
+    
 </div>
 
 <script>
