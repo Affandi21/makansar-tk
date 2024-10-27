@@ -23,69 +23,6 @@ class RegisterForm(UserCreationForm):
                 "class": "form-control"
             }
         ),
-        label="Password"  # Menambahkan label untuk password1
-    )
-    password2 = forms.CharField(
-        widget=forms.PasswordInput(
-            attrs={
-                "class": "form-control"
-            }
-        ),
-        label="Confirm Password"  # Menambahkan label untuk password2
-    )
-    tanggal_lahir = forms.DateField(
-        widget=forms.DateInput(attrs={'type': 'date'}),  # HTML5 DateInput widget
-        label="Tanggal Lahir"  # Menambahkan label untuk tanggal_lahir
-    )
-    nama = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                "class": "form-control"
-            }
-        ),
-        label="Nama"  # Menambahkan label untuk nama
-    )
-    no_telp = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                "class": "form-control"
-            }
-        ),
-        label="No. Telepon"  # Menambahkan label untuk no_telp
-    )
-    buyer = forms.BooleanField(
-        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), 
-        label="Buyer",
-        required=False  # Tidak wajib, karena akan divalidasi secara manual
-    )
-    seller = forms.BooleanField(
-        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), 
-        label="Seller",
-        required=False  # Tidak wajib, karena akan divalidasi secara manual
-    )
-
-from django import forms
-from django.forms import ModelForm
-from django.utils.html import strip_tags
-from main.models import Makanan
-from django.contrib.auth.forms import UserCreationForm
-from .models import User
-import re
-
-class RegisterForm(UserCreationForm):
-    username = forms.CharField(
-        widget=forms.TextInput(
-            attrs={
-                "class": "form-control"
-            }
-        )
-    )
-    password1 = forms.CharField(
-        widget=forms.PasswordInput(
-            attrs={
-                "class": "form-control"
-            }
-        ),
         label="Password"  
     )
     password2 = forms.CharField(

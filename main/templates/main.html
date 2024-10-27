@@ -38,81 +38,394 @@
 {% block content %}
 {% include 'navbar.html' %}
 
-<html>
- <head>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
- </head>
- <body class="bg-gray-100 font-roboto">
-  <div class="max-w-7xl mx-auto p-6">
-   <h1 class="text-3xl font-bold mb-6">Daftar Produk Favorit</h1>
-   
-   {% if product_entries %}
-   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    {% for product_entry in product_entries %}
-    <div class="bg-white rounded-lg shadow p-6 relative">
-     <div class="text-xl font-semibold mb-2">{{ product_entry.food_name }}</div>
-     <div class="text-lg font-semibold text-gray-700 mb-2">Harga: Rp{{ product_entry.price }}</div>
-     <div class="text-sm text-gray-600 mb-2">Rating: {{ product_entry.rating_default }} / 5</div>
-     <button class="absolute top-4 right-4 text-gray-500 hover:text-red-500" onclick="toggleFavorite(this, {{ product_entry.id }})">
-        <i class="fa fa-heart {% if product_entry.id in favorite_product_ids %}text-red-500{% else %}text-gray-400{% endif %}"></i>
-     </button>
+<div class="header overflow-x-hidden px-4 md:px-8 pb-2 pt-1 min-h-screen bg-white flex flex-col items-center">
+    <div id="animatedDiv" class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-10 min-h-screen px-6 md:px-12 opacity-0 transform translate-y-4 transition-all duration-700 ease-out">
+        <!-- Teks Header -->
+        <div class="text-center md:text-left">
+            <h1 style="font-family: 'Playfair Display', serif;" class="text-xl md:text-3xl">Cari makanan mudah di <span style="font-family: 'Protest Strike', serif;">MAKANSAR</span></h1> <br>
+            {% if not user.is_authenticated %}
+                <p style="font-family: 'Playfair Display', serif;">Belum punya akun? <a href="{% url 'main:register' %}" class="font-medium text-black hover:font-bold underline">Daftar sekarang!</a></p>
+            {% else %}
+                <p style="font-family: 'Playfair Display', serif;">Selamat datang, <strong>{{ user.nama }}</strong>!</p>
+            {% endif %}
+        </div>
+        
+        <!-- Gambar -->
+        <div class="flex justify-center">
+            <img src="{% static 'image/foods.png' %}" alt="foods-pict" class="max-w-xs md:max-w-sm lg:max-w-md w-full h-auto"/>
+        </div>
     </div>
-    {% endfor %}
-   </div>
-   {% else %}
-   <p>Belum ada data produk favorit pada mental health tracker.</p>
-   {% endif %}
-  </div>
-  
-  <script>
-   function toggleFavorite(button, productId) {
-    const icon = button.querySelector('i');
-    const isCurrentlyFavorite = icon.classList.contains('text-red-500');
+
+    <div id="loginModal" tabindex="-1" aria-hidden="true" class="hidden fixed inset-0 z-50 w-full flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-x-hidden overflow-y-auto transition-opacity duration-300 ease-out">
+        <div id="loginModalContent" class="relative bg-white rounded-lg shadow-lg w-5/6 sm:w-3/4 md:w-1/2 lg:w-1/3 mx-4 sm:mx-0 transform scale-95 opacity-0 transition-transform transition-opacity duration-300 ease-out max-h-[90vh] overflow-y-auto">
+          <div class="flex items-center justify-between p-4 border-b rounded-t">
+            <h3 class="text-xl font-semibold text-gray-900">Login</h3>
+            <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" onclick="hideLoginModal()">
+              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+          <div class="p-6">
+            <!-- Login Form -->
+            <h2 style="font-family: 'Protest Strike', serif;" class="mt-6 text-center text-[#d82a2d] text-3xl font-extrabold text-[#d82a2d]">
+                MAKANSAR
+            </h2>
+            <form class="space-y-6" method="POST" action="{% url 'main:login' %}">
+              {% csrf_token %}
+              <div>
+                <label for="username" class="sr-only">Username</label>
+                <input id="username" name="username" type="text" required class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#F8EDE3] focus:border-[#F8EDE3]" placeholder="Username">
+              </div>
+              <div>
+                <label for="password" class="sr-only">Password</label>
+                <input id="password" name="password" type="password" required class="appearance-none rounded relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#F8EDE3] focus:border-[#F8EDE3]" placeholder="Password">
+              </div>
+              <div class="flex items-center justify-between">
+                <button type="submit" class="w-full py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-[#C1CFA1] hover:bg-[#A5B68D] focus:outline-none">
+                  Masuk
+                </button>
+              </div>
+            <p>Belum punya akun? <a href="{% url 'main:register' %}" class="font-medium text-black hover:font-bold underline">Daftar sekarang!</a></p>            </form>
+          </div>
+        </div>
+    </div>
+
+    <div id="crudModal" tabindex="-1" aria-hidden="true" class="hidden fixed inset-0 z-50 w-full flex items-center justify-center bg-gray-800 bg-opacity-50 overflow-x-hidden overflow-y-auto transition-opacity duration-300 ease-out">
+        <div id="crudModalContent" class="relative bg-white rounded-lg shadow-lg w-5/6 sm:w-3/4 md:w-1/2 lg:w-1/3 mx-4 sm:mx-0 transform scale-95 opacity-0 transition-transform transition-opacity duration-300 ease-out max-h-[90vh] overflow-y-auto">
+          <!-- Modal header -->
+          <div class="flex items-center justify-between p-4 border-b rounded-t">
+            <h3 class="text-xl font-semibold text-gray-900">
+                Tambahkan makanan
+            </h3>
+            <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center" id="closeModalBtn">
+              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+              <span class="sr-only">Close modal</span>
+            </button>
+          </div>
+          <!-- Modal body -->
+          <div class="px-6 py-4 space-y-6 form-style">
+            <form id="productForm">
+                <div class="mb-4">
+                    <label for="category" class="block text-sm font-medium text-gray-700">Kategori</label>
+                    <select id="category" name="category" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" required>
+                        <option value="" disabled selected>Pilih kategori</option>
+                        <option value="Ayam">Ayam</option>
+                        <option value="Chinese Food">Chinese Food</option>
+                        <option value="Nasi">Nasi</option>
+                        <option value="Makanan berkuah">Makanan Berkuah</option>
+                        <option value="Martabak">Martabak</option>
+                        <option value="Arabic Food">Arabic Food</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Daging">Daging</option>
+                        <option value="Seafood">Seafood</option>
+                        <option value="Beverages">Beverages</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="food_name" class="block text-sm font-medium text-gray-700">Nama makanan</label>
+                    <input type="text" id="food_name" name="food_name" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" placeholder="Masukkan nama makanan" required>
+                </div>
+                <div class="mb-4">
+                    <label for="price" class="block text-sm font-medium text-gray-700">Harga</label>
+                    <input type="number" id="price" name="price" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" placeholder="Masukkan harga" required>
+                </div>
+                <div class="mb-4">
+                    <label for="location" class="block text-sm font-medium text-gray-700">Lokasi</label>
+                    <input type="text" id="location" name="location" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" placeholder="Masukkan lokasi" required>
+                </div>
+                <div class="mb-4">
+                    <label for="image" class="block text-sm font-medium text-gray-700">Gambar</label>
+                    <input type="file" id="image" name="image" accept="image/*" class="mt-1 block w-full border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" placeholder="Masukkan gambar" required>
+                </div>
+                <div class="mb-4">
+                    <label for="food_desc" class="block text-sm font-medium text-gray-700">Deskripsi makanan</label>
+                    <textarea id="food_desc" name="food_desc" rows="3" maxlength="47" class="mt-1 block w-full h-52 resize-none border border-gray-300 rounded-md p-2 hover:border-[#673e1f]" placeholder="Masukkan deskripsi" required></textarea>
+                </div>
+            </form>
+          </div>
+          <!-- Modal footer -->
+          <div class="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2 p-6 border-t border-gray-200 rounded-b justify-center md:justify-end">
+            <button type="button" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg" id="cancelButton">Cancel</button>
+            <button type="submit" id="submitProduct" form="productForm" class="bg-[#C1CFA1] hover:bg-[#A5B68D] text-white font-bold py-2 px-4 rounded-lg">Tambahkan</button>
+          </div>
+        </div>
+    </div>
+</div>
+
+<div class="bg-[#f5f3ee] px-4 md:px-8 pb-2 pt-8 min-h-screen">
+    <h1 style="font-family: 'Playfair Display', serif;" class="text-2xl font-bold text-center">KATEGORI</h1>
+    <section id="kategori" class="section-p1 flex items-center justify-between">
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/ayam.jpg' %}" alt="ayam-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Ayam </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/arabic food.jpg' %}" alt="arabic-food-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Arabic Food </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/beverages.jpg' %}" alt="beverages-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Beverages </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/daging.jpg' %}" alt="daging-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Daging </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/dessert.jpg' %}" alt="dessert-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Dessert </h6>
+        </div>
+    </section>
     
-    if (!isCurrentlyFavorite) {
-     // If it's gray (not favorite), add to favorites
-     fetch(`/favorite/add/${productId}/`, {  // Updated URL path
-      method: 'POST',
-      headers: {
-       'X-CSRFToken': '{{ csrf_token }}'
-      }
-     }).then(response => {
-      if (response.ok) {
-       icon.classList.remove('text-gray-500');
-       icon.classList.add('text-red-500');
-       return response.json();
-      }
-      throw new Error('Gagal menambahkan ke favorit');
-     }).then(data => {
-      console.log(data.message);
-     }).catch(error => {
-      console.error(error);
-     });
-    } else {
-     // If it's red (favorite), remove from favorites
-     fetch(`/favorite/delete_favorite/${productId}/`, {  // URL path already correct
-      method: 'POST',
-      headers: {
-       'X-CSRFToken': '{{ csrf_token }}'
-      }
-     }).then(response => {
-      if (response.ok) {
-       icon.classList.remove('text-red-500');
-       icon.classList.add('text-gray-500');
-       return response.json();
-      }
-      throw new Error('Gagal menghapus dari favorit');
-     }).then(data => {
-      console.log(data.message);
-     }).catch(error => {
-      console.error(error);
-     });
+    <section id="kategori" class="section-p1 flex items-center justify-between">
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/chinese food.jpg' %}" alt="chinese-food-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Chinese Food </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/makanan berkuah.jpg' %}" alt="makanan-berkuah-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Makanan Berkuah </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/Martabak.jpg' %}" alt="martabak-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Martabak </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/nasi.jpg' %}" alt="nasi-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Nasi </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/seafood.jpg' %}" alt="seafood-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Seafood </h6>
+        </div>
+    </section>
+</div>
+
+<script>
+    const userShopName = "{{ user_shop_name }}";
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const animatedDivs = document.querySelectorAll('.animatedDiv');
+        animatedDivs.forEach((div, index) => {
+            setTimeout(() => {
+                div.classList.remove('opacity-0', 'translate-y-4');
+                div.classList.add('opacity-100', 'translate-y-0');
+            }, 100 * (index + 1)); // Setiap elemen ditampilkan bertahap
+        });
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const animatedDiv = document.getElementById('animatedDiv');
+        setTimeout(() => {
+            animatedDiv.classList.remove('opacity-0', 'translate-y-4');
+            animatedDiv.classList.add('opacity-100', 'translate-y-0');
+        }, 100); // Waktu delay dalam milidetik sebelum animasi dimulai
+    });
+
+    function createProduct() {
+        fetch("{% url 'account:add_makanan_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#productForm')),
+        })
+        .then(response => refreshProducts(), hideModal())
+
+        document.getElementById("productForm").reset(); 
+        document.querySelector("[data-modal-toggle='crudModal']").click();
+
+        return false;
     }
-   }
-  </script>
- </body>
-</html>
+
+    async function getProducts(){
+        return fetch("{% url 'main:show_json' %}").then((res) => res.json())
+    }
+
+    function showInfoTable() {
+        const card = event.currentTarget; 
+        const productDetails = JSON.parse(card.dataset.productDetails); 
+        const modal = document.getElementById('infoTable');
+        const modalContent = document.getElementById('infoTableContent');
+
+        modal.classList.remove('hidden'); 
+        setTimeout(() => {
+            modalContent.classList.remove('opacity-0', 'scale-95');
+            modalContent.classList.add('opacity-100', 'scale-100');
+        }, 50); 
+
+        const modalBody = document.querySelector("#infoTableContent .form-style");
+        modalBody.innerHTML = `
+            <p><strong>Kategori</strong> <br> ${productDetails.category}</p>
+            <p><strong>Nama Makanan</strong> <br> ${productDetails.food_name}</p>
+            <p><strong>Harga</strong> <br> Rp${productDetails.price}</p>
+            <p><strong>Nama Toko</strong> <br> ${productDetails.shop_name}</p>
+            <p><strong>Lokasi</strong> <br> ${productDetails.location}</p>
+            <p><strong>Rating</strong> <br> ${productDetails.rating_default}</p>
+            <p style="word-break: break-word;"><strong>Deskripsi makanan</strong> <br> ${productDetails.food_desc}</p>
+        `;
+    }
+
+    function hideInfoTable() {
+        const modal = document.getElementById('infoTable');
+        const modalContent = document.getElementById('infoTableContent');
+
+        modalContent.classList.remove('opacity-100', 'scale-100');
+        modalContent.classList.add('opacity-0', 'scale-95');
+
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 150); 
+    }
+
+    const modal = document.getElementById('crudModal');
+    const modalContent = document.getElementById('crudModalContent');
+
+    function showModal() {
+        const modal = document.getElementById('crudModal');
+        const modalContent = document.getElementById('crudModalContent');
+
+        modal.classList.remove('hidden'); 
+        setTimeout(() => {
+            modalContent.classList.remove('opacity-0', 'scale-95');
+            modalContent.classList.add('opacity-100', 'scale-100');
+        }, 50); 
+    }
+
+    function hideModal() {
+        const modal = document.getElementById('crudModal');
+        const modalContent = document.getElementById('crudModalContent');
+
+        modalContent.classList.remove('opacity-100', 'scale-100');
+        modalContent.classList.add('opacity-0', 'scale-95');
+
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 150); 
+    }
+
+    document.getElementById("cancelButton").addEventListener("click", hideModal);
+    document.getElementById("closeModalBtn").addEventListener("click", hideModal);
+
+    document.getElementById("closeInfoTable").addEventListener("click", hideInfoTable);
+
+    async function refreshProducts() {
+        document.getElementById("product_cards").innerHTML = "";
+        document.getElementById("product_cards").className = "";
+        const products = await getProducts();
+        let htmlString = "";
+        let classNameString = "";
+
+        const filteredProducts = products.filter(item => item.fields.shop_name === userShopName);
+
+        if (filteredProducts.length === 0) {
+            classNameString = "flex flex-col items-center justify-center min-h-[24rem] p-6";
+            htmlString = `
+                <div class="flex flex-col items-center justify-center min-h-[24rem] p-6">
+                    <img src="{% static 'image/sad-face.png' %}" alt="Sad face" class="w-32 h-32 mb-4"/>
+                    <p class="text-center text-gray-600 mt-4">Belum ada buku apa-apa nih :(</p>
+                </div>
+            `;
+        }
+        else {
+            classNameString = "columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6 w-full"
+            filteredProducts.forEach((item) => {
+                const food_name= DOMPurify.sanitize(item.fields.food_name);
+                const author = DOMPurify.sanitize(item.fields.author);
+                const description = DOMPurify.sanitize(item.fields.description);
+
+                htmlString += `
+                <a class="cursor-pointer" data-modal-target="infoTable" data-modal-toggle="infoTable" onclick="showInfoTable(event);" data-product-details='${JSON.stringify(item.fields)}'>
+                  <div class="relative break-inside-avoid">
+                      <div class="relative bg-white shadow-lg rounded-lg mb-6 break-inside-avoid w-80 mx-auto flex flex-col border-2 border-[#E3CAA5] transform rotate-0 hover:scale-105 transition-transform duration-300">
+                          <div class="bg-[#E3CAA5] text-gray-800 p-4 rounded-t-lg border-b-2 border-[#E3CAA5]">
+                              <h3 class="font-bold text-xl mb-2">${item.fields.food_name}</h3>
+                              <p class="text-gray-600">${item.fields.food_name}</p>
+                          </div>
+                          <div class="p-4">
+                              <p class="font-semibold text-lg mb-2">Author</p>
+                              <p class="text-gray-700 mb-2">
+                                  <span class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-black bg-gray-100">
+                                      ${item.fields.author}
+                                  </span>
+                              </p>
+                              <div class="mt-4">
+                                  <p class="text-gray-700 font-semibold mb-2">Price</p>
+                                  <div class="relative pt-1">
+                                      <div class="flex mb-2 items-center justify-between">
+                                      <div>
+                                          <span class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-black bg-gray-100">
+                                          ${item.fields.price}
+                                          </span>
+                                      </div>
+                                      </div>                 
+                                  </div>
+                              </div>
+                              <div class="mt-4">
+                              <p class="text-gray-700 font-semibold mb-2">Description</p>
+                              <div class="relative pt-1">
+                                  <div class="flex mb-2 items-center justify-between">
+                                  <div>
+                                      <span class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-black bg-gray-100">
+                                      ${item.fields.description}
+                                      </span>
+                                  </div>
+                                  </div>
+                              </div>
+                              </div>
+                      </div>
+                      <div class="absolute top-0 -right-4 flex space-x-1">
+                          <a href="/edit-product/${item.pk}" class="bg-yellow-500 hover:bg-yellow-600 text-white rounded-full p-2 transition duration-300 shadow-md">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" viewBox="0 0 20 20" fill="currentColor">
+                                  <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                              </svg>
+                          </a>
+                          <a href="/delete/${item.pk}" class="bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition duration-300 shadow-md">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" viewBox="0 0 20 20" fill="currentColor">
+                                  <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                              </svg>
+                          </a>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                `;
+            });
+        }
+        document.getElementById("product_cards").className = classNameString;
+        document.getElementById("product_cards").innerHTML = htmlString;
+    }
+    refreshProducts();
+
+    document.getElementById("productForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        createProduct();
+    })
+
+    function showLoginModal() {
+        const loginModal = document.getElementById('loginModal');
+        const loginModalContent = document.getElementById('loginModalContent');
+
+        loginModal.classList.remove('hidden');
+        setTimeout(() => {
+        loginModalContent.classList.remove('opacity-0', 'scale-95');
+        loginModalContent.classList.add('opacity-100', 'scale-100');
+        }, 50);
+    }
+
+    function hideLoginModal() {
+        const loginModal = document.getElementById('loginModal');
+        const loginModalContent = document.getElementById('loginModalContent');
+
+        loginModalContent.classList.remove('opacity-100', 'scale-100');
+        loginModalContent.classList.add('opacity-0', 'scale-95');
+        setTimeout(() => {
+        loginModal.classList.add('hidden');
+        }, 150);
+    }
+</script>
+
 
 {% endblock content %}
