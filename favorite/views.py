@@ -6,6 +6,7 @@ from django.db.models import Count
 from .models import Favorite
 from .models import Makanan  # Ganti dengan model produk yang sesuai
 from django.http import JsonResponse
+from django.views.decorators.http import require_POST
 
 @login_required
 def favorite_overview(request):
@@ -79,3 +80,15 @@ def delete_favorite(request, product_id):
     # Redirect ke halaman daftar favorit atau halaman lain yang sesuai
     return redirect('favorite:favorite_overview')
 
+
+@require_POST
+def add_favorite_2(request, product_id):
+    product = get_object_or_404(Makanan, id=product_id)
+    Favorite.objects.get_or_create(user=request.user, product=product)
+    return JsonResponse({'status': 'added'})
+
+@require_POST
+def delete_favorite_2(request, product_id):
+    product = get_object_or_404(Makanan, id=product_id)
+    Favorite.objects.filter(user=request.user, product=product).delete()
+    return JsonResponse({'status': 'deleted'})

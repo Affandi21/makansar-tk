@@ -35,10 +35,14 @@
                     <h2 class="text-xs font-semibold text-gray-500 mb-1">Produk Favorit</h2>
                     <h3 class="text-lg font-bold text-gray-900 mb-2">{{ favorite.product.food_name }}</h3>
                     <p class="text-gray-700 text-sm">Harga: {{ favorite.product.price }}</p>
+                    
+                    <!-- Delete Favorite Button -->
                     <form action="{% url 'favorite:delete_favorite' favorite.product.id %}" method="post" class="mt-2">
                         {% csrf_token %}
                         <button type="submit" class="text-red-500 hover:underline">Delete</button>
                     </form>
+                    
+                    <!-- Toggle Top 3 Button -->
                     <form action="{% url 'favorite:toggle_top_three' favorite.product.id %}" method="post" class="mt-2">
                         {% csrf_token %}
                         {% if favorite.is_top_three %}
