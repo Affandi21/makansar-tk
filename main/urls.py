@@ -18,10 +18,6 @@ urlpatterns = [
     path('edit-dashboard', views.edit_dashboard, name='edit_dashboard'),
     path('delete-account/', views.delete_account, name='delete_account'),
     path('profile/', views.view_profile, name='view_profile'),
-<<<<<<< HEAD
-    path('kategori/ayam/', views.makanan_kategori_ayam, name='makanan_kategori_ayam'),
-=======
-
     path('show-ayam/', views.show_ayam, name='show_ayam'),
     path('show-daging/', views.show_daging, name='show_daging'),
     path('show-chinese-food/', views.show_chinese_foood, name='show_chinese_food'),
@@ -32,7 +28,6 @@ urlpatterns = [
     path('show-martabak/', views.show_martabak, name='show_martabak'),
     path('show-nasi/', views.show_nasi, name='show_nasi'),
     path('show-beverages/', views.show_beverages, name='show_beverages'),
->>>>>>> f41fa6db9055daebe8754dd8a447abdf86bfabc6
 ]
 
 if settings.DEBUG:
