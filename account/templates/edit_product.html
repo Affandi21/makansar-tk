@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+<title>Edit Order</title>
+
+<style>
+    .form-group input, 
+    .form-group textarea,
+    .form-group select {
+      width: 100%;  /* Lebar field memenuhi container */
+      padding: 0.5rem; /* Atur padding */
+      border: 1px solid #ccc; /* Atur border */
+      border-radius: 0.25rem; /* Atur border radius */
+    }
+
+    .header {
+        background: radial-gradient(#fff, #d82a2d);
+    }
+</style>
+
+{% endblock meta %}
+
+{% block content %}
+{% include 'navbar.html' %}
+<div class="header flex flex-col min-h-screen">
+    <div id="animatedDiv" class="container mx-auto px-4 py-8 mt-16 max-w-xl opacity-0 transform translate-y-4 transition-all duration-500 ease-out">
+    <h1 class="text-3xl text-center mb-8 text-black font-bold" style="font-family: 'Playfair Display', serif;" >Edit Order</h1>
+  
+    <div class="bg-white rounded-lg p-6 form-style">
+      <form method="POST" class="space-y-6">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="flex flex-col">
+                    <label for="{{ field.id_for_label }}" class="mb-2 font-semibold text-gray-700">
+                        {{ field.label }}
+                    </label>
+                    <div class="w-full form-group">
+                        {{ field }}
+                    </div>
+                    {% if field.help_text %}
+                        <p class="mt-1 text-sm text-gray-500">{{ field.help_text }}</p>
+                    {% endif %}
+                    {% for error in field.errors %}
+                        <p class="mt-1 text-sm text-red-600">{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+        <div class="flex flex-col justify-center mt-6 space-y-4">
+            <button type="submit" class="bg-[#C1CFA1] hover:bg-[#A5B68D] text-white font-semibold px-6 py-3 rounded-lg transition duration-300 ease-in-out w-full">
+                Edit Order
+            </button>
+            <a href="{% url 'account:sellerpage' %}" class="bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-lg text-center transition duration-300 ease-in-out w-full">
+                Cancel
+            </a>
+        </div>
+      </form>
+  </div>
+  </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const animatedDiv = document.getElementById('animatedDiv');
+        setTimeout(() => {
+            animatedDiv.classList.remove('opacity-0', 'translate-y-4');
+            animatedDiv.classList.add('opacity-100', 'translate-y-0');
+        }, 100); // Waktu delay dalam milidetik sebelum animasi dimulai
+    });
+</script>
+  
+
+{% endblock content %}

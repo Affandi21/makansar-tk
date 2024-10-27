@@ -64,6 +64,69 @@ class RegisterForm(UserCreationForm):
         required=False  # Tidak wajib, karena akan divalidasi secara manual
     )
 
+from django import forms
+from django.forms import ModelForm
+from django.utils.html import strip_tags
+from main.models import Makanan
+from django.contrib.auth.forms import UserCreationForm
+from .models import User
+import re
+
+class RegisterForm(UserCreationForm):
+    username = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control"
+            }
+        )
+    )
+    password1 = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={
+                "class": "form-control"
+            }
+        ),
+        label="Password"  
+    )
+    password2 = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={
+                "class": "form-control"
+            }
+        ),
+        label="Confirm Password"  
+    )
+    tanggal_lahir = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date'}),  
+        label="Tanggal Lahir"  
+    )
+    nama = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control"
+            }
+        ),
+        label="Nama"  
+    )
+    no_telp = forms.CharField(
+        widget=forms.TextInput(
+            attrs={
+                "class": "form-control"
+            }
+        ),
+        label="No. Telepon" 
+    )
+    buyer = forms.BooleanField(
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), 
+        label="Buyer",
+        required=False 
+    )
+    seller = forms.BooleanField(
+        widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), 
+        label="Seller",
+        required=False 
+    )
+
     class Meta:
         model = User
         fields = ('username', 'password1', 'password2', 'nama', 'no_telp', 'tanggal_lahir', 'buyer', 'seller')

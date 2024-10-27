@@ -16,14 +16,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def show_main(request):
-    product_entries = Makanan.objects.all()
-
-    context = {
-        'team' : 'D04',
-        'product_entries' : product_entries,
-    }
-
-    return render(request, "main.html", context)
+    return render(request,'main.html')
 
 def register(request):
     msg = None
@@ -32,7 +25,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             msg = 'user created'
-            return redirect('main:login')
+            return redirect('main:show_main')
         else:
             msg = 'form is not valid'
     else:
@@ -55,7 +48,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    response = HttpResponseRedirect(reverse('main:login'))
+    response = HttpResponseRedirect(reverse('main:show_main'))
     response.delete_cookie('last_login')
     return response
 

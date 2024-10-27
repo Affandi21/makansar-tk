@@ -1,8 +1,40 @@
 {% extends 'base.html' %}
-{% block meta %}
-<title>MAKANSAR</title>
-{% endblock meta %}
+{% load static %}
 
+{% block meta %}
+
+<title>MAKANSAR</title>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
+<style>
+    .header {
+        background: radial-gradient(#fff, #d82a2d);
+    }
+
+    .section-p1 {
+        padding: 5px 80px;
+    }
+
+    .section-m1 {
+        margin: 40px 0;
+    }
+
+    #kategori .fe-box {
+        width: 180px;
+        text-align: center;
+        padding: 25px 15px;
+        box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+        border: 1px solid #0b0b0b;
+        border-radius: 4px;
+        margin: 20px 10px;
+    }
+
+    #kategori .fe-box:hover {
+        box-shadow: 10px 10px 54px rgba(245, 4, 44, 0.293);
+    }   
+
+</style>
+
+{% endblock meta %}
 {% block content %}
 {% include 'navbar.html' %}
 

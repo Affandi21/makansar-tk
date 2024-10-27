@@ -17,15 +17,35 @@
   }
 </style>
 
+
+<style>
+  .form-group {
+    margin-bottom: 1rem; /* Atur jarak antar field */
+  }
+
+  .form-group input, 
+  .form-group textarea,
+  .form-group select {
+    width: 100%;  /* Lebar field memenuhi container */
+    padding: 0.5rem; /* Atur padding */
+    border: 1px solid #ccc; /* Atur border */
+    border-radius: 0.25rem; /* Atur border radius */
+  }
+
+  .header {
+    background: radial-gradient(#fff, #d82a2d);
+  }
+</style>
+
 {% endblock meta %} 
 {% block content %}
 <div
-  class="min-h-screen flex items-center justify-center bg-[#E3CAA5] py-12 px-4 sm:px-6 lg:px-8"
+  class="header min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
 >
   <div class="max-w-md w-full space-y-8 form-style">
     <div id="animatedDiv" class="border border-gray-300 bg-white rounded-md p-6 opacity-0 transform translate-y-4 transition-all duration-500 ease-out">
       <div>
-        <h2 class="mt-6 text-center text-3xl font-extrabold text-[#603F26]" >
+        <h2 style="font-family: 'Playfair Display', serif;" class="mt-6 text-center text-3xl font-bold text-black" >
           Buat akun
         </h2>
       </div>
@@ -83,8 +103,10 @@
           <a
             href="{% url 'main:login' %}"
             class="font-medium text-[#DFD3C3] hover:text-[#D9ABAB]"
+            href="{% url 'main:show_main' %}"
+            class="font-medium text-black hover:font-bold underline"
           >
-            Masuk di sini
+            Kembali ke home
           </a>
         </p>
       </div>
