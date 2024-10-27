@@ -116,15 +116,6 @@ def delete_account(request):
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
 
-<<<<<<< HEAD
-
-def makanan_kategori_ayam(request):
-    makanan_list = Makanan.objects.filter(category='Ayam')
-    context = {
-        'makanan_list': makanan_list,
-    }
-    return render(request, 'ayam.html', context)
-=======
 def show_ayam(request):
     makanan_list = Makanan.objects.filter(category='Ayam')
     context = {
@@ -194,4 +185,3 @@ def show_beverages(request):
         'makanan_list' : makanan_list,
     }
     return render(request, 'beverages.html', context)
->>>>>>> f41fa6db9055daebe8754dd8a447abdf86bfabc6
