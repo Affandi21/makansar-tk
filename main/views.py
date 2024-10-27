@@ -18,6 +18,9 @@ from django.contrib.auth.decorators import login_required
 def show_main(request):
     return render(request,'main.html')
 
+def show_foods(request):
+    return render(request, 'show_foods.html')
+
 def register(request):
     msg = None
     if request.method == 'POST':
@@ -112,3 +115,73 @@ def delete_account(request):
         logout(request)
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
+
+def show_ayam(request):
+    makanan_list = Makanan.objects.filter(category='Ayam')
+    context = {
+        'makanan_list' : makanan_list,
+    }
+    return render(request, 'ayam.html', context)
+
+def show_daging(request):
+    makanan_list = Makanan.objects.filter(category='Daging')
+    context = {
+        'makanan_list' : makanan_list,
+    }
+    return render(request, 'daging.html', context)
+
+def show_chinese_foood(request):
+    makanan_list = Makanan.objects.filter(category='Chinese Food')
+    context = {
+        'makanan_list' : makanan_list,
+    }
+    return render(request, 'chinese_food.html', context)
+
+def show_arabic_food(request):
+    makanan_list = Makanan.objects.filter(category='Arabic Food')
+    context = {
+        'makanan_list' : makanan_list,
+    }
+    return render(request, 'arabic_food.html', context)
+
+def show_dessert(request):
+    makanan_list = Makanan.objects.filter(category='Dessert')
+    context = {
+        'makanan_list' : makanan_list,
+    }
+    return render(request, 'dessert.html', context)
+
+def show_makanan_berkuah(request):
+    makanan_list = Makanan.objects.filter(category='Makanan berkuah')
+    context = {
+        'makanan_list' : makanan_list,
+    }
+    return render(request, 'makanan_berkuah.html', context)
+
+def show_nasi(request):
+    makanan_list = Makanan.objects.filter(category='Nasi')
+    context = {
+        'makanan_list' : makanan_list,
+    }
+    return render(request, 'nasi.html', context)
+
+def show_seafood(request):
+    makanan_list = Makanan.objects.filter(category='Seafood')
+    context = {
+        'makanan_list' : makanan_list,
+    }
+    return render(request, 'seafood.html', context)
+
+def show_martabak(request):
+    makanan_list = Makanan.objects.filter(category='Martabak')
+    context = {
+        'makanan_list' : makanan_list,
+    }
+    return render(request, 'martabak.html', context)
+
+def show_beverages(request):
+    makanan_list = Makanan.objects.filter(category='Beverages')
+    context = {
+        'makanan_list' : makanan_list,
+    }
+    return render(request, 'beverages.html', context)
