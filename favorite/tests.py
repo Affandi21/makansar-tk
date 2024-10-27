@@ -26,7 +26,6 @@ class UserAndMakananTest(TestCase):
             price=10000,
             rating_default=4.5,
             food_desc="Delicious Test Food",
-            image=None
         )
 
 
