@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block meta %}
+<title>MAKANSAR</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="container">
+    <p>{{ user.username }}</p>
+    <h5>TEAM: </h5>
+    <p>{{ team }}</p>
+
+    <div class="profile">
+        {% if user.userprofile.profile_image %}
+            <img src="{{ user.userprofile.profile_image.url }}" alt="Profile Image" class="profile-image">
+        {% else %}
+            <p>No profile image uploaded.</p>
+        {% endif %}
+    </div>
+
+    {% if not product_entries %}
+        <p>Belum ada data mood pada mental health tracker.</p>
+    {% else %}
+        <table>
+            <tr>
+                <th>Menu</th>
+                <th>Harga</th>
+                <th>Toko</th>
+                <th>Lokasi</th>
+                <th>Deskripsi</th>
+                <th>Rating</th>
+                <th>Tanggal</th>
+            </tr>
+
+            {% for product_entry in product_entries %}
+            <tr>
+                <td>{{ product_entry.food_name }}</td>
+                <td>{{product_entry.price}}</td>
+                <td>{{product_entry.shop_name}}</td>
+                <td>{{product_entry.location}}</td>
+                <td>{{product_entry.food_desc}}</td>
+                <td>{{product_entry.rating_default}}</td>
+                <td>{{product_entry.date}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+<br />
+
+<a href="{% url 'main:create_product_entry' %}">
+    <button>Add New Product</button>
+</a>
+
+<a href="{% url 'main:view_profile' %}">
+    <button>View Profile</button>
+</a>
+
+<a href="{% url 'main:logout' %}">
+    <button>Logout</button>
+</a>
+
+<style>
+    .profile-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+</style>
+{% endblock content %}
