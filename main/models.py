@@ -13,13 +13,21 @@ class Makanan(models.Model):
     food_desc = models.TextField()
     image = models.ImageField(upload_to='static/images/', null=True, blank=True)
 
-# Model untuk dashboard (khusus untuk pembeli nanti)
+# Model untuk dashboard
 class UserProfile(models.Model):
-    nama = models.CharField(max_length=100)
+    profile_image = models.ImageField(upload_to='profile_images/', null=True, blank=True)
+    user_profile = models.OneToOneField(User, on_delete=models.CASCADE)
     jenis_kelamin = models.CharField(max_length=10, choices=[('Laki-laki', 'Laki-laki'), ('Perempuan', 'Perempuan')])
     email = models.EmailField()
-    nomor_hp = models.CharField(max_length=15)
     alamat = models.TextField()
 
     def __str__(self):
-        return self.nama
+        return self.user_profile.nama
+    
+    @property
+    def nama(self):
+        return self.user_profile.nama
+
+    @property
+    def nomor_hp(self):
+        return self.user_profile.no_telp

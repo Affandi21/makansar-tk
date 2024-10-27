@@ -1,5 +1,8 @@
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 app_name = 'main'
 
 urlpatterns = [
@@ -12,4 +15,9 @@ urlpatterns = [
     path('xml/<str:id>/', views.show_xml_by_id, name='show_xml_by_id'),
     path('json/<str:id>/', views.show_json_by_id, name='show_json_by_id'),
     path('edit-dashboard', views.edit_dashboard, name='edit_dashboard'),
+    path('delete-account/', views.delete_account, name='delete_account'),
+    path('profile/', views.view_profile, name='view_profile'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
