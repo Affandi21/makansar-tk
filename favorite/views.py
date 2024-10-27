@@ -7,13 +7,14 @@ from .models import Favorite
 from .models import Makanan  # Ganti dengan model produk yang sesuai
 from django.http import JsonResponse
 from django.views.decorators.http import require_POST
-from .forms import Komentar
 from django.views.decorators.csrf import csrf_exempt
 import json
+from django.http import HttpResponseForbidden
 
 @login_required
 def favorite_overview(request):
-
+    if not request.user.buyer:
+        return HttpResponseForbidden("You do not have permission to access this page.")
     top_three_favorites = Favorite.objects.filter(user=request.user, is_top_three=True)[:3]
     all_favorites = Favorite.objects.filter(user=request.user)
     all_products = Makanan.objects.all()
@@ -65,7 +66,6 @@ def delete_favorite(request, product_id):
     if favorite.exists():
         # Hapus produk dari favorit
         favorite.delete()
-        # Beri notifikasi sukses
         # messages.success(request, f"{product.food_name} telah dihapus dari favorit Anda."
 
     # Redirect ke halaman daftar favorit atau halaman lain yang sesuai
@@ -81,13 +81,3 @@ def toggle_favorite(request, product_id):
         return JsonResponse({'status': 'removed', 'product_id': product_id}, status=200)
     return JsonResponse({'status': 'added', 'product_id': product_id}, status=200)
 
-@csrf_exempt
-def add_comment(request, product_id):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        content = data.get('content')
-        if content:
-            favorite = get_object_or_404(Favorite, user=request.user, product_id=product_id)
-            comment = Komentar.objects.create(favorite=favorite, user=request.user, content=content)
-            return JsonResponse({'success': True, 'username': request.user.username, 'content': content})
-    return JsonResponse({'success': False})

@@ -12,9 +12,5 @@ class Favorite(models.Model):
     class Meta:
         unique_together = ('user', 'product')  # Hindari duplikasi favorit
 
-class Komentar(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_comments")
-    product = models.ForeignKey(Makanan, on_delete=models.CASCADE, related_name="product_comments")
-    favorite = models.ForeignKey(Favorite, on_delete=models.CASCADE, related_name="favorite_comments", null=True, blank=True)
-    content = models.TextField()
-    
+    def __str__(self):
+        return f"{self.user.username} - {self.product.food_name}"
