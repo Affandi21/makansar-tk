@@ -115,7 +115,7 @@ def delete_account(request):
         logout(request)
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
-
+# 
 def show_ayam(request):
     makanan_list = Makanan.objects.filter(category='Ayam')
     context = {
