@@ -23,7 +23,7 @@ class RegisterForm(UserCreationForm):
                 "class": "form-control"
             }
         ),
-        label="Password"  # Menambahkan label untuk password1
+        label="Password"  
     )
     password2 = forms.CharField(
         widget=forms.PasswordInput(
@@ -31,11 +31,11 @@ class RegisterForm(UserCreationForm):
                 "class": "form-control"
             }
         ),
-        label="Confirm Password"  # Menambahkan label untuk password2
+        label="Confirm Password"  
     )
     tanggal_lahir = forms.DateField(
-        widget=forms.DateInput(attrs={'type': 'date'}),  # HTML5 DateInput widget
-        label="Tanggal Lahir"  # Menambahkan label untuk tanggal_lahir
+        widget=forms.DateInput(attrs={'type': 'date'}),  
+        label="Tanggal Lahir"  
     )
     nama = forms.CharField(
         widget=forms.TextInput(
@@ -43,7 +43,7 @@ class RegisterForm(UserCreationForm):
                 "class": "form-control"
             }
         ),
-        label="Nama"  # Menambahkan label untuk nama
+        label="Nama"  
     )
     no_telp = forms.CharField(
         widget=forms.TextInput(
@@ -51,17 +51,17 @@ class RegisterForm(UserCreationForm):
                 "class": "form-control"
             }
         ),
-        label="No. Telepon"  # Menambahkan label untuk no_telp
+        label="No. Telepon" 
     )
     buyer = forms.BooleanField(
         widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), 
         label="Buyer",
-        required=False  # Tidak wajib, karena akan divalidasi secara manual
+        required=False 
     )
     seller = forms.BooleanField(
         widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}), 
         label="Seller",
-        required=False  # Tidak wajib, karena akan divalidasi secara manual
+        required=False 
     )
 
     class Meta:
