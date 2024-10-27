@@ -6,3 +6,4 @@ class MainConfig(AppConfig):
     name = 'main'
 
 
+
