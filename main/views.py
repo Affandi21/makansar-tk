@@ -85,7 +85,6 @@ def edit_dashboard(request):
         if action == 'save' and user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'Your profile has been updated successfully!')
             return redirect('main:show_main')
 
         elif action == 'delete':
@@ -94,7 +93,6 @@ def edit_dashboard(request):
         elif action == 'confirm_delete':
             user.delete()
             logout(request)
-            messages.success(request, 'Your account has been deleted successfully.')
             return redirect('main:show_main')
 
         elif action == 'cancel_delete':
