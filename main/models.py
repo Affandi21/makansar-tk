@@ -10,8 +10,11 @@ class Makanan(models.Model):
     shop_name = models.CharField(max_length=200)
     price = models.DecimalField(decimal_places=2, max_digits=15)
     rating_default = models.DecimalField(decimal_places=1, max_digits=5)
+    new_rating = models.FloatField(default=0.0)
     food_desc = models.TextField()
-    image = models.ImageField(upload_to='static/images/', null=True, blank=True)
+    # image = models.ImageField(upload_to='static/images/', null=True, blank=True)
+    jumlah_review = models.IntegerField(default=0)
+
 
 # Model untuk dashboard
 class UserProfile(models.Model):

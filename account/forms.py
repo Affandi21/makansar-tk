@@ -24,7 +24,7 @@ class MakananForm(ModelForm):
 
     class Meta:
         model = Makanan
-        fields = ["category", "food_name", "location", "price", "image", "food_desc"]
+        fields = ["category", "food_name", "location", "price", "food_desc"]
 
     def clean_food_name(self):
         food_name = self.cleaned_data["food_name"]
