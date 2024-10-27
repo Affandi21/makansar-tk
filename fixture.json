@@ -1,902 +1,1505 @@
 [
     {
-        "category": "Ayam",
-        "food_name": "Ayam Balap",
-        "location": "Jalan Abd. Kadir Nomor 31, Balang Baru, Tamalate, Kota Makassar",
-        "shop_name": "Warung Makan Ayam Balap",
-        "price": 9000,
-        "rating_default": 4.4,
-        "food_desc": "Ayam goreng yang disajikan dengan potongan ayam yang dimasak dengan bumbu khas Makassar, seperti bawang putih, ketumbar, kunyit, dan jahe."
-    },
-    {
-        "category": "Ayam",
-        "food_name": "Ayam Goreng Sulawesi",
-        "location": "Jalan Pattimura Nomor 2, Bulo Gading, Ujung Pandang, Kota Makassar",
-        "shop_name": "Rumah Makan Sulawesi Baru (Ayam Goreng Dan Ikan Bakar)",
-        "price": 39000,
-        "rating_default": 4.4,
-        "food_desc": "Ayam kampung yang sebelum digoreng, ayam ini biasanya direndam dalam marinasi khusus yang terdiri dari bumbu-bumbu bervaiasi serta lapisan rasa yang kompleks dan mendalam."
-    },
-    {
-        "category": "Ayam",
-        "food_name": "Ayam Madaeng",
-        "location": "Balla Parang, Rappocini, Makassar",
-        "shop_name": "Madaeng",
-        "price": 14000,
-        "rating_default": 4.8,
-        "food_desc": "Ayam kampung dengan bumbu rempah kaya. Ayam bakar kampung yang disajikan menambah aroma asap yang khas, dan disajikan dengan sambal taoco yang pedas manis."
-    },
-    {
-        "category": "Ayam",
-        "food_name": "Ayam Palekko Marasa",
-        "location": "Jl. Kerukunan Barat 26, Tamalanrea, Kec. Tamalanrea, Kota Makassar, Sulawesi Selatan 90245",
-        "shop_name": "Palekko Marasa BTP",
-        "price": 20000,
-        "rating_default": 4.7,
-        "food_desc": "Ayam kampung yang dimasak dengan bumbu pedas dari cabai merah, bawang, dan rempah lainnya"
-    },
-    {
-        "category": "Ayam",
-        "food_name": "Ayam Nasulikku",
-        "location": "Jl. Talasalapang, Karunrung, Kec. Rappocini, Kota Makassar, Sulawesi Selatan 90221",
-        "shop_name": "ayam nasulikku cuke",
-        "price": 15000,
-        "rating_default": 4.8,
-        "food_desc": "Ayam yang dimasak dengan parutan lengkuas dan santan"
-    },
-    {
-        "category": "Ayam",
-        "food_name": "Ayam bakar parape",
-        "location": "Jl. Bulu Kunyi No. 23, Makassar, Makassar",
-        "shop_name": "Warung Mbak Sil, Bulu Kunyi",
-        "price": 16000,
-        "rating_default": 4.9,
-        "food_desc": "Ayam Bakar yang yang dimasak dengan bumbu khas ikan bakar khas Sulawesi yaitu Parape"
-    },
-    {
-        "category": "Ayam",
-        "food_name": "Ayam Tettu",
-        "location": "Jl. Macan No.22, Bonto Biraeng, Kec. Mamajang, Kota Makassar, Sulawesi Selatan 90132",
-        "shop_name": "Ayam Tettu Macan",
-        "price": 5000,
-        "rating_default": 4.5,
-        "food_desc": "Ayam goreng tanpa tulang yang disajikan dengan cara ditumbuk"
-    },
-    {
-        "category": "Ayam",
-        "food_name": "Ayam rica-rica",
-        "location": "Perumahan Graha Tiga Putra, Blok A No. 14, Jl. Tamalanrea Raya, Tamalanrea, Makassar",
-        "shop_name": "A'A Food (Kuliner Buntu Kabobong), BTP",
-        "price": 15000,
-        "rating_default": 4.9,
-        "food_desc": "Olahan ayam bercita rasa pedas gurih khas Sulawesi"
-    },
-    {
-        "category": "Ayam",
-        "food_name": "Ayam Ketumbar",
-        "location": "Ruko Sardonix No. 12, Jl. Andi P Pettarani Komplek Ramayana, Masale, Panakukang, Makassar",
-        "shop_name": "Ayam Goreng Bu Tumbar",
-        "price": 23000,
-        "rating_default": 4.6,
-        "food_desc": "Ayam goreng ini dimasak dengan berbagai bumbu masakan dan ketumbar"
-    },
-    {
-        "category": "Ayam",
-        "food_name": "Ayam Woku",
-        "location": "Taman Mediterranean, Jl. Mediterranean Asri No. 9 Tanjung Bunga, Tamalate, Makassar",
-        "shop_name": "Mams Kitchen",
-        "price": 45000,
-        "rating_default": 4.9,
-        "food_desc": "Ayam woku yang dimasak dengan daun woku dengan bumbu yang kuat dan pedas"
-    },
-    {
-        "category": "Chinese Food",
-        "food_name": "Cakwe Polos",
-        "location": "Jl. Irian No.1, Butung, Wajo, Makassar",
-        "shop_name": "Cakwe Riau",
-        "price": 5000,
-        "rating_default": 4.5,
-        "food_desc": "Gorengan berbentuk panjang dari adonan tepung yang digoreng renyah tanpa isian"
-    },
-    {
-        "category": "Chinese Food",
-        "food_name": "Bakpao Ayam",
-        "location": "Jln. Toddopuli Raya no.A2/1 (Cabang Jalan Lombok), Makassar",
-        "shop_name": "Kedai Air Tahu 43",
-        "price": 11000,
-        "rating_default": 4.6,
-        "food_desc": "Bakpao lembut dengan isian daging ayam berbumbu."
-    },
-    {
-        "category": "Chinese Food",
-        "food_name": "Pangsit Misoa",
-        "location": "Jl. Sulawesi No.192, Melayu Baru, Wajo, Makassar",
-        "shop_name": "Pangsit Mie Sulawesi - Warkop Fat Heng",
-        "price": 37000,
-        "rating_default": 4.5,
-        "food_desc": "Misoa dengan pangsit renyah dan daging yang gurih."
-    },
-    {
-        "category": "Chinese Food",
-        "food_name": "Siomay",
-        "location": "Jl. Sangir No.161, Melayu Baru, Wajo, Makassar",
-        "shop_name": "Rich Taste",
-        "price": 34500,
-        "rating_default": 4.5,
-        "food_desc": "Kudapan kukus dari daging dengan kulit tipis."
-    },
-    {
-        "category": "Chinese Food",
-        "food_name": "Lontong Cap Go Meh",
-        "location": "Jl. Serui No.11A, Pattunuang, Wajo, Makassar",
-        "shop_name": "Nasi Campur Serui/Kios Satu-Satu",
-        "price": 60000,
-        "rating_default": 4.5,
-        "food_desc": "Hidangan tradisional dengan lontong, opor ayam, dan telur."
-    },
-    {
-        "category": "Chinese Food",
-        "food_name": "Dimsum Mentai",
-        "location": "Jl. Talasalapang No.56, Gn. Sari, Rappocini, Makassar",
-        "shop_name": "Dimsum Bu Yanti",
-        "price": 3000,
-        "rating_default": 4.6,
-        "food_desc": "Kudapan dimsum dengan saus mentai yang creamy dan lezat."
-    },
-    {
-        "category": "Chinese Food",
-        "food_name": "Mi Goreng Hokkian",
-        "location": "Jl. Rappocini Raya No.192, Bua Kana, Rappocini, Makassar",
-        "shop_name": "Kios Rappocini",
-        "price": 50000,
-        "rating_default": 4.3,
-        "food_desc": "Mie kuning tebal yang digoreng dengan bumbu khas Hokkian."
-    },
-    {
-        "category": "Chinese Food",
-        "food_name": "Sapo Tahu Seafood",
-        "location": "Jl. Lamaddukelleng No.23/30, Losari, Ujung Pandang, Makassar",
-        "shop_name": "Warung Laota",
-        "price": 70000,
-        "rating_default": 4.7,
-        "food_desc": "Hidangan sapo dengan tahu lembut, aneka seafood, dan saus gurih."
-    },
-    {
-        "category": "Chinese Food",
-        "food_name": "Bakpao Talas",
-        "location": "Jl. Lamaddukelleng No.23/30, Losari, Ujung Pandang, Makassar",
-        "shop_name": "Warung Laota",
-        "price": 37000,
-        "rating_default": 4.7,
-        "food_desc": "Bakpao lembut dengan tampilan dan isian talas manis."
-    },
-    {
-        "category": "Chinese Food",
-        "food_name": "Bakmi Hitam Ayam Kecap",
-        "location": "Mall Panakkukang, Masale, Panakukang, Makassar",
-        "shop_name": "Bakmi Warisan",
-        "price": 32000,
-        "rating_default": 4.2,
-        "food_desc": "Mie hitam dengan sensasi daging ayam berbumbu kecap manis dan gurih."
-    },
-    {
-        "category": "Nasi",
-        "food_name": "Nasi Pecel",
-        "location": "Jl. Andi Mappaodang, Jongaya, Kec. Tamalate, Makassar",
-        "shop_name": "Nasi Kuning & Nasi Campur Mbak Isti",
-        "price": 17500,
-        "rating_default": 4.1,
-        "food_desc": "Nasi pecel adalah hidangan nasi dengan sayuran rebus dan saus kacang pedas."
-    },
-    {
-        "category": "Nasi",
-        "food_name": "Nasi Kuning Sulawesi",
-        "location": "Jl. Topaz Raya Jl. Boulevard No.F21, Masale, Makassar",
-        "shop_name": "Nasi Kuning Sulawesi",
-        "price": 30000,
-        "rating_default": 4.3,
-        "food_desc": "Nasi kuning Sulawesi adalah hidangan nasi kuning yang disajikan dengan lauk khas, seperti tempe, telur, dan sambal."
-    },
-    {
-        "category": "Nasi",
-        "food_name": "Nasi Kuning Riburane",
-        "location": "Jl. Riburane No.11, Pattunuang, Kec. Wajo, Makassar",
-        "shop_name": "Nasi Kuning Riburane",
-        "price": 27000,
-        "rating_default": 4.4,
-        "food_desc": "Nasi kuning Riburane disajikan dengan lauk ikan tuna, telur, dan sambal khas."
-    },
-    {
-        "category": "Nasi",
-        "food_name": "Nasi Rawon",
-        "location": "Jl. Datu Museng No.11, Maloku, Kec. Ujung Pandang, Kota Makassar",
-        "shop_name": "Sop Ubi Dan Nasi Rawon Datumuseng",
-        "price": 25000,
-        "rating_default": 4.5,
-        "food_desc": "Nasi rawon adalah nasi dengan sup daging sapi berkuah hitam dari kluwek."
-    },
-    {
-        "category": "Nasi",
-        "food_name": "Nasi Goreng",
-        "location": "Jl. Bacan No.2, Ende, Kec. Wajo, Makassar",
-        "shop_name": "Nasi Goreng Sari 21",
-        "price": 27000,
-        "rating_default": 4.4,
-        "food_desc": "Nasi goreng Sari 21 adalah nasi goreng khas dengan bumbu rempah Makassar."
-    },
-    {
-        "category": "Nasi",
-        "food_name": "Nasi Goreng Maranggi",
-        "location": "Jl. Tupai, Bonto Biraeng, Kec. Mamajang, Makassar",
-        "shop_name": "Nasi Goreng Sapi dan Kambing Sate Maranggi",
-        "price": 45000,
-        "rating_default": 4.2,
-        "food_desc": "Nasi goreng Maranggi disajikan dengan daging sapi maranggi yang kaya bumbu dan rempah."
-    },
-    {
-        "category": "Nasi",
-        "food_name": "Nasi Goreng Kambing",
-        "location": "Jl. Pengayoman No.21 (Pegasus Coffee), Makassar",
-        "shop_name": "PEGASUS Coffee Shop",
-        "price": 35000,
-        "rating_default": 4.3,
-        "food_desc": "Nasi goreng kambing disajikan dengan potongan daging kambing berbumbu rempah khas."
-    },
-    {
-        "category": "Nasi",
-        "food_name": "Nasi Uduk Buratu",
-        "location": "Jalan Perintis Kemerdekaan No.KM.12, Tamalanrea, Makassar",
-        "shop_name": "Nasi Uduk Buratu",
-        "price": 35000,
-        "rating_default": 4.4,
-        "food_desc": "Nasi uduk yang disajikan dengan lauk ayam, telur, sambal, dan serundeng kelapa."
-    },
-    {
-        "category": "Nasi",
-        "food_name": "Nasi Uduk Ibu Ulin",
-        "location": "Jalan Pengayoman Pasar Segar CT 24, Pandang, Kec. Panakkukang, Makassar",
-        "shop_name": "Nasi Uduk Ibu Ulin",
-        "price": 25000,
-        "rating_default": 4.5,
-        "food_desc": "Nasi uduk Ibu Ulin disajikan dengan ayam, tahu, tempe, dan sambal kacang."
-    },
-    {
-        "category": "Nasi",
-        "food_name": "Nasi Uduk Hasanuddin",
-        "location": "Jalan Sultan Hasanuddin No.77-83, Sawerigading, Kec. Ujung Pandang, Makassar",
-        "shop_name": "Nasi Uduk Hasanuddin",
-        "price": 15000,
-        "rating_default": 4.3,
-        "food_desc": "Nasi uduk Hasannudin disajikan dengan lauk ayam goreng, sambal, dan kerupuk."
-    },
-    {
-        "category": "Makanan berkuah",
-        "food_name": "Coto Nusantara",
-        "location": "Jalan Nusantara Baru Nomor 142, Ende, Wajo, Makassar, Sulawesi Selatan.",
-        "shop_name": "Coto Nusantara",
-        "price": 35000,
-        "rating_default": 4.4,
-        "food_desc": "Coto Nusantara adalah salah satu variasi Coto Makassar yang terkenal dengan cita rasanya yang kaya dan kuahnya yang kental. Hidangan ini terdiri dari daging sapi yang dimasak dalam kuah berbumbu spesial yang terbuat dari rempah-rempah."
-    },
-    {
-        "category": "Makanan berkuah",
-        "food_name": "Pallubasa",
-        "location": "Coto Makassar Daeng Sija, Martanegara",
-        "shop_name": "Coto Makassar Daeng Sija, Martanegara",
-        "price": 32500,
-        "rating_default": 4.3,
-        "food_desc": "Pallubasa adalah hidangan khas Makassar yang mirip dengan Coto Makassar namun memiliki cita rasa dan penyajian yang unik."
-    },
-    {
-        "category": "Makanan berkuah",
-        "food_name": "Sop Cendrawasih mas Tomo",
-        "location": "Jalan Opu Daeng Risadju Nomor 36, Kunjung Mae, Mariso, Makassar, Sulawesi Selatan.",
-        "shop_name": "Sop Cendrawasih mas Tomo",
-        "price": 50000,
-        "rating_default": 4.6,
-        "food_desc": "Sop Cendrawasih adalah hidangan unik yang diciptakan oleh Mas Tomo, terkenal akan kekayaan rasa dan bahan-bahannya yang berkualitas. Sop ini terdiri dari kaldu ayam yang bening namun penuh cita rasa"
-    },
-    {
-        "category": "Makanan berkuah",
-        "food_name": "Konro karebosi",
-        "location": "Jalan Gunung Lompobattang No.41-43, Pisang Utara, Makassar, Sulawesi Selatan.",
-        "shop_name": "Warung Konro karebosi",
-        "price": 100000,
-        "rating_default": 4.7,
-        "food_desc": "Konro Karebosi adalah sajian khas Makassar yang terkenal dengan citarasanya yang kuat dan menggugah selera. Hidangan ini menggunakan iga sapi yang dimasak dalam kuah yang kaya rempah."
-    },
-    {
-        "category": "Makanan berkuah",
-        "food_name": "Kapurung udang",
-        "location": "Jl. Kasuari No.4-2, Kunjung Mae, Kec. Mariso, Kota Makassar, Sulawesi Selatan 90113",
-        "shop_name": "Kapurung Kasuari",
-        "price": 44000,
-        "rating_default": 4.6,
-        "food_desc": "Kapurung Udang adalah hidangan tradisional dari Sulawesi Selatan yang memadukan udang segar dengan bubur sagu."
-    },
-    {
-        "category": "Makanan berkuah",
-        "food_name": "Sop lidah lamuru",
-        "location": "Jl. Rusa No.15, Maricaya, Kec. Makassar, Kota Makassar, Sulawesi Selatan 90142",
-        "shop_name": "Warung Sop Lidah Lamuru",
-        "price": 35000,
-        "rating_default": 4.5,
-        "food_desc": "Sop Lidah Lamuru adalah hidangan khas yang mengedepankan lidah sapi sebagai bahan utamanya. Potongan lidah sapi yang dimasak hingga empuk disajikan dalam kuah bening yang kaya akan bumbu rempah."
-    },
-    {
-        "category": "Makanan berkuah",
-        "food_name": "ikan bandeng palumara",
-        "location": "Jl. Dg. Tantu Kelurahan Rappokalling, Kecamatan Tallo",
-        "shop_name": "ASKANAH PUTRA AKSARA",
-        "price": 55000,
-        "rating_default": 4.4,
-        "food_desc": "Ikan Bandeng Palumara adalah hidangan khas Sulawesi Selatan yang menonjolkan kesegaran ikan bandeng dengan kuah yang kaya rasa. Ikan bandeng yang sudah dibersihkan dimasak dalam kuah kuning"
-    },
-    {
-        "category": "Makanan berkuah",
-        "food_name": "Sop saudara",
-        "location": "Jl. Andi Pangeran Pettarani No. 12C, Rappocini, Makassar",
-        "shop_name": "Sop Saudara Irian 2, Pettarani",
-        "price": 35000,
-        "rating_default": 4.7,
-        "food_desc": "Sop Saudara adalah hidangan khas Sulawesi Selatan yang menawarkan cita rasa yang kompleks dan lezat. Terbuat dari daging sapi yang dimasak hingga empuk."
-    },
-    {
-        "category": "Makanan berkuah",
-        "food_name": "Sop Kikil",
-        "location": "Jl. Andi Pangeran Pettarani No. 12C, Rappocini, Makassar",
-        "shop_name": "Sop Saudara Irian 2, Pettarani",
-        "price": 62000,
-        "rating_default": 4.7,
-        "food_desc": "Sop Kikil adalah hidangan khas Indonesia yang menggunakan kikil atau kulit sapi sebagai bahan utamanya. Potongan kikil yang dimasak hingga empuk disajikan dalam kuah bening yang kaya akan bumbu"
-    },
-    {
-        "category": "Makanan berkuah",
-        "food_name": "Nyuknyang",
-        "location": "Jalan Gunung Salahutu No 29",
-        "shop_name": "NYUKNYANG 99",
-        "price": 40000,
-        "rating_default": 4.6,
-        "food_desc": "Nyuknyang adalah hidangan bakso khas dari Sulawesi Selatan yang dikenal dengan teksturnya yang kenyal dan cita rasa yang lezat. Terbuat dari campuran daging sapi dan tepung tapioka"
-    },
-    {
-        "category": "Martabak",
-        "food_name": "Martabak Manis Red Velvet Keju",
-        "location": "Jl. Pengayoman, Makassar (dekat kampus UNM)",
-        "shop_name": "Martabak & Terang Bulan Aneka Rasa",
-        "price": 34275,
-        "rating_default": 4.7,
-        "food_desc": "Martabak manis dengan adonan red velvet yang lembut, diberi topping keju melimpah dan susu kental manis. Cocok untuk penggemar rasa manis dan kekinian."
-    },
-    {
-        "category": "Martabak",
-        "food_name": "Martabak Telur Jumbo Spesial",
-        "location": "Jl. A.P. Pettarani, Makassar (dekat Mall Panakkukang)",
-        "shop_name": "Martabak Cowboy Makassar",
-        "price": 85000,
-        "rating_default": 4.5,
-        "food_desc": "Martabak telur ukuran jumbo dengan isian daging sapi cincang, telur ayam/bebek, daun bawang, dan bumbu rempah yang khas. Dilengkapi acar dan saus cabai sebagai pelengkap."
-    },
-    {
-        "category": "Martabak",
-        "food_name": "Martabak Manis Cokelat Kacang Spesial",
-        "location": "Jl. Boulevard, Panakkukang, Makassar",
-        "shop_name": "Martabak Hokky",
-        "price": 45000,
-        "rating_default": 4.6,
-        "food_desc": "Martabak manis klasik dengan topping cokelat meses, kacang tanah sangrai, dan taburan wijen. Adonan tebal dan lembut, cita rasa khas Martabak Hokky yang legendaris."
-    },
-    {
-        "category": "Martabak",
-        "food_name": "Martabak Telur Ayam Spesial",
-        "location": "Jl. Sultan Alauddin, Makassar (dekat kampus UIN)",
-        "shop_name": "Martabak Bandung Raya",
-        "price": 35000,
-        "rating_default": 4.4,
-        "food_desc": "Martabak telur dengan isian daging ayam cincang, telur ayam/bebek, daun bawang, dan bumbu khas. Kulit martabak tipis dan renyah."
-    },
-    {
-        "category": "Martabak",
-        "food_name": "Martabak Manis Ovomaltine Keju",
-        "location": "Jl. Perintis Kemerdekaan, Makassar (dekat kampus UNHAS)",
-        "shop_name": "Martabak San Francisco",
-        "price": 55000,
-        "rating_default": 4.3,
-        "food_desc": "Martabak manis dengan topping kekinian, yaitu Ovomaltine crunchy cream dan parutan keju. Rasa manis dan gurih bead sempurna."
-    },
-    {
-        "category": "Martabak",
-        "food_name": "Martabak Telur Bebek Spesial",
-        "location": "Jl. Pengayoman, Pandang, Kec. Panakkukang, Kota Makassar, Sulawesi Selatan",
-        "shop_name": "Martabak Pecenongan 78",
-        "price": 40000,
-        "rating_default": 4.2,
-        "food_desc": "Martabak telur dengan isian daging sapi cincang, telur bebek, daun bawang, dan bumbu khas. Cita rasa gurih dan sedikit \"\"prengus\"\" khas telur bebek."
-    },
-    {
-        "category": "Martabak",
-        "food_name": "Martabak Telur Spesial Kornet",
-        "location": "Jl. Urip Sumoharjo, Makassar",
-        "shop_name": "Martabak King",
-        "price": 60000,
-        "rating_default": 4,
-        "food_desc": "Martabak manis dengan topping daging durian asli dan parutan keju. Adonan lembut dan aroma durian yang kuat."
-    },
-    {
-        "category": "Martabak",
-        "food_name": "Martabak Manis Kacang Wijen",
-        "location": "Jl. Landak Baru, Makassar",
-        "shop_name": "Martabak Bangka Acin",
-        "price": 35000,
-        "rating_default": 4.3,
-        "food_desc": "Martabak manis khas Bangka dengan adonan tipis dan isian kacang tanah sangrai serta taburan wijen. Rasa manis yang pas dan tekstur renyah."
-    },
-    {
-        "category": "Martabak",
-        "food_name": "Terang Bulan Mix 4 Rasa",
-        "location": "Jl. Tamalate Raya, Makassar (dan beberapa cabang lain)",
-        "shop_name": "Masterbul",
-        "price": 70000,
-        "rating_default": 4.6,
-        "food_desc": "Terang bulan dengan 4 pilihan rasa dalam satu loyang, seperti cokelat, keju, pandan, dan red velvet. Adonan lembut dan topping melimpah."
-    },
-    {
-        "category": "Martabak",
-        "food_name": "Martabak Telur Kornet",
-        "location": "Jl. Urip Sumoharjo, Makassar",
-        "shop_name": "Martabak King",
-        "price": 30000,
-        "rating_default": 4.1,
-        "food_desc": "Martabak telur dengan isian kornet sapi, telur ayam, daun bawang, dan bumbu khas. Pilihan praktis dan mengenyangkan dengan harga terjangkau."
-    },
-    {
-        "category": "Arabic Food",
-        "food_name": "Nasi Mandhi Kambing",
-        "location": "Jl. Perintis Kemerdekaan KM. 11, Makassar",
-        "shop_name": "Rumah Makan Hadramaut",
-        "price": 80000,
-        "rating_default": 4.5,
-        "food_desc": "Nasi Mandhi adalah hidangan nasi khas Yaman yang dimasak dengan rempah-rempah seperti kapulaga, cengkeh, dan kayu manis. Di Rumah Makan Hadramaut, Nasi Mandhi disajikan dengan daging kambing yang empuk dan saus tomat yang khas."
-    },
-    {
-        "category": "Arabic Food",
-        "food_name": "Nasi Kebuli Kambing",
-        "location": "Jl. Sultan Alauddin No. 289, Makassar",
-        "shop_name": "Restoran Al-Jazirah",
-        "price": 70000,
-        "rating_default": 4.3,
-        "food_desc": "Nasi Kebuli adalah hidangan nasi yang dimasak dengan kaldu daging kambing dan rempah-rempah. Restoran Al-Jazirah menyajikan Nasi Kebuli dengan daging kambing yang empuk dan taburan kismis serta kacang almond."
-    },
-    {
-        "category": "Arabic Food",
-        "food_name": "Kebab Turki",
-        "location": "Trans Studio Mall Makassar",
-        "shop_name": "Kebab Turki Baba Rafi",
-        "price": 20000,
-        "rating_default": 4.2,
-        "food_desc": "Kebab Turki Baba Rafi menawarkan berbagai macam kebab dengan isian daging sapi, ayam, atau domba, yang dipadukan dengan sayuran segar dan saus khas."
-    },
-    {
-        "category": "Arabic Food",
-        "food_name": "Roti Maryam",
-        "location": "Jl. Pengayoman No. 56, Makassar",
-        "shop_name": "Warung Martabak & Roti Maryam Aisyah",
-        "price": 10000,
-        "rating_default": 4,
-        "food_desc": "Roti Maryam adalah roti pipih berlapis yang dipanggang di atas wajan datar. Di Warung Aisyah, Roti Maryam disajikan dengan berbagai macam topping, seperti susu kental manis, cokelat, dan keju."
-    },
-    {
-        "category": "Arabic Food",
-        "food_name": "Hummus",
-        "location": "Jl. Boulevard, Panakkukang, Makassar",
-        "shop_name": "Abu Lahap",
-        "price": 30000,
-        "rating_default": 4.6,
-        "food_desc": "Hummus adalah hidangan khas Timur Tengah yang terbuat dari kacang Arab, tahini, minyak zaitun, dan jus lemon. Abu Lahap menyajikan Hummus yang lezat dan creamy, cocok sebagai hidangan pembuka atau cocolan roti pita."
-    },
-    {
-        "category": "Arabic Food",
-        "food_name": "Shawarma",
-        "location": "Jl. Andi Pangeran Pettarani No. 10, Makassar",
-        "shop_name": "Shawarma House",
-        "price": 35000,
-        "rating_default": 4.4,
-        "food_desc": "Shawarma adalah hidangan daging yang dipanggang secara vertikal dan diiris tipis-tipis. Shawarma House menawarkan Shawarma dengan isian daging sapi atau ayam, yang dipadukan dengan sayuran segar dan saus khas."
-    },
-    {
-        "category": "Arabic Food",
-        "food_name": "Sambosa",
-        "location": "Jl. Urip Sumoharjo No. 123, Makassar",
-        "shop_name": "Martabak & Sambosa Harapan Jaya",
-        "price": 5000,
-        "rating_default": 4.1,
-        "food_desc": "Sambosa adalah pastri goreng berbentuk segitiga yang berisi daging cincang, sayuran, dan rempah-rempah. Martabak & Sambosa Harapan Jaya menawarkan Sambosa dengan rasa yang gurih dan renyah."
-    },
-    {
-        "category": "Arabic Food",
-        "food_name": "Baklava",
-        "location": "Jl. AP Pettarani No. 25, Makassar",
-        "shop_name": "Toko Kue Zahra",
-        "price": 50000,
-        "rating_default": 4.3,
-        "food_desc": "Baklava adalah kue kering manis yang terbuat dari lapisan filo pastry yang diisi dengan kacang cincang dan direndam dalam sirup atau madu. Toko Kue Zahra menawarkan Baklava dengan rasa yang manis dan tekstur yang renyah."
-    },
-    {
-        "category": "Arabic Food",
-        "food_name": "Mohalabia",
-        "location": "Jl. Pengayoman No. 88, Makassar",
-        "shop_name": "Restoran Levant",
-        "price": 30000,
-        "rating_default": 4.5,
-        "food_desc": "Mohalabia adalah puding susu khas Timur Tengah yang diberi aroma air mawar atau bunga jeruk. Restoran Levant menyajikan Mohalabia yang lembut dan menyegarkan, cocok sebagai hidangan penutup."
-    },
-    {
-        "category": "Arabic Food",
-        "food_name": "Mutabbaq",
-        "location": "Jl. Cendrawasih No. 45, Makassar",
-        "shop_name": "Rumah Makan Yaman Al-Barakah",
-        "price": 30000,
-        "rating_default": 4.7,
-        "food_desc": "Mutabbaq adalah roti pipih yang diisi dengan daging cincang, telur, dan rempah-rempah, kemudian digoreng hingga garing. Rumah Makan Yaman Al-Barakah menyajikan Mutabbaq dengan cita rasa autentik Yaman, dengan pilihan isian daging kambing atau ayam."
-    },
-    {
-        "category": "Dessert",
-        "food_name": "Pisang Epe",
-        "location": "Jl. Ali Malaka No.45, Maloku, Kec. Ujung Pandang, Makassar",
-        "shop_name": "Pisang Epe' Mandiri",
-        "price": 10000,
-        "rating_default": 4.4,
-        "food_desc": "Pisang bakar yang dilumatkan dan disajikan dengan gula merah cair"
-    },
-    {
-        "category": "Dessert",
-        "food_name": "Es Pisang Hijau",
-        "location": "Jalan Andalas No 254, Parang Layang, Kecamatan Makassar, Makassar",
-        "shop_name": "Warung Bravo",
-        "price": 22500,
-        "rating_default": 4.3,
-        "food_desc": "Es serut dengan pisang hijau, santan, dan sirup manis yang menyegarkan."
-    },
-    {
-        "category": "Dessert",
-        "food_name": "Kue Barongko",
-        "location": "Jl. Perintis kemerdekaan, Tamalanrea, Makassar",
-        "shop_name": "Kue Barongko Tradisional",
-        "price": 7000,
-        "rating_default": 4.3,
-        "food_desc": "Kue tradisional berbahan dasar pisang dan santan, lembut dan manis"
-    },
-    {
-        "category": "Dessert",
-        "food_name": "Es Palu Butung",
-        "location": "Jl. Ujung Pandang, Ujung Pandang, Makassar",
-        "shop_name": "Es Teler Yess Makassar, Ujung Pandang",
-        "price": 15000,
-        "rating_default": 4.1,
-        "food_desc": "Minuman es berbahan pisang, susu, dan gula yang dingin dan nikmat."
-    },
-    {
-        "category": "Dessert",
-        "food_name": "Kue Sikaporo",
-        "location": "Jl. Perintis Kemerdekaan, Tamalanrea, Makassar",
-        "shop_name": "RUMAH KUE KHAS MAKASSAR",
-        "price": 10000,
-        "rating_default": 3.8,
-        "food_desc": "Kue tradisional berisi pisang dan kelapa parut yang dibungkus daun."
-    },
-    {
-        "category": "Dessert",
-        "food_name": "Kue Kembang Seruni",
-        "location": "Jl Pallangga Raya No.43",
-        "shop_name": "Rumah Seruni",
-        "price": 15000,
-        "rating_default": 4.6,
-        "food_desc": "Kue berbentuk bunga dengan adonan tepung beras dan pewarna alami"
-    },
-    {
-        "category": "Dessert",
-        "food_name": "Puding Lumut Pandan",
-        "location": "Bumi Permata Sudiang, Blok D1 No. 20, Jl. Bumi Permata Sudiang, Jl. Perintis Kemerdekaan Km 18, Biring Kanaya, Makassar",
-        "shop_name": "Kue Khas Bugis, Biring Kanaya",
-        "price": 15000,
-        "rating_default": 4.2,
-        "food_desc": "Puding berwarna hijau dari daun pandan, kenyal, dan manis"
-    },
-    {
-        "category": "Dessert",
-        "food_name": "Kue Pelita",
-        "location": "Jl. Tamangapa Raya No. 34, Manggala, Makassar",
-        "shop_name": "Aneka Kue 69, Tamangapa Raya",
-        "price": 2000,
-        "rating_default": 4.1,
-        "food_desc": "Kue berlapis santan dan beras ketan yang dimasak dalam daun pisang."
-    },
-    {
-        "category": "Dessert",
-        "food_name": "Putu Cangkir",
-        "location": "Jl. Borong Raya No.45, Borong, Kec. Manggala, Makassar",
-        "shop_name": "Putu Cangkir Borong",
-        "price": 2000,
-        "rating_default": 4.1,
-        "food_desc": "Kue kukus berisi gula merah, disajikan dalam cangkir kecil."
-    },
-    {
-        "category": "Dessert",
-        "food_name": "Pisang Gepeng",
-        "location": "Jl. Bakti I No.7, Tamamaung, Kec. Panakkukang, Makassar",
-        "shop_name": "Pisang Gepeng & Sikampotta",
-        "price": 27000,
-        "rating_default": 4.3,
-        "food_desc": "Pisang yang digoreng hingga gepeng dan renyah, disajikan cukup unik, yaitu dengan sambal"
-    },
-    {
-        "category": "Daging",
-        "food_name": "Konro Bakar",
-        "location": "Jl. Gn. Lompobattang No.41-43, Pisang Utara, Kec. Ujung Pandang, Kota Makassar, Sulawesi Selatan",
-        "shop_name": "Konro Karebosi",
-        "price": 50000,
-        "rating_default": 4.7,
-        "food_desc": "Konro bakar, iga panggang yang direndam dan dibaluri bumbu khas sup konro."
-    },
-    {
-        "category": "Daging",
-        "food_name": "Toppa Lada",
-        "location": "Jl. Tamangapa Raya No. 32, Manggala, Makassar",
-        "shop_name": "Rumah Makan Restu Ibu",
-        "price": 20000,
-        "rating_default": 4.1,
-        "food_desc": "Hidangan daging khas Makassar yang disajikan dengan cabai beriris pedas gurih berempah"
-    },
-    {
-        "category": "Daging",
-        "food_name": "Sate Losari",
-        "location": "Jl. Cendrawasih No. 11, Mariso, Makassar",
-        "shop_name": "Rumah Makan dan Seafood New Losari",
-        "price": 5000,
-        "rating_default": 4.5,
-        "food_desc": "Sate yang dibumbui dengan campuran rempah khusus khas tepi pantai Losari, Makassar"
-    },
-    {
-        "category": "Daging",
-        "food_name": "Sate Kambing Makassar",
-        "location": "jl botolempangan no.37",
-        "shop_name": "Sop Kaki Kambing Tiga Saudara, Ratulangi",
-        "price": 80000,
-        "rating_default": 4.5,
-        "food_desc": "Sate Kambing yang disajikan dengan bumbu kecap khas Sulawesi"
-    },
-    {
-        "category": "Daging",
-        "food_name": "Nasu Cemba",
-        "location": "Jl. Poros Taman Sudiang Indah No. 16, Biring Kanaya, Makassar",
-        "shop_name": "Serba sapi (Nasu cemba, paru rica, Coto Makassar, rendang, toppalada)",
-        "price": 40000,
-        "rating_default": 4.7,
-        "food_desc": "Olahan Daging yang dimasak dengan daun berdiri(cemba)"
-    },
-    {
-        "category": "Daging",
-        "food_name": "Daging Asap",
-        "location": "Vinyard Farmers Market - Jl. AP. Pettarani, Panakkukang, Makassar",
-        "shop_name": "Barasap, Pettarani",
-        "price": 40000,
-        "rating_default": 4.3,
-        "food_desc": "Olahan daging sapi yang diiris tipis dan diasapi dengan kayu aromatik, memberikan rasa yang unik dan tekstur yang lembut"
-    },
-    {
-        "category": "Daging",
-        "food_name": "Bakso Mutiara",
-        "location": "Jl. Cedrawasih No. 116, Mariso, Makassar",
-        "shop_name": "Bakso Mutiara Cendrawasih Cab Makassar",
-        "price": 20000,
-        "rating_default": 4.6,
-        "food_desc": "Bakso yang campuran daging sapi giling dan mutiara sagu yang memberikan tekstur yang lebih kenyal"
-    },
-    {
-        "category": "Daging",
-        "food_name": "Steak",
-        "location": "l. Aroeppala, Gn. Sari, Kec. Rappocini, Kota Makassar, Sulawesi Selatan 90221",
-        "shop_name": "My Steak",
-        "price": 90000,
-        "rating_default": 4.7,
-        "food_desc": "Hidangan dari potongan daging, biasanya sapi, yang dipanggang atau digoreng dan diberikan bumbu spesial"
-    },
-    {
-        "category": "Daging",
-        "food_name": "Kambing Guling",
-        "location": "Jl Sugih Waras No 192.Depan Ruko Perumahan Puspa Garden Candi Sidoarjo",
-        "shop_name": "Kambing guling,sate dan soup",
-        "price": 50000,
-        "rating_default": 4.9,
-        "food_desc": "Daging kambing yang dibumbui dengan ramuan seperti bawang putih, jahe, kunyit, dan berbagai rempah lainnya, lalu dipanggang secara perlahan di atas api terbuka atau dalam oven rotisserie"
-    },
-    {
-        "category": "Daging",
-        "food_name": "Perkedel Daging",
-        "location": "Jl. Rusa No.15, Maricaya, Kec. Makassar, Kota Makassar, Sulawesi Selatan 90142",
-        "shop_name": "Sop Lidah Lamuru Sejak 1970 Asuhan Bu Rina",
-        "price": 8000,
-        "rating_default": 4.7,
-        "food_desc": "campuran daging sapi giling dan kentang yang telah direbus dan dihancurkan"
-    },
-    {
-        "category": "Seafood",
-        "food_name": "Cumi goreng tepung",
-        "location": "Jl. Diponegoro No. 95, Wajo, Makassar",
-        "shop_name": "RM Seafood Apong",
-        "price": 60000,
-        "rating_default": 4.6,
-        "food_desc": "Cumi goreng crispy merupakan olahan cumi yang dipadukan dengan tepung yang sebelumnya telah di bumbui dengan bumbu pilihan."
-    },
-    {
-        "category": "Seafood",
-        "food_name": "Udang Bakar Tusuk",
-        "location": "Jl. Gunung Latimojong No. 143, Ujung Pandang, Makassar",
-        "shop_name": "Kerapu Seafood",
-        "price": 43750,
-        "rating_default": 4.7,
-        "food_desc": "Udang Bakar Tusuk adalah hidangan seafood khas Indonesia yang menyajikan udang segar yang telah dibersihkan, dibumbui dengan campuran rempah-rempah khas, lalu ditusuk dan dipanggang hingga matang sempurna."
-    },
-    {
-        "category": "Seafood",
-        "food_name": "Cumi garlic",
-        "location": "JL.Niko I No.7, Lariang Bangi, Makassar, Makassar",
-        "shop_name": "Seafood Bancakan Non MSG, Rajawali",
-        "price": 66000,
-        "rating_default": 4.8,
-        "food_desc": "Cumi Garlic adalah sajian lezat berbahan utama cumi-cumi yang dimasak dengan saus bawang putih."
-    },
-    {
-        "category": "Seafood",
-        "food_name": "Lobster Campur Cumi",
-        "location": "Jalan rajawali no.31, Makassar",
-        "shop_name": "Seafood Bancakan Non MSG, Rajawali",
-        "price": 20000,
-        "rating_default": 4.5,
-        "food_desc": "Lobster Campur Cumi adalah hidangan yang menggabungkan dua bahan laut yang digemari, lobster dan cumi-cumi. Kedua bahan ini dimasak bersama dalam satu panci dengan bumbu pilihan seperti bawang putih, cabai, dan rempah-rempah, menciptakan rasa yang kaya dan berlapis."
-    },
-    {
-        "category": "Seafood",
-        "food_name": "Ikan kakap bakar",
-        "location": "Jl. Rappocini Raya No. 146, Rappocini, Makassar",
-        "shop_name": "KJ Seafood",
-        "price": 45000,
-        "rating_default": 4.6,
-        "food_desc": "Ikan Kakap Bakar adalah hidangan ikan yang diolah dengan cara dibakar, biasanya menggunakan ikan kakap merah segar."
-    },
-    {
-        "category": "Seafood",
-        "food_name": "kepiting kari",
-        "location": "Jl.Aroeppala No 117 Karunrung kec.rappocini",
-        "shop_name": "RM.Kepiting Barakka",
-        "price": 55000,
-        "rating_default": 4.6,
-        "food_desc": "Kepiting Kari adalah hidangan khas yang memadukan daging kepiting yang lembut dengan saus kari yang kaya rempah."
-    },
-    {
-        "category": "Seafood",
-        "food_name": "Kerapu sunu steam",
-        "location": "Jl. Ali Malaka No.25, Maloku, Kec. Ujung Pandang, Kota Makassar, Sulawesi Selatan 90112",
-        "shop_name": "Rumah Makan Nelayan",
-        "price": 30000,
-        "rating_default": 4.4,
-        "food_desc": "Kerapu Sunu Steam adalah sajian ikan yang memanfaatkan kesegaran alami kerapu sunu dengan metode pengolahan kukus."
-    },
-    {
-        "category": "Seafood",
-        "food_name": "Ikan kaneke bakar",
-        "location": "JL. DAHLIA NO. 5 MENTENG GARDEN, KEL. MACCINI SOMBALA, KEC. TAMALATE KOTA MAKASSA",
-        "shop_name": "W-Catering",
-        "price": 11000,
-        "rating_default": 4.5,
-        "food_desc": "Ikan Kaneke Bakar adalah hidangan yang menonjolkan kesegaran dan citarasa alami ikan kaneke melalui proses pembakaran. Ikan kaneke yang telah dibersihkan dilumuri dengan bumbu rempah, lalu dipanggang hingga beraroma harum dan dagingnya empuk serta juicy."
-    },
-    {
-        "category": "Seafood",
-        "food_name": "Lobster saus asam manis",
-        "location": "Ruko Zamrud Blok K No. 4, Jl. Adhyaksa Baru, Panakkukang, Makassar",
-        "shop_name": "Otewe Kepiting & Lobster, Adhyaksa Baru",
-        "price": 80000,
-        "rating_default": 4.6,
-        "food_desc": "Lobster Saus Asam Manis adalah hidangan yang menyajikan lobster segar dengan saus yang memadukan rasa asam dan manis."
-    },
-    {
-        "category": "Seafood",
-        "food_name": "Kepiting bertelur lada hitam",
-        "location": "Ruko Zamrud Blok K No. 4, Jl. Adhyaksa Baru, Panakkukang, Makassar",
-        "shop_name": "RM.Kepiting Barakka",
-        "price": 67000,
-        "rating_default": 4.5,
-        "food_desc": "Kepiting Bertelur Lada Hitam adalah hidangan mewah yang menggabungkan kepiting segar penuh telur dengan saus lada hitam yang kuat dan pedas."
-    },
-    {
-        "category": "Beverages",
-        "food_name": "Sara'ba Original",
-        "location": "Jl. Andi Pangeran Pettarani II No.20, Tamamaung, Panakkukang, Makassar",
-        "shop_name": "Sara'ba Resto Cerekhangat",
-        "price": 10000,
-        "rating_default": 3.3,
-        "food_desc": "Sara'ba, minuman jahe khas Makassar yang diracik dari rempah segar."
-    },
-    {
-        "category": "Beverages",
-        "food_name": "Sara'ba Telur",
-        "location": "Jl. Andi Pangeran Pettarani II No.20, Tamamaung, Panakkukang, Makassar",
-        "shop_name": "Sara'ba Resto Cerekhangat",
-        "price": 15000,
-        "rating_default": 3.3,
-        "food_desc": "Sara'ba ditambah telur untuk menambah stamina."
-    },
-    {
-        "category": "Beverages",
-        "food_name": "Sara'ba Susu",
-        "location": "Jl. Andi Pangeran Pettarani II No.20, Tamamaung, Panakkukang, Makassar",
-        "shop_name": "Sara'ba Resto Cerekhangat",
-        "price": 12000,
-        "rating_default": 3.3,
-        "food_desc": "Sara'ba ditambah susu untuk menetralkan pedas jahe."
-    },
-    {
-        "category": "Beverages",
-        "food_name": "Blue Sea",
-        "location": "Jl. Sungai Saddang Baru No.37, Balla Parang, Rappocini, Makassar",
-        "shop_name": "AH DRINK",
-        "price": 12000,
-        "rating_default": 4.8,
-        "food_desc": "Minuman segar manis berwarna biru layaknya laut di pantai."
-    },
-    {
-        "category": "Beverages",
-        "food_name": "Melon Squash",
-        "location": "Jl. Sungai Saddang Baru No.37, Balla Parang, Rappocini, Makassar",
-        "shop_name": "AH DRINK",
-        "price": 10000,
-        "rating_default": 4.8,
-        "food_desc": "Minuman rasa melon manis untuk menyegarkan tubuh."
-    },
-    {
-        "category": "Beverages",
-        "food_name": "Mango Squash",
-        "location": "Jl. Sungai Saddang Baru No.37, Balla Parang, Rappocini, Makassar",
-        "shop_name": "AH DRINK",
-        "price": 12000,
-        "rating_default": 4.8,
-        "food_desc": "Minuman rasa mangga cocok untuk musim panas."
-    },
-    {
-        "category": "Beverages",
-        "food_name": "Kopi Oppa",
-        "location": "Jl. Sungai Saddang Baru No.92B, Balla Parang, Rappocini, Makassar",
-        "shop_name": "Kopi Chuseyo",
-        "price": 19000,
-        "rating_default": 4.5,
-        "food_desc": "Signature sweet cafe with Korean blend espresso."
-    },
-    {
-        "category": "Beverages",
-        "food_name": "Mint Choco",
-        "location": "Jl. Sungai Saddang Baru No.92B, Balla Parang, Rappocini, Makassar",
-        "shop_name": "Kopi Chuseyo",
-        "price": 32000,
-        "rating_default": 4.5,
-        "food_desc": "Mint choco choco dan! - Nako IZONE"
-    },
-    {
-        "category": "Beverages",
-        "food_name": "Indonesian Milk Tea",
-        "location": "Jl. A.P. Pettarani No.18h, Tamamaung, Rappocini, Makassar",
-        "shop_name": "YOTTA!",
-        "price": 12000,
-        "rating_default": 4.8,
-        "food_desc": "Teh susu khas Indonesia yang manis dan creamy."
-    },
-    {
-        "category": "Beverages",
-        "food_name": "Taro Cheese Milk",
-        "location": "Jl. A.P. Pettarani No.18h, Tamamaung, Rappocini, Makassar",
-        "shop_name": "YOTTA!",
-        "price": 16000,
-        "rating_default": 4.8,
-        "food_desc": "Minuman susu rasa taro yang dipadukan dengan lapisan keju gurih."
+        "model": "main.makanan",
+        "pk": 1,
+        "fields": {
+            "category": "Ayam",
+            "food_name": "Ayam Balap",
+            "location": "Jalan Abd. Kadir Nomor 31, Balang Baru, Tamalate, Kota Makassar",
+            "shop_name": "Warung Makan Ayam Balap",
+            "price": 9000.00,
+            "rating_default": 4.4,
+            "new_rating": 0,
+            "food_desc": "Ayam goreng yang disajikan dengan potongan ayam yang dimasak dengan bumbu khas Makassar, seperti bawang putih, ketumbar, kunyit, dan jahe.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 2,
+        "fields": {
+            "category": "Ayam",
+            "food_name": "Ayam Goreng Sulawesi",
+            "location": "Jalan Pattimura Nomor 2, Bulo Gading, Ujung Pandang, Kota Makassar",
+            "shop_name": "Rumah Makan Sulawesi Baru (Ayam Goreng Dan Ikan Bakar)",
+            "price": 39000.00,
+            "rating_default": 4.4,
+            "new_rating": 0,
+            "food_desc": "Ayam kampung yang sebelum digoreng, ayam ini biasanya direndam dalam marinasi khusus yang terdiri dari bumbu-bumbu bervaiasi serta lapisan rasa yang kompleks dan mendalam.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 3,
+        "fields": {
+            "category": "Ayam",
+            "food_name": "Ayam Madaeng",
+            "location": "Balla Parang, Rappocini, Makassar",
+            "shop_name": "Madaeng",
+            "price": 14000.00,
+            "rating_default": 4.8,
+            "new_rating": 0,
+            "food_desc": "Ayam kampung dengan bumbu rempah kaya. Ayam bakar kampung yang disajikan menambah aroma asap yang khas, dan disajikan dengan sambal taoco yang pedas manis.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 4,
+        "fields": {
+            "category": "Ayam",
+            "food_name": "Ayam Palekko Marasa",
+            "location": "Jl. Kerukunan Barat 26, Tamalanrea, Kec. Tamalanrea, Kota Makassar, Sulawesi Selatan 90245",
+            "shop_name": "Palekko Marasa BTP",
+            "price": 20000.00,
+            "rating_default": 4.7,
+            "new_rating": 0,
+            "food_desc": "Ayam kampung yang dimasak dengan bumbu pedas dari cabai merah, bawang, dan rempah lainnya",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 5,
+        "fields": {
+            "category": "Ayam",
+            "food_name": "Ayam Nasulikku",
+            "location": "Jl. Talasalapang, Karunrung, Kec. Rappocini, Kota Makassar, Sulawesi Selatan 90221",
+            "shop_name": "ayam nasulikku cuke",
+            "price": 15000.00,
+            "rating_default": 4.8,
+            "new_rating": 0,
+            "food_desc": "Ayam yang dimasak dengan parutan lengkuas dan santan",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 6,
+        "fields": {
+            "category": "Ayam",
+            "food_name": "Ayam bakar parape",
+            "location": "Jl. Bulu Kunyi No. 23, Makassar, Makassar",
+            "shop_name": "Warung Mbak Sil, Bulu Kunyi",
+            "price": 16000.00,
+            "rating_default": 4.9,
+            "new_rating": 0,
+            "food_desc": "Ayam Bakar yang yang dimasak dengan bumbu khas ikan bakar khas Sulawesi yaitu Parape",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 7,
+        "fields": {
+            "category": "Ayam",
+            "food_name": "Ayam Tettu",
+            "location": "Jl. Macan No.22, Bonto Biraeng, Kec. Mamajang, Kota Makassar, Sulawesi Selatan 90132",
+            "shop_name": "Ayam Tettu Macan",
+            "price": 5000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Ayam goreng tanpa tulang yang disajikan dengan cara ditumbuk",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 8,
+        "fields": {
+            "category": "Ayam",
+            "food_name": "Ayam rica-rica",
+            "location": "Perumahan Graha Tiga Putra, Blok A No. 14, Jl. Tamalanrea Raya, Tamalanrea, Makassar",
+            "shop_name": "A'A Food (Kuliner Buntu Kabobong), BTP",
+            "price": 15000.00,
+            "rating_default": 4.9,
+            "new_rating": 0,
+            "food_desc": "Olahan ayam bercita rasa pedas gurih khas Sulawesi",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 9,
+        "fields": {
+            "category": "Ayam",
+            "food_name": "Ayam Ketumbar",
+            "location": "Ruko Sardonix No. 12, Jl. Andi P Pettarani Komplek Ramayana, Masale, Panakukang, Makassar",
+            "shop_name": "Ayam Goreng Bu Tumbar",
+            "price": 23000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Ayam goreng ini dimasak dengan berbagai bumbu masakan dan ketumbar",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 10,
+        "fields": {
+            "category": "Ayam",
+            "food_name": "Ayam Woku",
+            "location": "Taman Mediterranean, Jl. Mediterranean Asri No. 9 Tanjung Bunga, Tamalate, Makassar",
+            "shop_name": "Mams Kitchen",
+            "price": 45000.00,
+            "rating_default": 4.9,
+            "new_rating": 0,
+            "food_desc": "Ayam woku yang dimasak dengan daun woku dengan bumbu yang kuat dan pedas",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 11,
+        "fields": {
+            "category": "Chinese Food",
+            "food_name": "Cakwe Polos",
+            "location": "Jl. Irian No.1, Butung, Wajo, Makassar",
+            "shop_name": "Cakwe Riau",
+            "price": 5000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Gorengan berbentuk panjang dari adonan tepung yang digoreng renyah tanpa isian",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 12,
+        "fields": {
+            "category": "Chinese Food",
+            "food_name": "Bakpao Ayam",
+            "location": "Jln. Toddopuli Raya no.A2/1 (Cabang Jalan Lombok), Makassar",
+            "shop_name": "Kedai Air Tahu 43",
+            "price": 11000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Bakpao lembut dengan isian daging ayam berbumbu.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 13,
+        "fields": {
+            "category": "Chinese Food",
+            "food_name": "Pangsit Misoa",
+            "location": "Jl. Sulawesi No.192, Melayu Baru, Wajo, Makassar",
+            "shop_name": "Pangsit Mie Sulawesi - Warkop Fat Heng",
+            "price": 37000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Misoa dengan pangsit renyah dan daging yang gurih.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 14,
+        "fields": {
+            "category": "Chinese Food",
+            "food_name": "Siomay",
+            "location": "Jl. Sangir No.161, Melayu Baru, Wajo, Makassar",
+            "shop_name": "Rich Taste",
+            "price": 34500.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Kudapan kukus dari daging dengan kulit tipis.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 15,
+        "fields": {
+            "category": "Chinese Food",
+            "food_name": "Lontong Cap Go Meh",
+            "location": "Jl. Serui No.11A, Pattunuang, Wajo, Makassar",
+            "shop_name": "Nasi Campur Serui/Kios Satu-Satu",
+            "price": 60000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Hidangan tradisional dengan lontong, opor ayam, dan telur.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 16,
+        "fields": {
+            "category": "Chinese Food",
+            "food_name": "Dimsum Mentai",
+            "location": "Jl. Talasalapang No.56, Gn. Sari, Rappocini, Makassar",
+            "shop_name": "Dimsum Bu Yanti",
+            "price": 3000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Kudapan dimsum dengan saus mentai yang creamy dan lezat.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 17,
+        "fields": {
+            "category": "Chinese Food",
+            "food_name": "Mi Goreng Hokkian",
+            "location": "Jl. Rappocini Raya No.192, Bua Kana, Rappocini, Makassar",
+            "shop_name": "Kios Rappocini",
+            "price": 50000.00,
+            "rating_default": 4.3,
+            "new_rating": 0,
+            "food_desc": "Mie kuning tebal yang digoreng dengan bumbu khas Hokkian.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 18,
+        "fields": {
+            "category": "Chinese Food",
+            "food_name": "Sapo Tahu Seafood",
+            "location": "Jl. Lamaddukelleng No.23/30, Losari, Ujung Pandang, Makassar",
+            "shop_name": "Warung Laota",
+            "price": 70000.00,
+            "rating_default": 4.7,
+            "new_rating": 0,
+            "food_desc": "Hidangan sapo dengan tahu lembut, aneka seafood, dan saus gurih.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 19,
+        "fields": {
+            "category": "Chinese Food",
+            "food_name": "Bakpao Talas",
+            "location": "Jl. Lamaddukelleng No.23/30, Losari, Ujung Pandang, Makassar",
+            "shop_name": "Warung Laota",
+            "price": 37000.00,
+            "rating_default": 4.7,
+            "new_rating": 0,
+            "food_desc": "Bakpao lembut dengan tampilan dan isian talas manis.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 20,
+        "fields": {
+            "category": "Chinese Food",
+            "food_name": "Bakmi Hitam Ayam Kecap",
+            "location": "Mall Panakkukang, Masale, Panakukang, Makassar",
+            "shop_name": "Bakmi Warisan",
+            "price": 32000.00,
+            "rating_default": 4.2,
+            "new_rating": 0,
+            "food_desc": "Mie hitam dengan sensasi daging ayam berbumbu kecap manis dan gurih.",
+            "jumlah_review": 0
+        }
+    },
+
+    {
+        "model": "main.makanan",
+        "pk": 21,
+        "fields": {
+            "category": "Nasi",
+            "food_name": "Nasi Pecel",
+            "location": "Jl. Andi Mappaodang, Jongaya, Kec. Tamalate, Makassar",
+            "shop_name": "Nasi Kuning & Nasi Campur Mbak Isti",
+            "price": 17500.00,
+            "rating_default": 4.1,
+            "new_rating": 0,
+            "food_desc": "Nasi pecel adalah hidangan nasi dengan sayuran rebus dan saus kacang pedas.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 22,
+        "fields": {
+            "category": "Nasi",
+            "food_name": "Nasi Kuning Sulawesi",
+            "location": "Jl. Topaz Raya Jl. Boulevard No.F21, Masale, Makassar",
+            "shop_name": "Nasi Kuning Sulawesi",
+            "price": 30000.00,
+            "rating_default": 4.3,
+            "new_rating": 0,
+            "food_desc": "Nasi kuning Sulawesi adalah hidangan nasi kuning yang disajikan dengan lauk khas, seperti tempe, telur, dan sambal.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 23,
+        "fields": {
+            "category": "Nasi",
+            "food_name": "Nasi Kuning Riburane",
+            "location": "Jl. Riburane No.11, Pattunuang, Kec. Wajo, Makassar",
+            "shop_name": "Nasi Kuning Riburane",
+            "price": 27000.00,
+            "rating_default": 4.4,
+            "new_rating": 0,
+            "food_desc": "Nasi kuning Riburane disajikan dengan lauk ikan tuna, telur, dan sambal khas.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 24,
+        "fields": {
+            "category": "Nasi",
+            "food_name": "Nasi Rawon",
+            "location": "Jl. Datu Museng No.11, Maloku, Kec. Ujung Pandang, Kota Makassar",
+            "shop_name": "Sop Ubi Dan Nasi Rawon Datumuseng",
+            "price": 25000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Nasi rawon adalah nasi dengan sup daging sapi berkuah hitam dari kluwek.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 25,
+        "fields": {
+            "category": "Nasi",
+            "food_name": "Nasi Goreng",
+            "location": "Jl. Bacan No.2, Ende, Kec. Wajo, Makassar",
+            "shop_name": "Nasi Goreng Sari 21",
+            "price": 27000.00,
+            "rating_default": 4.4,
+            "new_rating": 0,
+            "food_desc": "Nasi goreng Sari 21 adalah nasi goreng khas dengan bumbu rempah Makassar.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 26,
+        "fields": {
+            "category": "Nasi",
+            "food_name": "Nasi Goreng Maranggi",
+            "location": "Jl. Tupai, Bonto Biraeng, Kec. Mamajang, Makassar",
+            "shop_name": "Nasi Goreng Sapi dan Kambing Sate Maranggi",
+            "price": 45000.00,
+            "rating_default": 4.2,
+            "new_rating": 0,
+            "food_desc": "Nasi goreng Maranggi disajikan dengan daging sapi maranggi yang kaya bumbu dan rempah.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 27,
+        "fields": {
+            "category": "Nasi",
+            "food_name": "Nasi Goreng Kambing",
+            "location": "Jl. Pengayoman No.21 (Pegasus Coffee), Makassar",
+            "shop_name": "PEGASUS Coffee Shop",
+            "price": 35000.00,
+            "rating_default": 4.3,
+            "new_rating": 0,
+            "food_desc": "Nasi goreng kambing disajikan dengan potongan daging kambing berbumbu rempah khas.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 28,
+        "fields": {
+            "category": "Nasi",
+            "food_name": "Nasi Uduk Buratu",
+            "location": "Jalan Perintis Kemerdekaan No.KM.12, Tamalanrea, Makassar",
+            "shop_name": "Nasi Uduk Buratu",
+            "price": 35000.00,
+            "rating_default": 4.4,
+            "new_rating": 0,
+            "food_desc": "Nasi uduk yang disajikan dengan lauk ayam, telur, sambal, dan serundeng kelapa.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 29,
+        "fields": {
+            "category": "Nasi",
+            "food_name": "Nasi Uduk Ibu Ulin",
+            "location": "Jalan Pengayoman Pasar Segar CT 24, Pandang, Kec. Panakkukang, Makassar",
+            "shop_name": "Nasi Uduk Ibu Ulin",
+            "price": 25000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Nasi uduk Ibu Ulin disajikan dengan ayam, tahu, tempe, dan sambal kacang.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 30,
+        "fields": {
+            "category": "Nasi",
+            "food_name": "Nasi Uduk Hasanuddin",
+            "location": "Jalan Sultan Hasanuddin No.77-83, Sawerigading, Kec. Ujung Pandang, Makassar",
+            "shop_name": "Nasi Uduk Hasanuddin",
+            "price": 15000.00,
+            "rating_default": 4.3,
+            "new_rating": 0,
+            "food_desc": "Nasi uduk Hasannudin disajikan dengan lauk ayam goreng, sambal, dan kerupuk.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 31,
+        "fields": {
+            "category": "Makanan berkuah",
+            "food_name": "Coto Nusantara",
+            "location": "Jalan Nusantara Baru Nomor 142, Ende, Wajo, Makassar, Sulawesi Selatan.",
+            "shop_name": "Coto Nusantara",
+            "price": 35000.00,
+            "rating_default": 4.4,
+            "new_rating": 0,
+            "food_desc": "Coto Nusantara adalah salah satu variasi Coto Makassar yang terkenal dengan cita rasanya yang kaya dan kuahnya yang kental. Hidangan ini terdiri dari daging sapi yang dimasak dalam kuah berbumbu spesial yang terbuat dari rempah-rempah.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 32,
+        "fields": {
+            "category": "Makanan berkuah",
+            "food_name": "Pallubasa",
+            "location": "Coto Makassar Daeng Sija, Martanegara",
+            "shop_name": "Coto Makassar Daeng Sija, Martanegara",
+            "price": 32500.00,
+            "rating_default": 4.3,
+            "new_rating": 0,
+            "food_desc": "Pallubasa adalah hidangan khas Makassar yang mirip dengan Coto Makassar namun memiliki cita rasa dan penyajian yang unik.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 33,
+        "fields": {
+            "category": "Makanan berkuah",
+            "food_name": "Sop Cendrawasih mas Tomo",
+            "location": "Jalan Opu Daeng Risadju Nomor 36, Kunjung Mae, Mariso, Makassar, Sulawesi Selatan.",
+            "shop_name": "Sop Cendrawasih mas Tomo",
+            "price": 50000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Sop Cendrawasih adalah hidangan unik yang diciptakan oleh Mas Tomo, terkenal akan kekayaan rasa dan bahan-bahannya yang berkualitas. Sop ini terdiri dari kaldu ayam yang bening namun penuh cita rasa",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 34,
+        "fields": {
+            "category": "Makanan berkuah",
+            "food_name": "Konro karebosi",
+            "location": "Jalan Gunung Lompobattang No.41-43, Pisang Utara, Makassar, Sulawesi Selatan.",
+            "shop_name": "Warung Konro karebosi",
+            "price": 100000.00,
+            "rating_default": 4.7,
+            "new_rating": 0,
+            "food_desc": "Konro Karebosi adalah sajian khas Makassar yang terkenal dengan citarasanya yang kuat dan menggugah selera. Hidangan ini menggunakan iga sapi yang dimasak dalam kuah yang kaya rempah.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 35,
+        "fields": {
+            "category": "Makanan berkuah",
+            "food_name": "Kapurung udang",
+            "location": "Jl. Kasuari No.4-2, Kunjung Mae, Kec. Mariso, Kota Makassar, Sulawesi Selatan 90113",
+            "shop_name": "Kapurung Kasuari",
+            "price": 44000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Kapurung Udang adalah hidangan tradisional dari Sulawesi Selatan yang memadukan udang segar dengan bubur sagu.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 36,
+        "fields": {
+            "category": "Makanan berkuah",
+            "food_name": "Sop lidah lamuru",
+            "location": "Jl. Rusa No.15, Maricaya, Kec. Makassar, Kota Makassar, Sulawesi Selatan 90142",
+            "shop_name": "Warung Sop Lidah Lamuru",
+            "price": 35000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Sop Lidah Lamuru adalah hidangan khas yang mengedepankan lidah sapi sebagai bahan utamanya. Potongan lidah sapi yang dimasak hingga empuk disajikan dalam kuah bening yang kaya akan bumbu rempah.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 37,
+        "fields": {
+            "category": "Makanan berkuah",
+            "food_name": "ikan bandeng palumara",
+            "location": "Jl. Dg. Tantu Kelurahan Rappokalling, Kecamatan Tallo",
+            "shop_name": "ASKANAH PUTRA AKSARA",
+            "price": 55000.00,
+            "rating_default": 4.4,
+            "new_rating": 0,
+            "food_desc": "Ikan Bandeng Palumara adalah hidangan khas Sulawesi Selatan yang menonjolkan kesegaran ikan bandeng dengan kuah yang kaya rasa. Ikan bandeng yang sudah dibersihkan dimasak dalam kuah kuning",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 38,
+        "fields": {
+            "category": "Makanan berkuah",
+            "food_name": "Sop saudara",
+            "location": "Jl. Andi Pangeran Pettarani No. 12C, Rappocini, Makassar",
+            "shop_name": "Sop Saudara Irian 2, Pettarani",
+            "price": 35000.00,
+            "rating_default": 4.7,
+            "new_rating": 0,
+            "food_desc": "Sop Saudara adalah hidangan khas Sulawesi Selatan yang menawarkan cita rasa yang kompleks dan lezat. Terbuat dari daging sapi yang dimasak hingga empuk.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 39,
+        "fields": {
+            "category": "Makanan berkuah",
+            "food_name": "Sop Kikil",
+            "location": "Jl. Andi Pangeran Pettarani No. 12C, Rappocini, Makassar",
+            "shop_name": "Sop Saudara Irian 2, Pettarani",
+            "price": 62000.00,
+            "rating_default": 4.7,
+            "new_rating": 0,
+            "food_desc": "Sop Kikil adalah hidangan khas Indonesia yang menggunakan kikil atau kulit sapi sebagai bahan utamanya. Potongan kikil yang dimasak hingga empuk disajikan dalam kuah bening yang kaya akan bumbu",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 40,
+        "fields": {
+            "category": "Makanan berkuah",
+            "food_name": "Nyuknyang",
+            "location": "Jalan Gunung Salahutu No 29",
+            "shop_name": "NYUKNYANG 99",
+            "price": 40000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Nyuknyang adalah hidangan bakso khas dari Sulawesi Selatan yang dikenal dengan teksturnya yang kenyal dan cita rasa yang lezat. Terbuat dari campuran daging sapi dan tepung tapioka",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 41,
+        "fields": {
+            "category": "Martabak",
+            "food_name": "Martabak Manis Red Velvet Keju",
+            "location": "Jl. Pengayoman, Makassar (dekat kampus UNM)",
+            "shop_name": "Martabak & Terang Bulan Aneka Rasa",
+            "price": 34275.00,
+            "rating_default": 4.7,
+            "new_rating": 0,
+            "food_desc": "Martabak manis dengan adonan red velvet yang lembut, diberi topping keju melimpah dan susu kental manis. Cocok untuk penggemar rasa manis dan kekinian.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 42,
+        "fields": {
+            "category": "Martabak",
+            "food_name": "Martabak Telur Jumbo Spesial",
+            "location": "Jl. A.P. Pettarani, Makassar (dekat Mall Panakkukang)",
+            "shop_name": "Martabak Cowboy Makassar",
+            "price": 85000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Martabak telur ukuran jumbo dengan isian daging sapi cincang, telur ayam/bebek, daun bawang, dan bumbu rempah yang khas. Dilengkapi acar dan saus cabai sebagai pelengkap.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 43,
+        "fields": {
+            "category": "Martabak",
+            "food_name": "Martabak Manis Cokelat Kacang Spesial",
+            "location": "Jl. Boulevard, Panakkukang, Makassar",
+            "shop_name": "Martabak Hokky",
+            "price": 45000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Martabak manis klasik dengan topping cokelat meses, kacang tanah sangrai, dan taburan wijen. Adonan tebal dan lembut, cita rasa khas Martabak Hokky yang legendaris.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 44,
+        "fields": {
+            "category": "Martabak",
+            "food_name": "Martabak Telur Ayam Spesial",
+            "location": "Jl. Sultan Alauddin, Makassar (dekat kampus UIN)",
+            "shop_name": "Martabak Bandung Raya",
+            "price": 35000.00,
+            "rating_default": 4.4,
+            "new_rating": 0,
+            "food_desc": "Martabak telur dengan isian daging ayam cincang, telur ayam/bebek, daun bawang, dan bumbu khas. Kulit martabak tipis dan renyah.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 45,
+        "fields": {
+            "category": "Martabak",
+            "food_name": "Martabak Manis Ovomaltine Keju",
+            "location": "Jl. Perintis Kemerdekaan, Makassar (dekat kampus UNHAS)",
+            "shop_name": "Martabak San Francisco",
+            "price": 55000.00,
+            "rating_default": 4.3,
+            "new_rating": 0,
+            "food_desc": "Martabak manis dengan topping kekinian, yaitu Ovomaltine crunchy cream dan parutan keju. Rasa manis dan gurih bead sempurna.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 46,
+        "fields": {
+            "category": "Martabak",
+            "food_name": "Martabak Telur Bebek Spesial",
+            "location": "Jl. Pengayoman, Pandang, Kec. Panakkukang, Kota Makassar, Sulawesi Selatan",
+            "shop_name": "Martabak Pecenongan 78",
+            "price": 40000.00,
+            "rating_default": 4.2,
+            "new_rating": 0,
+            "food_desc": "Martabak telur dengan isian daging sapi cincang, telur bebek, daun bawang, dan bumbu khas. Cita rasa gurih dan sedikit \"\"prengus\"\" khas telur bebek.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 47,
+        "fields": {
+            "category": "Martabak",
+            "food_name": "Martabak Telur Spesial Kornet",
+            "location": "Jl. Urip Sumoharjo, Makassar",
+            "shop_name": "Martabak King",
+            "price": 60000.00,
+            "rating_default": 4,
+            "new_rating": 0,
+            "food_desc": "Martabak manis dengan topping daging durian asli dan parutan keju. Adonan lembut dan aroma durian yang kuat.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 48,
+        "fields": {
+            "category": "Martabak",
+            "food_name": "Martabak Manis Kacang Wijen",
+            "location": "Jl. Landak Baru, Makassar",
+            "shop_name": "Martabak Bangka Acin",
+            "price": 35000.00,
+            "rating_default": 4.3,
+            "new_rating": 0,
+            "food_desc": "Martabak manis khas Bangka dengan adonan tipis dan isian kacang tanah sangrai serta taburan wijen. Rasa manis yang pas dan tekstur renyah.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 49,
+        "fields": {
+            "category": "Martabak",
+            "food_name": "Terang Bulan Mix 4 Rasa",
+            "location": "Jl. Tamalate Raya, Makassar (dan beberapa cabang lain)",
+            "shop_name": "Masterbul",
+            "price": 70000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Terang bulan dengan 4 pilihan rasa dalam satu loyang, seperti cokelat, keju, pandan, dan red velvet. Adonan lembut dan topping melimpah.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 50,
+        "fields": {
+            "category": "Martabak",
+            "food_name": "Martabak Telur Kornet",
+            "location": "Jl. Urip Sumoharjo, Makassar",
+            "shop_name": "Martabak King",
+            "price": 30000.00,
+            "rating_default": 4.1,
+            "new_rating": 0,
+            "food_desc": "Martabak telur dengan isian kornet sapi, telur ayam, daun bawang, dan bumbu khas. Pilihan praktis dan mengenyangkan dengan harga terjangkau.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 51,
+        "fields": {
+            "category": "Arabic Food",
+            "food_name": "Nasi Mandhi Kambing",
+            "location": "Jl. Perintis Kemerdekaan KM. 11, Makassar",
+            "shop_name": "Rumah Makan Hadramaut",
+            "price": 80000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Nasi Mandhi adalah hidangan nasi khas Yaman yang dimasak dengan rempah-rempah seperti kapulaga, cengkeh, dan kayu manis. Di Rumah Makan Hadramaut, Nasi Mandhi disajikan dengan daging kambing yang empuk dan saus tomat yang khas.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 52,
+        "fields": {
+            "category": "Arabic Food",
+            "food_name": "Nasi Kebuli Kambing",
+            "location": "Jl. Sultan Alauddin No. 289, Makassar",
+            "shop_name": "Restoran Al-Jazirah",
+            "price": 70000.00,
+            "rating_default": 4.3,
+            "new_rating": 0,
+            "food_desc": "Nasi Kebuli adalah hidangan nasi yang dimasak dengan kaldu daging kambing dan rempah-rempah. Restoran Al-Jazirah menyajikan Nasi Kebuli dengan daging kambing yang empuk dan taburan kismis serta kacang almond.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 53,
+        "fields": {
+            "category": "Arabic Food",
+            "food_name": "Kebab Turki",
+            "location": "Trans Studio Mall Makassar",
+            "shop_name": "Kebab Turki Baba Rafi",
+            "price": 20000.00,
+            "rating_default": 4.2,
+            "new_rating": 0,
+            "food_desc": "Kebab Turki Baba Rafi menawarkan berbagai macam kebab dengan isian daging sapi, ayam, atau domba, yang dipadukan dengan sayuran segar dan saus khas.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 54,
+        "fields": {
+            "category": "Arabic Food",
+            "food_name": "Roti Maryam",
+            "location": "Jl. Pengayoman No. 56, Makassar",
+            "shop_name": "Warung Martabak & Roti Maryam Aisyah",
+            "price": 10000.00,
+            "rating_default": 4,
+            "new_rating": 0,
+            "food_desc": "Roti Maryam adalah roti pipih berlapis yang dipanggang di atas wajan datar. Di Warung Aisyah, Roti Maryam disajikan dengan berbagai macam topping, seperti susu kental manis, cokelat, dan keju.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 55,
+        "fields": {
+            "category": "Arabic Food",
+            "food_name": "Hummus",
+            "location": "Jl. Boulevard, Panakkukang, Makassar",
+            "shop_name": "Abu Lahap",
+            "price": 30000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Hummus adalah hidangan khas Timur Tengah yang terbuat dari kacang Arab, tahini, minyak zaitun, dan jus lemon. Abu Lahap menyajikan Hummus yang lezat dan creamy, cocok sebagai hidangan pembuka atau cocolan roti pita.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 56,
+        "fields": {
+            "category": "Arabic Food",
+            "food_name": "Shawarma",
+            "location": "Jl. Andi Pangeran Pettarani No. 10, Makassar",
+            "shop_name": "Shawarma House",
+            "price": 35000.00,
+            "rating_default": 4.4,
+            "new_rating": 0,
+            "food_desc": "Shawarma adalah hidangan daging yang dipanggang secara vertikal dan diiris tipis-tipis. Shawarma House menawarkan Shawarma dengan isian daging sapi atau ayam, yang dipadukan dengan sayuran segar dan saus khas.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 57,
+        "fields": {
+            "category": "Arabic Food",
+            "food_name": "Sambosa",
+            "location": "Jl. Urip Sumoharjo No. 123, Makassar",
+            "shop_name": "Martabak & Sambosa Harapan Jaya",
+            "price": 5000.00,
+            "rating_default": 4.1,
+            "new_rating": 0,
+            "food_desc": "Sambosa adalah pastri goreng berbentuk segitiga yang berisi daging cincang, sayuran, dan rempah-rempah. Martabak & Sambosa Harapan Jaya menawarkan Sambosa dengan rasa yang gurih dan renyah.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 58,
+        "fields": {
+            "category": "Arabic Food",
+            "food_name": "Baklava",
+            "location": "Jl. AP Pettarani No. 25, Makassar",
+            "shop_name": "Toko Kue Zahra",
+            "price": 50000.00,
+            "rating_default": 4.3,
+            "new_rating": 0,
+            "food_desc": "Baklava adalah kue kering manis yang terbuat dari lapisan filo pastry yang diisi dengan kacang cincang dan direndam dalam sirup atau madu. Toko Kue Zahra menawarkan Baklava dengan rasa yang manis dan tekstur yang renyah.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 59,
+        "fields": {
+            "category": "Arabic Food",
+            "food_name": "Mohalabia",
+            "location": "Jl. Pengayoman No. 88, Makassar",
+            "shop_name": "Restoran Levant",
+            "price": 30000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Mohalabia adalah puding susu khas Timur Tengah yang diberi aroma air mawar atau bunga jeruk. Restoran Levant menyajikan Mohalabia yang lembut dan menyegarkan, cocok sebagai hidangan penutup.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 60,
+        "fields": {
+            "category": "Arabic Food",
+            "food_name": "Mutabbaq",
+            "location": "Jl. Cendrawasih No. 45, Makassar",
+            "shop_name": "Rumah Makan Yaman Al-Barakah",
+            "price": 30000.00,
+            "rating_default": 4.7,
+            "new_rating": 0,
+            "food_desc": "Mutabbaq adalah roti pipih yang diisi dengan daging cincang, telur, dan rempah-rempah, kemudian digoreng hingga garing. Rumah Makan Yaman Al-Barakah menyajikan Mutabbaq dengan cita rasa autentik Yaman, dengan pilihan isian daging kambing atau ayam.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 61,
+        "fields": {
+            "category": "Dessert",
+            "food_name": "Pisang Epe",
+            "location": "Jl. Ali Malaka No.45, Maloku, Kec. Ujung Pandang, Makassar",
+            "shop_name": "Pisang Epe' Mandiri",
+            "price": 10000.00,
+            "rating_default": 4.4,
+            "new_rating": 0,
+            "food_desc": "Pisang bakar yang dilumatkan dan disajikan dengan gula merah cair",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 62,
+        "fields": {
+            "category": "Dessert",
+            "food_name": "Es Pisang Hijau",
+            "location": "Jalan Andalas No 254, Parang Layang, Kecamatan Makassar, Makassar",
+            "shop_name": "Warung Bravo",
+            "price": 22500.00,
+            "rating_default": 4.3,
+            "new_rating": 0,
+            "food_desc": "Es serut dengan pisang hijau, santan, dan sirup manis yang menyegarkan.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 63,
+        "fields": {
+            "category": "Dessert",
+            "food_name": "Kue Barongko",
+            "location": "Jl. Perintis kemerdekaan, Tamalanrea, Makassar",
+            "shop_name": "Kue Barongko Tradisional",
+            "price": 7000.00,
+            "rating_default": 4.3,
+            "new_rating": 0,
+            "food_desc": "Kue tradisional berbahan dasar pisang dan santan, lembut dan manis",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 64,
+        "fields": {
+            "category": "Dessert",
+            "food_name": "Es Palu Butung",
+            "location": "Jl. Ujung Pandang, Ujung Pandang, Makassar",
+            "shop_name": "Es Teler Yess Makassar, Ujung Pandang",
+            "price": 15000.00,
+            "rating_default": 4.1,
+            "new_rating": 0,
+            "food_desc": "Minuman es berbahan pisang, susu, dan gula yang dingin dan nikmat.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 65,
+        "fields": {
+            "category": "Dessert",
+            "food_name": "Kue Sikaporo",
+            "location": "Jl. Perintis Kemerdekaan, Tamalanrea, Makassar",
+            "shop_name": "RUMAH KUE KHAS MAKASSAR",
+            "price": 10000.00,
+            "rating_default": 3.8,
+            "new_rating": 0,
+            "food_desc": "Kue tradisional berisi pisang dan kelapa parut yang dibungkus daun.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 66,
+        "fields": {
+            "category": "Dessert",
+            "food_name": "Kue Kembang Seruni",
+            "location": "Jl Pallangga Raya No.43",
+            "shop_name": "Rumah Seruni",
+            "price": 15000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Kue berbentuk bunga dengan adonan tepung beras dan pewarna alami",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 67,
+        "fields": {
+            "category": "Dessert",
+            "food_name": "Puding Lumut Pandan",
+            "location": "Bumi Permata Sudiang, Blok D1 No. 20, Jl. Bumi Permata Sudiang, Jl. Perintis Kemerdekaan Km 18, Biring Kanaya, Makassar",
+            "shop_name": "Kue Khas Bugis, Biring Kanaya",
+            "price": 15000.00,
+            "rating_default": 4.2,
+            "new_rating": 0,
+            "food_desc": "Puding berwarna hijau dari daun pandan, kenyal, dan manis",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 68,
+        "fields": {
+            "category": "Dessert",
+            "food_name": "Kue Pelita",
+            "location": "Jl. Tamangapa Raya No. 34, Manggala, Makassar",
+            "shop_name": "Aneka Kue 69, Tamangapa Raya",
+            "price": 2000.00,
+            "rating_default": 4.1,
+            "new_rating": 0,
+            "food_desc": "Kue berlapis santan dan beras ketan yang dimasak dalam daun pisang.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 69,
+        "fields": {
+            "category": "Dessert",
+            "food_name": "Putu Cangkir",
+            "location": "Jl. Borong Raya No.45, Borong, Kec. Manggala, Makassar",
+            "shop_name": "Putu Cangkir Borong",
+            "price": 2000.00,
+            "rating_default": 4.1,
+            "new_rating": 0,
+            "food_desc": "Kue kukus berisi gula merah, disajikan dalam cangkir kecil.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 70,
+        "fields": {
+            "category": "Dessert",
+            "food_name": "Pisang Gepeng",
+            "location": "Jl. Bakti I No.7, Tamamaung, Kec. Panakkukang, Makassar",
+            "shop_name": "Pisang Gepeng & Sikampotta",
+            "price": 27000.00,
+            "rating_default": 4.3,
+            "new_rating": 0,
+            "food_desc": "Pisang yang digoreng hingga gepeng dan renyah, disajikan cukup unik, yaitu dengan sambal",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 71,
+        "fields": {
+            "category": "Daging",
+            "food_name": "Konro Bakar",
+            "location": "Jl. Gn. Lompobattang No.41-43, Pisang Utara, Kec. Ujung Pandang, Kota Makassar, Sulawesi Selatan",
+            "shop_name": "Konro Karebosi",
+            "price": 50000.00,
+            "rating_default": 4.7,
+            "new_rating": 0,
+            "food_desc": "Konro bakar, iga panggang yang direndam dan dibaluri bumbu khas sup konro.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 72,
+        "fields": {
+            "category": "Daging",
+            "food_name": "Toppa Lada",
+            "location": "Jl. Tamangapa Raya No. 32, Manggala, Makassar",
+            "shop_name": "Rumah Makan Restu Ibu",
+            "price": 20000.00,
+            "rating_default": 4.1,
+            "new_rating": 0,
+            "food_desc": "Hidangan daging khas Makassar yang disajikan dengan cabai beriris pedas gurih berempah",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 73,
+        "fields": {
+            "category": "Daging",
+            "food_name": "Sate Losari",
+            "location": "Jl. Cendrawasih No. 11, Mariso, Makassar",
+            "shop_name": "Rumah Makan dan Seafood New Losari",
+            "price": 5000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Sate yang dibumbui dengan campuran rempah khusus khas tepi pantai Losari, Makassar",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 74,
+        "fields": {
+            "category": "Daging",
+            "food_name": "Sate Kambing Makassar",
+            "location": "jl botolempangan no.37",
+            "shop_name": "Sop Kaki Kambing Tiga Saudara, Ratulangi",
+            "price": 80000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Sate Kambing yang disajikan dengan bumbu kecap khas Sulawesi",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 75,
+        "fields": {
+            "category": "Daging",
+            "food_name": "Nasu Cemba",
+            "location": "Jl. Poros Taman Sudiang Indah No. 16, Biring Kanaya, Makassar",
+            "shop_name": "Serba sapi (Nasu cemba, paru rica, Coto Makassar, rendang, toppalada)",
+            "price": 40000.00,
+            "rating_default": 4.7,
+            "new_rating": 0,
+            "food_desc": "Olahan Daging yang dimasak dengan daun berdiri(cemba)",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 76,
+        "fields": {
+            "category": "Daging",
+            "food_name": "Daging Asap",
+            "location": "Vinyard Farmers Market - Jl. AP. Pettarani, Panakkukang, Makassar",
+            "shop_name": "Barasap, Pettarani",
+            "price": 40000.00,
+            "rating_default": 4.3,
+            "new_rating": 0,
+            "food_desc": "Olahan daging sapi yang diiris tipis dan diasapi dengan kayu aromatik, memberikan rasa yang unik dan tekstur yang lembut",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 77,
+        "fields": {
+            "category": "Daging",
+            "food_name": "Bakso Mutiara",
+            "location": "Jl. Cedrawasih No. 116, Mariso, Makassar",
+            "shop_name": "Bakso Mutiara Cendrawasih Cab Makassar",
+            "price": 20000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Bakso yang campuran daging sapi giling dan mutiara sagu yang memberikan tekstur yang lebih kenyal",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 78,
+        "fields": {
+            "category": "Daging",
+            "food_name": "Steak",
+            "location": "l. Aroeppala, Gn. Sari, Kec. Rappocini, Kota Makassar, Sulawesi Selatan 90221",
+            "shop_name": "My Steak",
+            "price": 90000.00,
+            "rating_default": 4.7,
+            "new_rating": 0,
+            "food_desc": "Hidangan dari potongan daging, biasanya sapi, yang dipanggang atau digoreng dan diberikan bumbu spesial",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 79,
+        "fields": {
+            "category": "Daging",
+            "food_name": "Kambing Guling",
+            "location": "Jl Sugih Waras No 192.Depan Ruko Perumahan Puspa Garden Candi Sidoarjo",
+            "shop_name": "Kambing guling,sate dan soup",
+            "price": 50000.00,
+            "rating_default": 4.9,
+            "new_rating": 0,
+            "food_desc": "Daging kambing yang dibumbui dengan ramuan seperti bawang putih, jahe, kunyit, dan berbagai rempah lainnya, lalu dipanggang secara perlahan di atas api terbuka atau dalam oven rotisserie",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 80,
+        "fields": {
+            "category": "Daging",
+            "food_name": "Perkedel Daging",
+            "location": "Jl. Rusa No.15, Maricaya, Kec. Makassar, Kota Makassar, Sulawesi Selatan 90142",
+            "shop_name": "Sop Lidah Lamuru Sejak 1970 Asuhan Bu Rina",
+            "price": 8000.00,
+            "rating_default": 4.7,
+            "new_rating": 0,
+            "food_desc": "campuran daging sapi giling dan kentang yang telah direbus dan dihancurkan",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 81,
+        "fields": {
+            "category": "Seafood",
+            "food_name": "Cumi goreng tepung",
+            "location": "Jl. Diponegoro No. 95, Wajo, Makassar",
+            "shop_name": "RM Seafood Apong",
+            "price": 60000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Cumi goreng crispy merupakan olahan cumi yang dipadukan dengan tepung yang sebelumnya telah di bumbui dengan bumbu pilihan.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 82,
+        "fields": {
+            "category": "Seafood",
+            "food_name": "Udang Bakar Tusuk",
+            "location": "Jl. Gunung Latimojong No. 143, Ujung Pandang, Makassar",
+            "shop_name": "Kerapu Seafood",
+            "price": 43750.00,
+            "rating_default": 4.7,
+            "new_rating": 0,
+            "food_desc": "Udang Bakar Tusuk adalah hidangan seafood khas Indonesia yang menyajikan udang segar yang telah dibersihkan, dibumbui dengan campuran rempah-rempah khas, lalu ditusuk dan dipanggang hingga matang sempurna.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 83,
+        "fields": {
+            "category": "Seafood",
+            "food_name": "Cumi garlic",
+            "location": "JL.Niko I No.7, Lariang Bangi, Makassar, Makassar",
+            "shop_name": "Seafood Bancakan Non MSG, Rajawali",
+            "price": 66000.00,
+            "rating_default": 4.8,
+            "new_rating": 0,
+            "food_desc": "Cumi Garlic adalah sajian lezat berbahan utama cumi-cumi yang dimasak dengan saus bawang putih.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 84,
+        "fields": {
+            "category": "Seafood",
+            "food_name": "Lobster Campur Cumi",
+            "location": "Jalan rajawali no.31, Makassar",
+            "shop_name": "Seafood Bancakan Non MSG, Rajawali",
+            "price": 20000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Lobster Campur Cumi adalah hidangan yang menggabungkan dua bahan laut yang digemari, lobster dan cumi-cumi. Kedua bahan ini dimasak bersama dalam satu panci dengan bumbu pilihan seperti bawang putih, cabai, dan rempah-rempah, menciptakan rasa yang kaya dan berlapis.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 85,
+        "fields": {
+            "category": "Seafood",
+            "food_name": "Ikan kakap bakar",
+            "location": "Jl. Rappocini Raya No. 146, Rappocini, Makassar",
+            "shop_name": "KJ Seafood",
+            "price": 45000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Ikan Kakap Bakar adalah hidangan ikan yang diolah dengan cara dibakar, biasanya menggunakan ikan kakap merah segar.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 86,
+        "fields": {
+            "category": "Seafood",
+            "food_name": "kepiting kari",
+            "location": "Jl.Aroeppala No 117 Karunrung kec.rappocini",
+            "shop_name": "RM.Kepiting Barakka",
+            "price": 55000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Kepiting Kari adalah hidangan khas yang memadukan daging kepiting yang lembut dengan saus kari yang kaya rempah.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 87,
+        "fields": {
+            "category": "Seafood",
+            "food_name": "Kerapu sunu steam",
+            "location": "Jl. Ali Malaka No.25, Maloku, Kec. Ujung Pandang, Kota Makassar, Sulawesi Selatan 90112",
+            "shop_name": "Rumah Makan Nelayan",
+            "price": 30000.00,
+            "rating_default": 4.4,
+            "new_rating": 0,
+            "food_desc": "Kerapu Sunu Steam adalah sajian ikan yang memanfaatkan kesegaran alami kerapu sunu dengan metode pengolahan kukus.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 88,
+        "fields": {
+            "category": "Seafood",
+            "food_name": "Ikan kaneke bakar",
+            "location": "JL. DAHLIA NO. 5 MENTENG GARDEN, KEL. MACCINI SOMBALA, KEC. TAMALATE KOTA MAKASSA",
+            "shop_name": "W-Catering",
+            "price": 11000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Ikan Kaneke Bakar adalah hidangan yang menonjolkan kesegaran dan citarasa alami ikan kaneke melalui proses pembakaran. Ikan kaneke yang telah dibersihkan dilumuri dengan bumbu rempah, lalu dipanggang hingga beraroma harum dan dagingnya empuk serta juicy.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 89,
+        "fields": {
+            "category": "Seafood",
+            "food_name": "Lobster saus asam manis",
+            "location": "Ruko Zamrud Blok K No. 4, Jl. Adhyaksa Baru, Panakkukang, Makassar",
+            "shop_name": "Otewe Kepiting & Lobster, Adhyaksa Baru",
+            "price": 80000.00,
+            "rating_default": 4.6,
+            "new_rating": 0,
+            "food_desc": "Lobster Saus Asam Manis adalah hidangan yang menyajikan lobster segar dengan saus yang memadukan rasa asam dan manis.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 90,
+        "fields": {
+            "category": "Seafood",
+            "food_name": "Kepiting bertelur lada hitam",
+            "location": "Ruko Zamrud Blok K No. 4, Jl. Adhyaksa Baru, Panakkukang, Makassar",
+            "shop_name": "RM.Kepiting Barakka",
+            "price": 67000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Kepiting Bertelur Lada Hitam adalah hidangan mewah yang menggabungkan kepiting segar penuh telur dengan saus lada hitam yang kuat dan pedas.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 91,
+        "fields": {
+            "category": "Beverages",
+            "food_name": "Sara'ba Original",
+            "location": "Jl. Andi Pangeran Pettarani II No.20, Tamamaung, Panakkukang, Makassar",
+            "shop_name": "Sara'ba Resto Cerekhangat",
+            "price": 10000.00,
+            "rating_default": 3.3,
+            "new_rating": 0,
+            "food_desc": "Sara'ba, minuman jahe khas Makassar yang diracik dari rempah segar.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 92,
+        "fields": {
+            "category": "Beverages",
+            "food_name": "Sara'ba Telur",
+            "location": "Jl. Andi Pangeran Pettarani II No.20, Tamamaung, Panakkukang, Makassar",
+            "shop_name": "Sara'ba Resto Cerekhangat",
+            "price": 15000.00,
+            "rating_default": 3.3,
+            "new_rating": 0,
+            "food_desc": "Sara'ba ditambah telur untuk menambah stamina.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 93,
+        "fields": {
+            "category": "Beverages",
+            "food_name": "Sara'ba Susu",
+            "location": "Jl. Andi Pangeran Pettarani II No.20, Tamamaung, Panakkukang, Makassar",
+            "shop_name": "Sara'ba Resto Cerekhangat",
+            "price": 12000.00,
+            "rating_default": 3.3,
+            "new_rating": 0,
+            "food_desc": "Sara'ba ditambah susu untuk menetralkan pedas jahe.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 94,
+        "fields": {
+            "category": "Beverages",
+            "food_name": "Blue Sea",
+            "location": "Jl. Sungai Saddang Baru No.37, Balla Parang, Rappocini, Makassar",
+            "shop_name": "AH DRINK",
+            "price": 12000.00,
+            "rating_default": 4.8,
+            "new_rating": 0,
+            "food_desc": "Minuman segar manis berwarna biru layaknya laut di pantai.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 95,
+        "fields": {
+            "category": "Beverages",
+            "food_name": "Melon Squash",
+            "location": "Jl. Sungai Saddang Baru No.37, Balla Parang, Rappocini, Makassar",
+            "shop_name": "AH DRINK",
+            "price": 10000.00,
+            "rating_default": 4.8,
+            "new_rating": 0,
+            "food_desc": "Minuman rasa melon manis untuk menyegarkan tubuh.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 96,
+        "fields": {
+            "category": "Beverages",
+            "food_name": "Mango Squash",
+            "location": "Jl. Sungai Saddang Baru No.37, Balla Parang, Rappocini, Makassar",
+            "shop_name": "AH DRINK",
+            "price": 12000.00,
+            "rating_default": 4.8,
+            "new_rating": 0,
+            "food_desc": "Minuman rasa mangga cocok untuk musim panas.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 97,
+        "fields": {
+            "category": "Beverages",
+            "food_name": "Kopi Oppa",
+            "location": "Jl. Sungai Saddang Baru No.92B, Balla Parang, Rappocini, Makassar",
+            "shop_name": "Kopi Chuseyo",
+            "price": 19000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Signature sweet cafe with Korean blend espresso.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 98,
+        "fields": {
+            "category": "Beverages",
+            "food_name": "Mint Choco",
+            "location": "Jl. Sungai Saddang Baru No.92B, Balla Parang, Rappocini, Makassar",
+            "shop_name": "Kopi Chuseyo",
+            "price": 32000.00,
+            "rating_default": 4.5,
+            "new_rating": 0,
+            "food_desc": "Mint choco choco dan! - Nako IZONE",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 99,
+        "fields": {
+            "category": "Beverages",
+            "food_name": "Indonesian Milk Tea",
+            "location": "Jl. A.P. Pettarani No.18h, Tamamaung, Rappocini, Makassar",
+            "shop_name": "YOTTA!",
+            "price": 12000.00,
+            "rating_default": 4.8,
+            "new_rating": 0,
+            "food_desc": "Teh susu khas Indonesia yang manis dan creamy.",
+            "jumlah_review": 0
+        }
+    },
+    {
+        "model": "main.makanan",
+        "pk": 100,
+        "fields": {
+            "category": "Beverages",
+            "food_name": "Taro Cheese Milk",
+            "location": "Jl. A.P. Pettarani No.18h, Tamamaung, Rappocini, Makassar",
+            "shop_name": "YOTTA!",
+            "price": 16000.00,
+            "rating_default": 4.8,
+            "new_rating": 0,
+            "food_desc": "Minuman susu rasa taro yang dipadukan dengan lapisan keju gurih.",
+            "jumlah_review": 0
+    
+        }
     }
+
 ]
