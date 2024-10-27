@@ -1,46 +1,144 @@
-{% extends 'base.html' %} 
+
+{% extends 'base.html' %}
 {% block meta %}
 <title>User Dashboard</title>
+
+<style>
+    .header {
+    background: radial-gradient(#fff, #d82a2d);
+  }
+</style>
 {% endblock meta %}
 
 {% block content %}
-<h1>Edit Your Dashboard</h1>
+<div class="header flex flex-col min-h-screen">
+  <div class="container mx-auto px-4 py-8 mt-2 max-w-xl">
+    <h1 style="font-family: 'Playfair Display', serif;" class="text-3xl font-bold text-center mb-4" style="font-family: 'Tahoma', sans-serif; color: black;">
+      Edit Your Profile
+    </h1>
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        <tr>
-            <th>Nama Lengkap:</th>
-            <td>{{ form.nama }}</td>
-        </tr>
-        <tr>
-            <th>Jenis Kelamin:</th>
-            <td>{{ form.jenis_kelamin }}</td>
-        </tr>
-        <tr>
-            <th>Email:</th>
-            <td>{{ form.email }}</td>
-        </tr>
-        <tr>
-            <th>Nomor HP:</th>
-            <td>
-                {{ form.nomor_hp }}
-                {% if form.nomor_hp.errors %}
-                    <div class="error-message">{{ form.nomor_hp.errors }}</div>
-                {% endif %}
-            </td>
-        </tr>
-        <tr>
-            <th>Alamat:</th>
-            <td>{{ form.alamat }}</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <button type="submit" name="action" value="save">Simpan Perubahan</button>
-                <button type="submit" name="action" value="delete">Hapus Akun</button>
-            </td>
-        </tr>
-    </table>
-</form>
-{% endblock %}
+    <div class="shadow-md rounded-lg p-6 form-style bg-white">
+      <form method="POST" enctype="multipart/form-data" class="space-y-6">
+        {% csrf_token %}
+
+        <div class="flex flex-col">
+          <label class="mb-2 font-semibold text-black">Foto Profil:</label>
+          <div class="w-full">
+            {{ profile_form.profile_image }}
+          </div>
+          {% if profile_form.profile_image.errors %}
+            <p class="mt-1 text-sm text-red-600">{{ profile_form.profile_image.errors }}</p>
+          {% endif %}
+          <img id="imagePreview" src="#" alt="Image Preview" class="mt-4 rounded-lg" style="display:none; max-width: 200px; max-height: 200px;"/>
+        </div>
+
+        <div class="flex flex-col">
+          <label class="mb-2 font-semibold text-black">Nama Lengkap:</label>
+          <div class="w-full">
+            {{ user_form.nama }}
+          </div>
+          {% if user_form.nama.errors %}
+            <p class="mt-1 text-sm text-red-600">{{ user_form.nama.errors }}</p>
+          {% endif %}
+        </div>
+
+        <div class="flex flex-col">
+          <label class="mb-2 font-semibold text-black">Nomor HP:</label>
+          <div class="w-full">
+            {{ user_form.no_telp }}
+          </div>
+          {% if user_form.no_telp.errors %}
+            <p class="mt-1 text-sm text-[#ff0800]">{{ user_form.no_telp.errors }}</p>
+          {% endif %}
+        </div>
+
+        <div class="flex flex-col">
+            <label class="mb-2 font-semibold text-black">Jenis Kelamin:</label>
+            <div class="w-full flex items-center space-x-4">
+                {{ profile_form.jenis_kelamin }}
+            </div>
+            {% if not profile_form.jenis_kelamin.value %}
+            <p class="mt-1 text-sm text-red-600">Jangan lupa pilih gendermu!</p>
+            {% endif %}
+        </div>
+
+        <div class="flex flex-col">
+          <label class="mb-2 font-semibold text-black">Email:</label>
+          <div class="w-full">
+            {{ profile_form.email }}
+          </div>
+        </div>
+
+        <div class="flex flex-col">
+          <label class="mb-2 font-semibold text-black">Alamat:</label>
+          <div class="w-full">
+            {{ profile_form.alamat }}
+          </div>
+          {% if profile_form.alamat.errors %}
+            <p class="mt-1 text-sm text-red-600">{{ profile_form.alamat.errors }}</p>
+          {% endif %}
+        </div>
+
+        <div class="flex justify-center mt-6 space-x-4">
+          <button type="submit" name="action" value="save" class="text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#142a6c] transition duration-300 ease-in-out w-full" style="background-color: #32cd32;">
+            Simpan Perubahan
+          </button>
+          <button type="button" id="delete-account-btn" class="text-white font-semibold px-6 py-3 rounded-lg hover:bg-red-600 transition duration-300 ease-in-out w-full" style="background-color: #ff0800;">
+            Hapus Akun
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div id="confirm-delete-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+      <h2 class="text-xl font-bold mb-4">Confirm Account Deletion</h2>
+      <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+      <div class="flex justify-end mt-4">
+        <button id="confirm-delete-btn" class="bg-[#32cd32] text-white font-semibold px-4 py-2 rounded-lg transition duration-300 ease-in-out mr-2">Yes</button>
+        <button id="cancel-delete-btn" class="bg-[#ff0800] text-white font-semibold px-4 py-2 rounded-lg transition duration-300 ease-in-out">No</button>
+      </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('id_profile_image').onchange = function (event) {
+      const [file] = event.target.files;
+      if (file) {
+        const imagePreview = document.getElementById('imagePreview');
+        imagePreview.src = URL.createObjectURL(file);
+        imagePreview.style.display = 'block';
+      }
+    };
+  
+    document.getElementById('delete-account-btn').onclick = function () {
+      document.getElementById('confirm-delete-modal').classList.remove('hidden');
+    };
+  
+    document.getElementById('cancel-delete-btn').onclick = function () {
+      document.getElementById('confirm-delete-modal').classList.add('hidden');
+    };
+  
+    document.getElementById('confirm-delete-btn').onclick = function () {
+      fetch("{% url 'main:delete_account' %}", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRFToken': '{{ csrf_token }}'
+        },
+        body: JSON.stringify({ action: 'confirm_delete' })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          window.location.href = "{% url 'main:show_main' %}";
+        } else {
+          alert('Error deleting account.');
+        }
+      });
+    };
+</script>
+{% endblock content %}

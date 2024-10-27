@@ -25,6 +25,18 @@
           <a href="{% url 'main:logout' %}" >
             <img src="{% static 'image/sign-out.png' %}" alt="sign-out" class="h-5 w-5 mr-2 transition-transform duration-300 ease-out hover:scale-110"/>
           </a>
+          <div class="profile">
+            {% if user.userprofile.profile_image %}
+              <a href="{% url 'main:view_profile' %}">
+                <!-- Tambahkan elemen img di dalam navbar -->
+                <img src="{{ user.userprofile.profile_image.url }}" alt="Profile Image" class="profile-image w-10 h-10 rounded-full object-cover">
+              </a>
+            {% else %}
+                <a href="{% url 'main:view_profile' %}">
+                  <p>No profile image uploaded.</p>
+                </a>
+            {% endif %}
+          </div>
         {% else %}
           <a href="#" onclick="showLoginModal()" class="hover:text-gray-300 text-white px-5 text-sm font-bold">
             Login

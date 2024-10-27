@@ -1,5 +1,5 @@
 import datetime
-from .forms import RegisterForm, UserProfileForm
+from .forms import RegisterForm, UserProfileForm, UserForm
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.utils.html import strip_tags
@@ -8,7 +8,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.core import serializers
 from django.urls import reverse
 from main.models import Makanan, UserProfile
@@ -68,23 +68,47 @@ def show_json_by_id(request, id):
     data = Makanan.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
-# Fungsi dashboard
+# Fungsi view user profile
+def view_profile(request):
+    return render(request, 'profile.html')
+
+# Fungsi edit dashboard (profil user)
 def edit_dashboard(request):
-    profile, created = UserProfile.objects.get_or_create(id=1)  # Sementara pakai ini saat belum ada login form
+    user = request.user
+    profile, created = UserProfile.objects.get_or_create(user_profile=user)  # Link with the correct UserProfile
+
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=profile)
+        user_form = UserForm(request.POST, instance=user)
+        profile_form = UserProfileForm(request.POST, request.FILES, instance=profile)
         action = request.POST.get('action')
 
-        if action == 'save' and form.is_valid():
-            form.save()
+        if action == 'save' and user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
             return redirect('main:show_main')
 
         elif action == 'delete':
-            form = UserProfileForm()
-            return render(request, 'dashboard.html', {'form': form})
+            return render(request, 'confirm_delete.html')  # Render the confirmation template
+
+        elif action == 'confirm_delete':
+            user.delete()
+            logout(request)
+            return redirect('main:show_main')
+
+        elif action == 'cancel_delete':
+            return redirect('main:edit_dashboard')
 
     else:
-        form = UserProfileForm(instance=profile)
+        user_form = UserForm(instance=user)
+        profile_form = UserProfileForm(instance=profile)
 
-    context = {'form': form}
+    context = {'user_form': user_form, 'profile_form': profile_form}
     return render(request, 'dashboard.html', context)
+
+def delete_account(request):
+    if request.method == 'POST':
+        user = request.user
+        user.delete()
+        logout(request)
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False})

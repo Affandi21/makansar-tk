@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block meta %}
+<title>User Profile</title>
+{% endblock meta %}
+
+{% block content %}
+<div class="header flex flex-col min-h-screen">
+  <div class="container mx-auto px-4 py-8 mt-1 max-w-xl">
+    <h1 style="font-family: 'Playfair Display', serif;" class="text-3xl font-bold text-center mb-2" style="font-family: 'Tahoma', sans-serif; color: black;">
+      User Profile
+    </h1>
+
+    <div class="bg-white shadow-md rounded-lg p-6 form-style">
+      <div class="flex flex-col items-center space-y-4">
+        {% if user.userprofile.profile_image %}
+          <img src="{{ user.userprofile.profile_image.url }}" alt="Profile Image" class="profile-image">
+        {% else %}
+          <p>No profile image uploaded.</p>
+        {% endif %}
+        <div class="w-full py-3 px-4 bg-gray-50 rounded-lg border border-gray-300">
+            <label class="font-semibold text-gray-700">Nama Lengkap:</label>
+            <p class="text-gray-800 mt-1">{{ user.nama }}</p>
+        </div>
+        
+        <!-- Nomor HP -->
+        <div class="w-full py-3 px-4 bg-gray-50 rounded-lg border border-gray-300">
+            <label class="font-semibold text-gray-700">Nomor HP:</label>
+            <p class="text-gray-800 mt-1">{{ user.no_telp }}</p>
+        </div>
+    
+        <!-- Jenis Kelamin -->
+        <div class="w-full py-3 px-4 bg-gray-50 rounded-lg border border-gray-300">
+            <label class="font-semibold text-gray-700">Jenis Kelamin:</label>
+            <p class="text-gray-800 mt-1">{{ user.userprofile.jenis_kelamin }}</p>
+        </div>
+    
+        <!-- Email -->
+        <div class="w-full py-3 px-4 bg-gray-50 rounded-lg border border-gray-300">
+            <label class="font-semibold text-gray-700">Email:</label>
+            <p class="text-gray-800 mt-1">{{ user.userprofile.email }}</p>
+        </div>
+    
+        <!-- Alamat -->
+        <div class="w-full py-3 px-4 bg-gray-50 rounded-lg border border-gray-300">
+            <label class="font-semibold text-gray-700">Alamat:</label>
+            <p class="text-gray-800 mt-1">{{ user.userprofile.alamat }}</p>
+        </div>
+        <div class="flex justify-center mt-6">
+            <a href="{% url 'main:edit_dashboard' %}" class="bg-[#d3af37] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#d7b000] transition duration-300 ease-in-out">
+              Edit Dashboard
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .header {
+    background: radial-gradient(#fff, #d82a2d);
+  }
+</style>
+{% endblock %}
