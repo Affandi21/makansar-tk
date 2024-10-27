@@ -26,10 +26,10 @@
             <img src="{% static 'image/sign-out.png' %}" alt="sign-out" class="h-5 w-5 mr-2 transition-transform duration-300 ease-out hover:scale-110"/>
           </a>
         {% else %}
-          <a href="{% url 'main:login' %}" class="text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300 mr-2">
+          <a href="#" onclick="showLoginModal()" class="hover:text-gray-300 text-white px-5 text-sm font-bold">
             Login
           </a>
-          <a href="{% url 'main:register' %}" class="text-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+          <a href="{% url 'main:register' %}" class="hover:text-gray-300 text-white px-10 text-sm font-bold">
             Register
           </a>
         {% endif %}

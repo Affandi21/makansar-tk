@@ -12,15 +12,19 @@
       border: 1px solid #ccc; /* Atur border */
       border-radius: 0.25rem; /* Atur border radius */
     }
+
+    .header {
+        background: radial-gradient(#fff, #d82a2d);
+    }
 </style>
 
 {% endblock meta %}
 
 {% block content %}
 {% include 'navbar.html' %}
-<div class="bg-[#E3CAA5] flex flex-col min-h-screen">
+<div class="header flex flex-col min-h-screen">
     <div id="animatedDiv" class="container mx-auto px-4 py-8 mt-16 max-w-xl opacity-0 transform translate-y-4 transition-all duration-500 ease-out">
-    <h1 class="text-3xl font-serif text-center mb-8 text-[#603F26]" style="font-family: 'Cutive', serif;" >Edit Order</h1>
+    <h1 class="text-3xl text-center mb-8 text-black font-bold" style="font-family: 'Playfair Display', serif;" >Edit Order</h1>
   
     <div class="bg-white rounded-lg p-6 form-style">
       <form method="POST" class="space-y-6">
