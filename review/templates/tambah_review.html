@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen p-4">
+  <div class="container mx-auto px-4 py-8 w-full max-w-3xl">
+    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-center text-gray-800">
+      Edit Review 
+    </h1>
+
+    <div class="bg-white shadow-lg rounded-lg p-6 md:p-8">
+      <form method="POST" class="space-y-6">
+        {% csrf_token %}
+    
+        <div class="space-y-4">
+          {{ form.as_p }}
+        </div>
+
+    
+        <div class="flex flex-col sm:flex-row justify-between gap-4 mt-8">
+          <a href="{% url 'main:show_main' %}" 
+             class="w-full sm:w-auto text-center bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200">
+            Kembali
+          </a>
+          <button type="submit" 
+                  class="w-full sm:w-auto bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200">
+            Add Review
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

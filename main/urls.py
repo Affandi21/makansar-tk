@@ -17,6 +17,7 @@ urlpatterns = [
     path('edit-dashboard', views.edit_dashboard, name='edit_dashboard'),
     path('delete-account/', views.delete_account, name='delete_account'),
     path('profile/', views.view_profile, name='view_profile'),
+    path('kategori/ayam/', views.makanan_kategori_ayam, name='makanan_kategori_ayam'),
 ]
 
 if settings.DEBUG:
