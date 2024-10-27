@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block meta %}
+
+<title>MAKANSAR</title>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.7/dist/purify.min.js"></script>
+<style>
+    .header {
+        background: radial-gradient(#fff, #d82a2d);
+    }
+
+    .section-p1 {
+        padding: 5px 80px;
+    }
+
+    .section-m1 {
+        margin: 40px 0;
+    }
+
+    #kategori .fe-box {
+        width: 180px;
+        text-align: center;
+        padding: 25px 15px;
+        box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+        border: 1px solid #0b0b0b;
+        border-radius: 4px;
+        margin: 20px 10px;
+    }
+
+    #kategori .fe-box:hover {
+        box-shadow: 10px 10px 54px rgba(245, 4, 44, 0.293);
+    }   
+
+</style>
+
+{% endblock meta %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="bg-[#f5f3ee] px-4 mt-12 md:px-8 pb-2 pt-8 min-h-screen">
+    <section id="kategori" class="section-p1 flex items-center justify-between">
+        <a href="{% url 'main:show_main' %}">
+            <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+                <img src="{% static 'image/ayam.jpg' %}" alt="ayam-pict" class="w-32 h-32">
+                <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Ayam </h6>
+            </div>
+        </a>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/arabic food.jpg' %}" alt="arabic-food-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Arabic Food </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/beverages.jpg' %}" alt="beverages-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Beverages </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/daging.jpg' %}" alt="daging-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Daging </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/dessert.jpg' %}" alt="dessert-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Dessert </h6>
+        </div>
+    </section>
+    
+    <section id="kategori" class="section-p1 flex items-center justify-between">
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/chinese food.jpg' %}" alt="chinese-food-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Chinese Food </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/makanan berkuah.jpg' %}" alt="makanan-berkuah-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Makanan Berkuah </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/martabak.jpg' %}" alt="martabak-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Martabak </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/nasi.jpg' %}" alt="nasi-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Nasi </h6>
+        </div>
+        <div class="fe-box animatedDiv flex flex-col items-center justify-center opacity-0 translate-y-4 transition-all duration-700">
+            <img src="{% static 'image/seafood.jpg' %}" alt="seafood-pict" class="w-32 h-32">
+            <h6 style="font-family: 'Playfair Display', serif;" class="mt-4"> Seafood </h6>
+        </div>
+    </section>
+</div>
+
+<script>
+    const userShopName = "{{ user_shop_name }}";
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const animatedDivs = document.querySelectorAll('.animatedDiv');
+        animatedDivs.forEach((div, index) => {
+            setTimeout(() => {
+                div.classList.remove('opacity-0', 'translate-y-4');
+                div.classList.add('opacity-100', 'translate-y-0');
+            }, 100 * (index + 1)); // Setiap elemen ditampilkan bertahap
+        });
+    });
+</script>
+
+{% endblock content %}
