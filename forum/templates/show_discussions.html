@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discussions</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen p-4">
+    <div class="flex flex-col items-center justify-center">
+        <div id="discussionsContainer" class="container w-full sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Discussions</h2>
+            {% if discussions %}
+                {% for discussion in discussions %}
+                <div class="discussion bg-white shadow-lg rounded-lg p-6 mb-4 transition duration-200 hover:shadow-xl">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                        <div class="mb-2 sm:mb-0">
+                            <h3 class="text-lg font-semibold text-gray-800">{{ discussion.user.username }}</h3>
+                            <div class="text-sm text-gray-500 mt-1">{{ discussion.date_created|date:"d M Y, H:i" }}</div>
+                            <h4 class="text-lg text-gray-800 mt-3">{{ discussion.title }}</h4>
+                        </div>
+                        {% if request.user == discussion.user %}
+                        <div class="flex space-x-3 mt-2 sm:mt-0">
+                            <a href="{% url 'forum:update_discussion' discussion.id %}" class="inline-flex items-center bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition duration-200">Edit</a>
+                            <form method="POST" action="{% url 'forum:delete_discussion' discussion.id %}" class="inline">
+                                {% csrf_token %}
+                                <button type="submit" class="inline-flex items-center bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition duration-200">Delete</button>
+                            </form>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-700 leading-relaxed">{{ discussion.message }}</p>
+                    </div>
+                    <!-- Tampilkan balasan di sini -->
+                    <div class="replies mt-4">
+                        <h5>Replies:</h5>
+                        {% for reply in discussion.replies.all %}
+                        <div class="reply bg-gray-100 p-3 rounded my-2">
+                            <strong>{{ reply.user.username }}:</strong> {{ reply.message }}
+                            <div class="text-xs text-gray-500">{{ reply.date_created|date:"d M Y, H:i" }}</div>
+                            {% if request.user == reply.user %}
+                            <a href="{% url 'forum:update_reply' reply.id %}" class="bg-blue-500 hover:bg-blue-700 text-white py-1 px-3 rounded">Edit</a>
+                            <form method="POST" action="{% url 'forum:delete_reply' reply.id %}" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white py-1 px-3 rounded">Delete</button>
+                            </form>
+                            {% endif %}
+                        </div>
+                        {% empty %}
+                            <p>No replies yet.</p>
+                        {% endfor %}
+                        <a href="{% url 'forum:add_reply' discussion.id %}" class="text-blue-500 hover:underline">Reply to this discussion</a>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="bg-white shadow-lg rounded-lg p-8 text-center">
+                    <p class="text-gray-700 text-lg">No discussions yet.</p>
+                </div>
+            {% endif %}
+        </div>
+        <div class="mt-6 mb-8">
+            <a href="{% url 'main:show_main' %}" class="inline-flex items-center bg-red-500 text-white py-2.5 px-6 rounded-lg hover:bg-red-600 transition duration-200">Back</a>
+        </div>
+    </div>
+</body>
+</html>

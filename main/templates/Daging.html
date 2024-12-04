@@ -17,6 +17,8 @@
                     <p>Lokasi: {{ makanan.location }}</p>
                     <p>Rating: {{ makanan.new_rating }}</p>
                     <p>Deskripsi: {{ makanan.food_desc }}</p>
+                    <a href="{% url 'forum:add_discussion' makanan.id %}"><button>Add Comment</button></a>
+                    <a href="{% url 'forum:show_discussions' makanan.id %}"><button>See All Discussion</button></a>
                     <a href="{% url 'review:tambah_review' makanan.id %}"><button>Add Review</button></a>
                     <a href="{% url 'review:show_reviews' makanan.id %}"><button>See All Reviews</button></a>
                 </div>
