@@ -46,6 +46,7 @@ def add_makanan_ajax(request):
         food_desc=food_desc
     )
     new_product.save()
+    #
 
     return HttpResponse(b"CREATED", status=201)
 
