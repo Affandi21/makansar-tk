@@ -72,10 +72,12 @@ def show_json_by_id(request, id):
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 # Fungsi view user profile
+@login_required(login_url='/login/')
 def view_profile(request):
     return render(request, 'profile.html')
 
 # Fungsi edit dashboard (profil user)
+@login_required(login_url='/login/')
 def edit_dashboard(request):
     user = request.user
     profile, created = UserProfile.objects.get_or_create(user_profile=user)  # Link with the correct UserProfile
@@ -115,7 +117,7 @@ def delete_account(request):
         logout(request)
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
-# 
+ 
 def show_ayam(request):
     makanan_list = Makanan.objects.filter(category='Ayam')
     context = {
