@@ -117,6 +117,24 @@ def delete_account(request):
         logout(request)
         return JsonResponse({'success': True})
     return JsonResponse({'success': False})
+
+# Modul profile baru untuk terhubung ke Flutter
+def get_profile(request):
+    user = request.user
+    profile, created = UserProfile.objects.get_or_create(user_profile=user)
+    data = {
+        'username': user.username,
+        'nama': user.nama,
+        'no_telp': user.no_telp,
+        'tanggal_lahir': user.tanggal_lahir,
+        'buyer': user.buyer,
+        'seller': user.seller,
+        'profile_image': profile.profile_image.url if profile.profile_image else None,
+        'jenis_kelamin': profile.jenis_kelamin if profile.jenis_kelamin else None,
+        'email': profile.email if profile.email else None,
+        'alamat': profile.alamat if profile.alamat else None,
+    }
+    return JsonResponse(data)
  
 def show_ayam(request):
     makanan_list = Makanan.objects.filter(category='Ayam')

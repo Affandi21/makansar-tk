@@ -18,6 +18,7 @@ urlpatterns = [
     path('edit-dashboard', views.edit_dashboard, name='edit_dashboard'),
     path('delete-account/', views.delete_account, name='delete_account'),
     path('profile/', views.view_profile, name='view_profile'),
+    path('profile/json/', views.get_profile, name='get_profile'),
     
     path('show-ayam/', views.show_ayam, name='show_ayam'),
     path('show-daging/', views.show_daging, name='show_daging'),
