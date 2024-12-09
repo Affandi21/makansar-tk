@@ -1,10 +1,15 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+
+from account.models import User
 from .models import Review, Makanan
 from .forms import ReviewForm
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
+from django.core import serializers
+import json
+
 
 
 def show_reviews(request, makanan_id):
@@ -96,3 +101,25 @@ def hapus_review(request, review_id):
 
     makanan.save()
     return redirect('review:show_reviews', makanan_id=makanan.id)
+
+@csrf_exempt
+def create_review_flutter(request, pk):
+    if request.method == 'POST':
+        print(request)
+        data = json.loads(request.body)
+        new_review = Review.objects.create(
+            buyer = 0,
+            food_item = 0,
+            rating=int(data["rating"]),
+            comment=data["comment"],
+        )
+        new_review.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+    
+def show_json_reviews(request, makanan_id):
+    data = Review.objects.filter(food_item__id=makanan_id)
+    print(list(data.values()))
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
