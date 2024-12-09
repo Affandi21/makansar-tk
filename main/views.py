@@ -1,6 +1,9 @@
+import base64
 import datetime
-import logging
+import json
+import uuid
 from .forms import RegisterForm, UserProfileForm, UserForm
+from django.core.files.base import ContentFile
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.utils.html import strip_tags
@@ -11,15 +14,9 @@ from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.core import serializers
+from django.urls import reverse
 from main.models import Makanan, UserProfile
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404
-from forum.models import Discussion, Reply
-from main.models import Makanan
-from forum.forms import DiscussionForm, ReplyForm
-import json
-
-logger = logging.getLogger(__name__)
 
 # Create your views here.
 def show_main(request):
@@ -79,12 +76,12 @@ def show_json_by_id(request, id):
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 # Fungsi view user profile
-@login_required
+@login_required(login_url='/login/')
 def view_profile(request):
     return render(request, 'profile.html')
 
 # Fungsi edit dashboard (profil user)
-@login_required
+@login_required(login_url='/login/')
 def edit_dashboard(request):
     user = request.user
     profile, created = UserProfile.objects.get_or_create(user_profile=user)  # Link with the correct UserProfile
@@ -117,6 +114,7 @@ def edit_dashboard(request):
     context = {'user_form': user_form, 'profile_form': profile_form}
     return render(request, 'dashboard.html', context)
 
+@csrf_exempt
 def delete_account(request):
     if request.method == 'POST':
         user = request.user
@@ -142,6 +140,33 @@ def get_profile(request):
         'alamat': profile.alamat if profile.alamat else None,
     }
     return JsonResponse(data)
+
+# Modul edit profile khusus di Flutter
+@csrf_exempt
+def edit_profile(request):
+    if request.method == 'POST':
+        user = request.user
+        data = json.loads(request.body)
+        
+        user.nama = data.get('nama', user.nama)
+        user.no_telp = data.get('no_telp', user.no_telp)
+        user.save()
+
+        profile, created = UserProfile.objects.get_or_create(user_profile=user)
+        profile.jenis_kelamin = data.get('jenis_kelamin', profile.jenis_kelamin)
+        profile.email = data.get('email', profile.email)
+        profile.alamat = data.get('alamat', profile.alamat)
+        
+        if 'profile_image' in data:
+            image_data = base64.b64decode(data['profile_image'])
+            image_file = ContentFile(image_data, name=str(uuid.uuid4()))
+
+            profile.profile_image = image_file
+        
+        profile.save()
+
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})
  
 def show_ayam(request):
     makanan_list = Makanan.objects.filter(category='Ayam')
@@ -212,90 +237,3 @@ def show_beverages(request):
         'makanan_list' : makanan_list,
     }
     return render(request, 'beverages.html', context)
-
-@csrf_exempt
-@login_required
-def create_discussion(request, makanan_id):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        user = request.user
-        makanan = Makanan.objects.get(pk=makanan_id)
-        discussion = Discussion.objects.create(
-            user=user, makanan=makanan, title=data['title'], message=data['message']
-        )
-        return JsonResponse({'status': 'success', 'discussion_id': discussion.id})
-
-@csrf_exempt
-@login_required
-def edit_discussion(request, discussion_id):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        discussion = Discussion.objects.get(pk=discussion_id, user=request.user)
-        discussion.title = data['title']
-        discussion.message = data['message']
-        discussion.save()
-        return JsonResponse({'status': 'success'})
-
-@csrf_exempt
-@login_required
-def delete_discussion(request, discussion_id):
-    if request.method == 'DELETE':
-        discussion = Discussion.objects.get(pk=discussion_id, user=request.user)
-        discussion.delete()
-        return JsonResponse({'status': 'success'})
-
-@csrf_exempt
-@login_required
-def add_reply(request, discussion_id):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        user = request.user
-        discussion = Discussion.objects.get(pk=discussion_id)
-        reply = Reply.objects.create(
-            discussion=discussion, user=user, message=data['message']
-        )
-        return JsonResponse({'status': 'success', 'reply_id': reply.id})
-
-@csrf_exempt
-@login_required
-def edit_reply(request, reply_id):
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        reply = Reply.objects.get(pk=reply_id, user=request.user)
-        reply.message = data['message']
-        reply.save()
-        return JsonResponse({'status': 'success'})
-
-@csrf_exempt
-@login_required
-def delete_reply(request, reply_id):
-    if request.method == 'DELETE':
-        reply = Reply.objects.get(pk=reply_id, user=request.user)
-        reply.delete()
-        return JsonResponse({'status': 'success'})
-
-@csrf_exempt
-def fetch_discussions(request, makanan_id):
-    if request.method == 'GET':
-        discussions = Discussion.objects.filter(makanan_id=makanan_id)
-        data = [
-            {
-                'id': d.id,
-                'title': d.title,
-                'message': d.message,
-                'user': d.user.username,
-                'date_created': d.date_created.isoformat(),
-                'replies': [
-                    {
-                        'id': r.id,
-                        'message': r.message,
-                        'user': r.user.username,
-                        'date_created': r.date_created.isoformat(),
-                    }
-                    for r in d.replies.all()
-                ],
-            }
-            for d in discussions
-        ]
-        print(data)  # Log data yang dikirimkan ke Flutter
-        return JsonResponse(data, safe=False)

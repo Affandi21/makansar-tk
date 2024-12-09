@@ -19,6 +19,7 @@ urlpatterns = [
     path('delete-account/', views.delete_account, name='delete_account'),
     path('profile/', views.view_profile, name='view_profile'),
     path('profile/json/', views.get_profile, name='get_profile'),
+    path('profile/edit-profile/', views.edit_profile, name='edit_profile'),
     
     path('show-ayam/', views.show_ayam, name='show_ayam'),
     path('show-daging/', views.show_daging, name='show_daging'),
@@ -30,8 +31,6 @@ urlpatterns = [
     path('show-martabak/', views.show_martabak, name='show_martabak'),
     path('show-nasi/', views.show_nasi, name='show_nasi'),
     path('show-beverages/', views.show_beverages, name='show_beverages'),
-
-
 ]
 
 if settings.DEBUG:
