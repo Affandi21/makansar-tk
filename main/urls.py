@@ -30,6 +30,8 @@ urlpatterns = [
     path('show-martabak/', views.show_martabak, name='show_martabak'),
     path('show-nasi/', views.show_nasi, name='show_nasi'),
     path('show-beverages/', views.show_beverages, name='show_beverages'),
+
+
 ]
 
 if settings.DEBUG:

@@ -29,7 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "sultan-ibnu-makansar.pbp.cs.ui.ac.id", "10.0.2.2"]
 
-
+LOGIN_URL = '/auth/login/'
 # Application definition
 
 INSTALLED_APPS = [
