@@ -108,8 +108,8 @@ def create_review_flutter(request, pk):
         print(request)
         data = json.loads(request.body)
         new_review = Review.objects.create(
-            buyer = 0,
-            food_item = 0,
+            buyer = 0, # need to fix
+            food_item = 0, # need to fix
             rating=int(data["rating"]),
             comment=data["comment"],
         )
@@ -121,5 +121,4 @@ def create_review_flutter(request, pk):
     
 def show_json_reviews(request, makanan_id):
     data = Review.objects.filter(food_item__id=makanan_id)
-    print(list(data.values()))
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
