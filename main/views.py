@@ -114,6 +114,7 @@ def edit_dashboard(request):
     context = {'user_form': user_form, 'profile_form': profile_form}
     return render(request, 'dashboard.html', context)
 
+@csrf_exempt
 def delete_account(request):
     if request.method == 'POST':
         user = request.user
