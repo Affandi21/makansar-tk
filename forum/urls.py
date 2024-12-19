@@ -13,11 +13,11 @@ urlpatterns = [
     path('reply/<int:reply_id>/update/', update_reply, name='update_reply'),
     path('reply/<int:reply_id>/delete/', delete_reply, name='delete_reply'),
 
-    path('create-discussion/<int:makanan_id>/', views.create_discussion, name='create_discussion'),
-    path('fetch-discussions/<int:makanan_id>/', views.fetch_discussions, name='fetch_discussions'),
-    path('edit-discussion/<int:discussion_id>/', views.edit_discussion, name='edit_discussion'),
-    path('delete-discussion/<int:discussion_id>/', views.delete_discussion, name='delete_discussion'),
-    path('add-reply/<int:discussion_id>/', views.add_reply, name='add_reply'),
-    path('edit-reply/<int:reply_id>/', views.edit_reply, name='edit_reply'),
-    path('delete-reply/<int:reply_id>/', views.delete_reply, name='delete_reply'),
+    path('discussions-flutter/<int:makanan_id>/', views.list_discussions, name='list_discussions'),
+    path('add-discussion-flutter/<int:makanan_id>/', views.add_discussionflu, name='add_discussionflu'),
+    path('update-discussion-flutter/<int:discussion_id>/', views.update_discussion, name='update_discussion'),
+    path('delete-discussion-flutter/<int:discussion_id>/', views.delete_discussion, name='delete_discussion'),
+    path('add-reply-flutter/<int:discussion_id>/', views.add_reply, name='add_reply'),
+    path('update-reply-flutter/<int:reply_id>/', views.update_reply, name='update_reply'),
+    path('delete-reply-flutter/<int:reply_id>/', views.delete_reply, name='delete_reply'),
 ]
