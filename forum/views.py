@@ -119,44 +119,63 @@ def delete_reply(request, reply_id):
 
 
 #flutter
-@login_required
+
 def list_discussions(request, makanan_id):
     discussions = Discussion.objects.filter(makanan_id=makanan_id)
-    response = [
-        {
-            'id': d.id,
-            'title': d.title,
-            'message': d.message,
-            'user': d.user.username,
-            'replies': [{'id': r.id, 'user': r.user.username, 'message': r.message} for r in d.replies.all()]
-        }
-        for d in discussions
-    ]
-    print(JsonResponse(response, safe=False))
+    response = {
+        "current_user": request.user.username,  # Tambahkan pengguna saat ini
+        "discussions": [
+            {
+                'id': d.id,
+                'title': d.title,
+                'message': d.message,
+                'user': d.user.username,
+                'replies': [{'id': r.id, 'user': r.user.username, 'message': r.message} for r in d.replies.all()]
+            }
+            for d in discussions
+        ],
+    }
     return JsonResponse(response, safe=False)
     
 
 @csrf_exempt
 @login_required
-def add_discussionflu(request, makanan_id):
-    if request.method != 'POST':
-        return JsonResponse({"error": "Invalid request method"}, status=400)
+def add_discussionflutter(request, makanan_id):
+    if request.method == "POST":
+        try:
+            # Debugging request body dan header
+            print(f"Request body: {request.body}")
+            print(f"Request headers: {request.headers}")
 
-    try:
-        data = json.loads(request.body)
-    except json.JSONDecodeError:
-        return JsonResponse({"error": "Invalid JSON data"}, status=400)
+            # Parse JSON
+            data = json.loads(request.body)
+            print(f"Parsed JSON: {data}")
 
-    if 'title' not in data or 'message' not in data:
-        return JsonResponse({"error": "Missing required fields"}, status=400)
+            title = data.get("title")
+            message = data.get("message")
 
-    makanan = get_object_or_404(Makanan, id=makanan_id)
-    Discussion.objects.create(user=request.user, makanan=makanan, title=data['title'], message=data['message'])
-    return JsonResponse({"status": "success"})
+            if not title or not message:
+                return JsonResponse({"status": "error", "message": "Title and message are required"}, status=400)
+
+            makanan = get_object_or_404(Makanan, id=makanan_id)
+            discussion = Discussion.objects.create(
+                user=request.user, makanan=makanan, title=title, message=message
+            )
+            return JsonResponse({"status": "success", "id": discussion.id}, status=201)
+
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Invalid JSON format"}, status=400)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+
+    return JsonResponse({"status": "error", "message": "Invalid request method"}, status=405)
+
+
+
 
 @csrf_exempt
 @login_required
-def update_discussion(request, discussion_id):
+def update_discussionflutter(request, discussion_id):
     discussion = get_object_or_404(Discussion, id=discussion_id, user=request.user)
     data = json.loads(request.body)
     discussion.title = data['title']
@@ -166,22 +185,39 @@ def update_discussion(request, discussion_id):
 
 @csrf_exempt
 @login_required
-def delete_discussion(request, discussion_id):
+def delete_discussionflutter(request, discussion_id):
     discussion = get_object_or_404(Discussion, id=discussion_id, user=request.user)
     discussion.delete()
     return JsonResponse({"status": "success"})
 
 @csrf_exempt
 @login_required
-def add_reply(request, discussion_id):
-    data = json.loads(request.body)
-    discussion = get_object_or_404(Discussion, id=discussion_id)
-    Reply.objects.create(user=request.user, discussion=discussion, message=data['message'])
-    return JsonResponse({"status": "success"})
+def add_replyflutter(request, discussion_id):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            message = data.get("message")
+
+            if not message:
+                return JsonResponse({"status": "error", "message": "Message is required"}, status=400)
+
+            discussion = get_object_or_404(Discussion, id=discussion_id)
+
+            # Create reply
+            Reply.objects.create(user=request.user, discussion=discussion, message=message)
+            return JsonResponse({"status": "success"}, status=201)
+
+        except json.JSONDecodeError:
+            return JsonResponse({"status": "error", "message": "Invalid JSON format"}, status=400)
+        except Exception as e:
+            print(f"Error: {str(e)}")
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+
+    return JsonResponse({"status": "error", "message": "Invalid request method"}, status=405)
 
 @csrf_exempt
 @login_required
-def update_reply(request, reply_id):
+def update_replyflutter(request, reply_id):
     reply = get_object_or_404(Reply, id=reply_id, user=request.user)
     data = json.loads(request.body)
     reply.message = data['message']
@@ -190,7 +226,7 @@ def update_reply(request, reply_id):
 
 @csrf_exempt
 @login_required
-def delete_reply(request, reply_id):
+def delete_replyflutter(request, reply_id):
     reply = get_object_or_404(Reply, id=reply_id, user=request.user)
     reply.delete()
     return JsonResponse({"status": "success"})

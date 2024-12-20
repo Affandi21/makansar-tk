@@ -23,11 +23,15 @@ def login(request):
         if user is not None:
             if user.is_active:
                 auth_login(request, user)
-                return JsonResponse({
+                response = JsonResponse({
                     "username": user.username,
                     "status": True,
                     "message": "Login sukses!"
                 }, status=200)
+                # Set cookie user
+                response.set_cookie('user', user.username, httponly=True, samesite='Lax')
+                print("Cookie set for user:", user.username)  # Log tambahan
+                return response
             else:
                 return JsonResponse({
                     "status": False,
@@ -36,46 +40,33 @@ def login(request):
         else:
             return JsonResponse({
                 "status": False,
-                "message": "Login gagal, periksa kembali email atau kata sandi."
+                "message": "Login gagal, periksa kembali username atau password."
             }, status=401)
-    
+
     elif request.method == 'GET':
-        # Render a simple login form for GET requests (for testing or redirection handling).
         return render(request, 'login.html', {
-            'next': request.GET.get('next', '/')  # Pass the next parameter for redirection after login
+            'next': request.GET.get('next', '/')  # Redirection setelah login
         })
 
-    else:
-        return JsonResponse({
-            "status": False,
-            "message": "Invalid request method."
-        }, status=405)
+    return JsonResponse({
+        "status": False,
+        "message": "Invalid request method."
+    }, status=405)
+
+
+        
 @csrf_exempt
 def register(request):
     if request.method == 'POST':
-        try:
-            data = json.loads(request.body)
-        except json.JSONDecodeError:
-            return JsonResponse({
-                "status": False,
-                "message": "Invalid JSON data."
-            }, status=400)
-
-        username = data.get('username')
-        password1 = data.get('password1')
-        password2 = data.get('password2')
-        nama = data.get('nama')
-        no_telp = data.get('no_telp')
-        tanggal_lahir = data.get('tanggal_lahir')
-        buyer = data.get('buyer')
-        seller = data.get('seller')
-
-        # Validate required fields
-        if not all([username, password1, password2, nama, no_telp, tanggal_lahir, buyer, seller]):
-            return JsonResponse({
-                "status": False,
-                "message": "All fields are required."
-            }, status=400)
+        data = json.loads(request.body)
+        username = data['username']
+        password1 = data['password1']
+        password2 = data['password2']
+        nama = data['nama']
+        no_telp = data['no_telp']
+        tanggal_lahir = data['tanggal_lahir']
+        buyer = data['buyer']
+        seller = data['seller']
 
         # Check if the passwords match
         if password1 != password2:
@@ -83,36 +74,29 @@ def register(request):
                 "status": False,
                 "message": "Passwords do not match."
             }, status=400)
-
+        
         # Check if the username is already taken
         if User.objects.filter(username=username).exists():
             return JsonResponse({
                 "status": False,
                 "message": "Username already exists."
             }, status=400)
-
+        
         # Create the new user
-        user = User.objects.create_user(
-            username=username,
-            password=password1,
-            nama=nama,
-            no_telp=no_telp,
-            tanggal_lahir=tanggal_lahir,
-            buyer=buyer,
-            seller=seller
-        )
+        user = User.objects.create_user(username=username, password=password1, nama=nama, no_telp=no_telp, tanggal_lahir=tanggal_lahir, buyer=buyer, seller=seller)
         user.save()
-
+        
         return JsonResponse({
             "username": user.username,
             "status": 'success',
             "message": "User created successfully!"
-        }, status=201)
-
-    return JsonResponse({
-        "status": False,
-        "message": "Invalid request method."
-    }, status=405)
+        }, status=200)
+    
+    else:
+        return JsonResponse({
+            "status": False,
+            "message": "Invalid request method."
+        }, status=400)
 
 @csrf_exempt
 def logout(request):
