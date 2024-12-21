@@ -1,5 +1,9 @@
+import base64
 import datetime
+import json
+import uuid
 from .forms import RegisterForm, UserProfileForm, UserForm
+from django.core.files.base import ContentFile
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
 from django.utils.html import strip_tags
@@ -110,6 +114,7 @@ def edit_dashboard(request):
     context = {'user_form': user_form, 'profile_form': profile_form}
     return render(request, 'dashboard.html', context)
 
+@csrf_exempt
 def delete_account(request):
     if request.method == 'POST':
         user = request.user
@@ -135,6 +140,33 @@ def get_profile(request):
         'alamat': profile.alamat if profile.alamat else None,
     }
     return JsonResponse(data)
+
+# Modul edit profile khusus di Flutter
+@csrf_exempt
+def edit_profile(request):
+    if request.method == 'POST':
+        user = request.user
+        data = json.loads(request.body)
+        
+        user.nama = data.get('nama', user.nama)
+        user.no_telp = data.get('no_telp', user.no_telp)
+        user.save()
+
+        profile, created = UserProfile.objects.get_or_create(user_profile=user)
+        profile.jenis_kelamin = data.get('jenis_kelamin', profile.jenis_kelamin)
+        profile.email = data.get('email', profile.email)
+        profile.alamat = data.get('alamat', profile.alamat)
+        
+        if 'profile_image' in data:
+            image_data = base64.b64decode(data['profile_image'])
+            image_file = ContentFile(image_data, name=str(uuid.uuid4()))
+
+            profile.profile_image = image_file
+        
+        profile.save()
+
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False, 'error': 'Invalid request method'})
  
 def show_ayam(request):
     makanan_list = Makanan.objects.filter(category='Ayam')
