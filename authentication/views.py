@@ -1,37 +1,56 @@
 import json
-
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import logout as auth_logout
 from account.models import User
 from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render
 
 @csrf_exempt
 def login(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(username=username, password=password)
-    if user is not None:
-        if user.is_active:
-            auth_login(request, user)
-            # Status login sukses.
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        if not username or not password:
             return JsonResponse({
-                "username": user.username,
-                "status": True,
-                "message": "Login sukses!"
-                # Tambahkan data lainnya jika ingin mengirim data ke Flutter.
-            }, status=200)
+                "status": False,
+                "message": "Username and password are required."
+            }, status=400)
+
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                auth_login(request, user)
+                response = JsonResponse({
+                    "username": user.username,
+                    "status": True,
+                    "message": "Login sukses!"
+                }, status=200)
+                # Set cookie user
+                response.set_cookie('user', user.username, httponly=True, samesite='Lax')
+                print("Cookie set for user:", user.username)  # Log tambahan
+                return response
+            else:
+                return JsonResponse({
+                    "status": False,
+                    "message": "Login gagal, akun dinonaktifkan."
+                }, status=403)
         else:
             return JsonResponse({
                 "status": False,
-                "message": "Login gagal, akun dinonaktifkan."
+                "message": "Login gagal, periksa kembali username atau password."
             }, status=401)
 
-    else:
-        return JsonResponse({
-            "status": False,
-            "message": "Login gagal, periksa kembali email atau kata sandi."
-        }, status=401)
+    elif request.method == 'GET':
+        return render(request, 'login.html', {
+            'next': request.GET.get('next', '/')  # Redirection setelah login
+        })
+
+    return JsonResponse({
+        "status": False,
+        "message": "Invalid request method."
+    }, status=405)
 
 
 @csrf_exempt
