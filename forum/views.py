@@ -124,6 +124,7 @@ def list_discussions(request, makanan_id):
     discussions = Discussion.objects.filter(makanan_id=makanan_id)
     response = {
         "current_user": request.user.username,  # Tambahkan pengguna saat ini
+        "current_role": "buyer" if request.user.buyer else "seller" if request.user.seller else "none",
         "discussions": [
             {
                 'id': d.id,
