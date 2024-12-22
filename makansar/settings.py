@@ -145,7 +145,7 @@ AUTH_USER_MODEL = 'account.User'
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost",
     'http://localhost:8000',
-    "http://127.0.0.1",
+    "http://localhost",
     "http://sultan-ibnu-makansar.pbp.cs.ui.ac.id",
     "https://sultan-ibnu-makansar.pbp.cs.ui.ac.id",
 ]
