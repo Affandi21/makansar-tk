@@ -163,11 +163,19 @@ def edit_review_flutter(request, review_id):
         review.rating = new_rating  
         review.comment = data.get('comment')  
         review.save()
-        new_avg = (makanan.rating_default + review.rating) / 2
-        makanan.new_rating = round(new_avg, 2)  
-        makanan.rating_default = makanan.new_rating  
-        makanan.save()  
-        return JsonResponse({"status": "success", "new_rating": makanan.new_rating}, status=200)
+        all_reviews = Review.objects.filter(food_item=makanan)
+
+        if len(all_reviews) == 1:
+            new_rating_default = all_reviews.first().rating
+            
+        else:
+            total_rating = sum(rating.rating for rating in all_reviews)
+            new_rating_default = total_rating / len(all_reviews)
+
+        makanan.rating_default = round(new_rating_default, 2)
+        makanan.new_rating = round(new_rating_default, 2)  
+        makanan.save()
+        return JsonResponse({"status": "success", "new_rating": makanan.rating_default}, status=200)
 
     return JsonResponse({"status": "error"}, status=401)
 
@@ -176,11 +184,15 @@ def edit_review_flutter(request, review_id):
 def hapus_review_flutter(request, review_id):
     review = get_object_or_404(Review, id=review_id, buyer=request.user)
     makanan = review.food_item
-    deleted_rating = review.rating  
-    review.delete()  
-    total_rating = makanan.rating_default * 2
-    total_rating -= deleted_rating  
-    makanan.new_rating = round(total_rating / 2, 2)  
-    makanan.rating_default = makanan.new_rating  
-    makanan.save()  
-    return JsonResponse({"status": "success", "new_rating": makanan.new_rating}, status=200)
+    review.delete()
+    new_rating = makanan.rating_default * 2 - review.rating
+    if new_rating <= 0:
+        new_rating = 0
+    makanan.rating_default = new_rating
+    makanan.jumlah_review -= 1
+
+    if makanan.jumlah_review < 0:
+        makanan.jumlah_review = 0
+    makanan.save()
+
+    return JsonResponse({"status": "success", "new_rating": makanan.rating_default}, status=200)
