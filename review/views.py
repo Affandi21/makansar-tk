@@ -9,10 +9,12 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
 
+
 def show_reviews(request, makanan_id):
     makanan = get_object_or_404(Makanan, id=makanan_id)
     reviews = makanan.review_set.all().order_by('-date_created')
     return render(request, 'show_reviews.html', {'makanan': makanan, 'reviews': reviews})
+
 
 @csrf_exempt
 @login_required
@@ -61,19 +63,19 @@ def tambah_review(request, makanan_id):
 def edit_review(request, review_id):
     review = get_object_or_404(Review, id=review_id, buyer=request.user)
     makanan = review.food_item
-
     if request.method == 'POST':
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
+            old_rating = review.rating
             updated_review = form.save(commit=False)
             updated_review.buyer = request.user
             updated_review.food_item = makanan
             updated_review.save()
-
-            total_rating = (makanan.rating_default + sum(r.rating for r in makanan.review_set.all()))
-            makanan.new_rating = total_rating / (makanan.jumlah_review + 1)
+            total_rating = makanan.new_rating * 2
+            total_rating = total_rating - old_rating + updated_review.rating
+            new_average_rating = total_rating / 2
+            makanan.new_rating = round(new_average_rating, 2)
             makanan.save()
-
             return redirect('review:show_reviews', makanan_id=makanan.id)
     else:
         form = ReviewForm(instance=review)
@@ -84,9 +86,7 @@ def edit_review(request, review_id):
 def hapus_review(request, review_id):
     review = get_object_or_404(Review, id=review_id, buyer=request.user)
     makanan = review.food_item
-
     review.delete()
-    
     makanan.jumlah_review -= 1
 
     if makanan.jumlah_review > 0:
@@ -105,23 +105,30 @@ def get_current_username(request):
         return JsonResponse({'username': request.user.username})
     return JsonResponse({'error': 'Invalid request method.'}, status=400)
 
-@csrf_exempt
 @login_required
+@csrf_exempt
 def create_review_flutter(request, pk):
     if request.method == 'POST':
         data = json.loads(request.body)
-        food_id = data.get('food_id')
-        food_id = int(food_id)
-        # for debugging
-        print(data)
-        print(request.user)
+        food_id = int(data.get('food_id'))
+        new_rating = int(data.get('rating'))
+        makanan = Makanan.objects.get(pk=food_id)
+
         new_review = Review.objects.create(
-            buyer = request.user,
-            food_item = Makanan.objects.get(pk=food_id),
-            rating=int(data["rating"]),
+            buyer=request.user,
+            food_item=makanan,
+            rating=new_rating,
             comment=data["comment"],
         )
         new_review.save()
+        if makanan.rating_default == 0:
+            new_average_rating = new_rating
+        else:
+            new_average_rating = (new_rating + float(makanan.rating_default)) / 2
+        makanan.new_rating = round(new_average_rating, 2)
+        makanan.jumlah_review += 1
+        makanan.rating_default = new_average_rating
+        makanan.save()
 
         return JsonResponse({"status": "success"}, status=200)
     else:
@@ -143,3 +150,37 @@ def show_json_reviews(request, makanan_id):
             }
         })
     return JsonResponse(review_list, safe=False)
+
+@csrf_exempt
+@login_required
+def edit_review_flutter(request, review_id):
+    review = get_object_or_404(Review, id=review_id, buyer=request.user)
+    makanan = review.food_item
+
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        new_rating = int(data.get('rating'))  
+        review.rating = new_rating  
+        review.comment = data.get('comment')  
+        review.save()
+        new_avg = (makanan.rating_default + review.rating) / 2
+        makanan.new_rating = round(new_avg, 2)  
+        makanan.rating_default = makanan.new_rating  
+        makanan.save()  
+        return JsonResponse({"status": "success", "new_rating": makanan.new_rating}, status=200)
+
+    return JsonResponse({"status": "error"}, status=401)
+
+@csrf_exempt
+@login_required
+def hapus_review_flutter(request, review_id):
+    review = get_object_or_404(Review, id=review_id, buyer=request.user)
+    makanan = review.food_item
+    deleted_rating = review.rating  
+    review.delete()  
+    total_rating = makanan.rating_default * 2
+    total_rating -= deleted_rating  
+    makanan.new_rating = round(total_rating / 2, 2)  
+    makanan.rating_default = makanan.new_rating  
+    makanan.save()  
+    return JsonResponse({"status": "success", "new_rating": makanan.new_rating}, status=200)
