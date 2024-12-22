@@ -3,7 +3,6 @@ from pyexpat.errors import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Count
-from yaml import serialize
 from .models import Favorite
 from .models import Makanan  # Ganti dengan model produk yang sesuai
 from django.http import HttpResponse, JsonResponse
