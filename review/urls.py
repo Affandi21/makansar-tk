@@ -11,5 +11,6 @@ urlpatterns = [
     path('makanan/<int:makanan_id>/reviews/json/', views.show_json_reviews, name='show_json_reviews'),
     path('makanan/<int:pk>/create-review-flutter/', views.create_review_flutter, name='create_review_flutter'),
     path('current_username/', views.get_current_username, name='get_current_username'),
-
+    path('<int:review_id>/edit-review-flutter/', views.edit_review_flutter, name='edit_review_flutter'),
+    path('<int:review_id>/hapus-review-flutter/', views.hapus_review_flutter, name='hapus_review_flutter'),
 ]
