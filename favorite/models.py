@@ -8,7 +8,7 @@ class Favorite(models.Model):
     product = models.ForeignKey(Makanan, on_delete=models.CASCADE)
     is_top_three = models.BooleanField(default=False)  # New field for top 3 status
     is_favorite = models.BooleanField(default=False)  # New field for favorite status
-    note = models.TextField(blank=True) 
+    note = models.TextField(blank=True, default=".") 
     class Meta:
         unique_together = ('user', 'product')  # Hindari duplikasi favorit
 
