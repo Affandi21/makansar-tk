@@ -30,7 +30,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "sultan-ibnu-makansar.pbp.cs.ui.ac.id", "10.0.2.2"]
 
 
-# Application definition
+# App definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'favorite',
     'review',
     'forum',
+
+    
 ]
 
 MIDDLEWARE = [
@@ -145,7 +147,7 @@ AUTH_USER_MODEL = 'account.User'
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost",
     'http://localhost:8000',
-    "http://127.0.0.1",
+    "http://localhost",
     "http://sultan-ibnu-makansar.pbp.cs.ui.ac.id",
     "https://sultan-ibnu-makansar.pbp.cs.ui.ac.id",
 ]

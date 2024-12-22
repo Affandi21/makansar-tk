@@ -53,6 +53,7 @@ def login(request):
     }, status=405)
 
 
+        
 @csrf_exempt
 def register(request):
     if request.method == 'POST':
@@ -95,20 +96,25 @@ def register(request):
             "status": False,
             "message": "Invalid request method."
         }, status=400)
-    
+
 @csrf_exempt
 def logout(request):
-    username = request.user.username
+    if not request.user.is_authenticated:
+        return JsonResponse({
+            "status": False,
+            "message": "You are not logged in."
+        }, status=401)
 
     try:
+        username = request.user.username
         auth_logout(request)
         return JsonResponse({
             "username": username,
             "status": True,
             "message": "Logout berhasil!"
         }, status=200)
-    except:
+    except Exception as e:
         return JsonResponse({
-        "status": False,
-        "message": "Logout gagal."
-        }, status=401)
+            "status": False,
+            "message": f"Logout gagal: {str(e)}"
+        }, status=500)

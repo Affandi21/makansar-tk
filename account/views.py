@@ -13,6 +13,8 @@ from django.core import serializers
 from django.urls import reverse
 from main.models import Makanan
 from django.contrib.auth.decorators import login_required
+import json
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -49,6 +51,27 @@ def add_makanan_ajax(request):
 
     return HttpResponse(b"CREATED", status=201)
 
+@csrf_exempt
+def create_product_flutter(request):
+    if request.method == 'POST':
+
+        data = json.loads(request.body)
+        new_product = Makanan.objects.create(
+            category=data["category"],
+            food_name=data["food_name"],
+            location=data["location"],
+            shop_name=data["shop_name"],
+            price=int(data["price"]),
+            rating_default=0,
+            food_desc=data["food_desc"],
+        )
+
+        new_product.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+
 def edit_product(request, id):
     # Get product entry berdasarkan id
     product = Makanan.objects.get(pk = id)
@@ -71,3 +94,40 @@ def delete_product(request, id):
     product.delete()
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('account:sellerpage'))
+
+@csrf_exempt
+@login_required
+def delete_product_flutter(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            product_id = data.get("id")  # Mengambil ID produk dari request body
+            if not product_id:
+                return JsonResponse({"status": "error", "message": "ID produk tidak disediakan"}, status=400)
+
+            product = Makanan.objects.get(pk=product_id)
+            product.delete()
+            return JsonResponse({"status": "success"}, status=200)
+        except Makanan.DoesNotExist:
+            return JsonResponse({"status": "error", "message": "Produk tidak ditemukan"}, status=404)
+        except Exception as e:
+            return JsonResponse({"status": "error", "message": str(e)}, status=500)
+    return JsonResponse({"status": "error", "message": "Metode request tidak valid"}, status=400)
+
+@csrf_exempt
+@login_required
+def update_product(request):
+    if request.method == "POST":
+        try:
+            data = json.loads(request.body)
+            product = Makanan.objects.get(pk=data['id'])
+            product.category = data['category']
+            product.food_name = data['food_name']
+            product.location = data['location']
+            product.price = data['price']
+            product.food_desc = data['food_desc']
+            product.save()
+            return JsonResponse({"status": "success"}, status=200)
+        except Makanan.DoesNotExist:
+            return JsonResponse({"status": "error", "message": "Product not found"}, status=404)
+    return JsonResponse({"status": "error", "message": "Invalid request method"}, status=400)
