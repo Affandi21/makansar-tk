@@ -1,5 +1,4 @@
 import json
-
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import logout as auth_logout

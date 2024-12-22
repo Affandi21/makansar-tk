@@ -29,8 +29,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "sultan-ibnu-makansar.pbp.cs.ui.ac.id", "10.0.2.2"]
 
-LOGIN_URL = '/auth/login/'
-# Application definition
+
+# App definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -144,7 +144,8 @@ AUTH_USER_MODEL = 'account.User'
 
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost",
-    "http://127.0.0.1",
+    'http://localhost:8000',
+    "http://localhost",
     "http://sultan-ibnu-makansar.pbp.cs.ui.ac.id",
     "https://sultan-ibnu-makansar.pbp.cs.ui.ac.id",
 ]

@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
-
 from account.models import User
 from .models import Review, Makanan
 from .forms import ReviewForm
@@ -10,13 +9,10 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core import serializers
 import json
 
-
-
 def show_reviews(request, makanan_id):
     makanan = get_object_or_404(Makanan, id=makanan_id)
     reviews = makanan.review_set.all().order_by('-date_created')
     return render(request, 'show_reviews.html', {'makanan': makanan, 'reviews': reviews})
-
 
 @csrf_exempt
 @login_required
@@ -103,13 +99,25 @@ def hapus_review(request, review_id):
     return redirect('review:show_reviews', makanan_id=makanan.id)
 
 @csrf_exempt
+@login_required
+def get_current_username(request):
+    if request.method == 'GET':
+        return JsonResponse({'username': request.user.username})
+    return JsonResponse({'error': 'Invalid request method.'}, status=400)
+
+@csrf_exempt
+@login_required
 def create_review_flutter(request, pk):
     if request.method == 'POST':
-        print(request)
         data = json.loads(request.body)
+        food_id = data.get('food_id')
+        food_id = int(food_id)
+        # for debugging
+        print(data)
+        print(request.user)
         new_review = Review.objects.create(
-            buyer = 0, # need to fix
-            food_item = 0, # need to fix
+            buyer = request.user,
+            food_item = Makanan.objects.get(pk=food_id),
             rating=int(data["rating"]),
             comment=data["comment"],
         )
@@ -120,5 +128,18 @@ def create_review_flutter(request, pk):
         return JsonResponse({"status": "error"}, status=401)
     
 def show_json_reviews(request, makanan_id):
-    data = Review.objects.filter(food_item__id=makanan_id)
-    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+    reviews = Review.objects.filter(food_item__id=makanan_id).select_related('buyer')
+    review_list = []
+    for review in reviews:
+        review_list.append({
+            'model': review._meta.model_name,
+            'pk': review.pk,
+            'fields': {
+                'buyer': review.buyer.username,  
+                'food_item': review.food_item.pk,
+                'rating': review.rating,
+                'comment': review.comment,
+                'date_created': review.date_created.isoformat(),
+            }
+        })
+    return JsonResponse(review_list, safe=False)
